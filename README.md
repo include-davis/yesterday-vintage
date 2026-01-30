@@ -33,7 +33,7 @@ http://localhost:3000
 ```
 
 ## Global Styles (Colors, Fonts, Mixins)
-**IMPORTANT**: Use `rem` better accessibility and responsive design
+**IMPORTANT**: Use `rem` for better accessibility and responsive design
 All global design tokens live in:
 
 - `app/_globals/globals.scss` (colors + fonts + base styles)
