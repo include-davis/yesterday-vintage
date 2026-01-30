@@ -33,7 +33,7 @@ http://localhost:3000
 ```
 
 ## Global Styles (Colors, Fonts, Mixins)
-
+**IMPORTANT**: Use `rem` better accessibility and responsive design
 All global design tokens live in:
 
 - `app/_globals/globals.scss` (colors + fonts + base styles)
@@ -43,6 +43,8 @@ All global design tokens live in:
 
 Global colors are stored as CSS variables in `:root`.  
 Use them in SCSS Modules like this:
+
+#### Example:
 
 ```scss
 .card {
