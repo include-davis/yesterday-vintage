@@ -1,0 +1,32 @@
+@use "../../_globals/mixins.scss"; 
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  padding: 48px 24px;
+  text-align: center;
+
+  @include mixins.tablet {
+    padding: 36px 20px;
+  }
+
+  @include mixins.phone {
+    padding: 28px 16px;
+  }
+}
+
+.title {
+  margin: 0;
+}
+
+.text {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.logo {
+  margin: 0;
+  font-family: var(--font-logo);
+}
