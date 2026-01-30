@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yesterday Vintage (Include Cohort)
+
+Next.js (App Router) site for Yesterday Vintage.
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- React (JSX)
+- SCSS Modules + Global SCSS (tokens + fonts + mixins)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1) Install dependencies
+
+```bash
+npm install
+```
+
+### 2) Run the dev server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3) Open in browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Global Styles (Colors, Fonts, Mixins)
 
-## Learn More
+All global design tokens live in:
 
-To learn more about Next.js, take a look at the following resources:
+- `app/_globals/globals.scss` (colors + fonts + base styles)
+- `app/_globals/mixins.scss` (shared SCSS mixins)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Using Global Colors
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Global colors are stored as CSS variables in `:root`.  
+Use them in SCSS Modules like this:
 
-## Deploy on Vercel
+```scss
+.card {
+  background: var(--eggshell);
+  color: var(--black);
+  border: 1px solid var(--canvas);
+}
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+.buttonPrimary {
+  background: var(--yv-red);
+  color: var(--white);
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Using Mixins (Responsive Breakpoints)
+
+Our shared SCSS mixins live in:
+
+- `app/_globals/mixins.scss`
+
+#### 1) Import mixins at the top of your module SCSS
+
+In any `*.module.scss` file:
+
+```scss
+@use "mixins.scss";
+```
+
+If you do not hav SASS includePaths set up, use a relative import instead
+
+```scss
+@use "../../_globals/mixins.scss";
+```
+
+#### Example:
+
+```scss
+@use "mixins.scss";
+
+.wrapper {
+  padding: 48px 24px;
+
+  @include mixins.tablet {
+    padding: 36px 20px;
+  }
+
+  @include mixins.phone {
+    padding: 28px 16px;
+  }
+}
+```
+
+Call it in your component
+
+```jsx
+import styles from "./home.module.scss";
+
+export default function Home() {
+  return <main className={styles.wrapper}>Hello</main>;
+}
+```
