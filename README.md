@@ -106,3 +106,8 @@ export default function Home() {
   return <main className={styles.wrapper}>Hello</main>;
 }
 ```
+
+## BEFORE YOU COMMIT
+
+Run `npm run lint` to ensure good code format!
+
