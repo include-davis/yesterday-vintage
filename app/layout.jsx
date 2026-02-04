@@ -1,5 +1,6 @@
 import { Inter, Fraunces } from "next/font/google";
 import "./_globals/globals.scss";
+import NavBar from './_components/nav-bar/page.jsx'; {/*delete later */}
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${fraunces.variable}`}>
+        <NavBar /> {/*delete later */}
         {children}
       </body>
     </html>
