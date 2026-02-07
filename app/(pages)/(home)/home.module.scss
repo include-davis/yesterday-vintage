@@ -1,22 +1,42 @@
 // This is just example code, will need to be reworked
 
-@use "../../_globals/mixins.scss"; 
+@use "../../_globals/mixins.scss";
 
 .page {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topBar {
+  height: 18rem;
+  font-size: 600%;
+  background-color: #e1e44f;
+  width: 100%;
   display: grid;
   place-items: center;
-  gap: 12px;
-  padding: 48px 24px;
-  text-align: center;
+  color: var(--white);
+}
 
-  @include mixins.tablet {
-    padding: 36px 20px;
-  }
+.mainSection {
+  flex: 1;
+  display: flex;
+  width: 100%;
+}
 
-  @include mixins.phone {
-    padding: 28px 16px;
-  }
+.leftSection {
+  flex: 1;
+  background-color: #f0f0f0;
+  display: grid;
+  place-items: center;
+}
+
+.rightSection {
+  flex: 2;
+  background-color: #f0f0f0;
+  margin-left: 1rem;
+  display: grid;
+  place-items: center;
 }
 
 .title {
