@@ -35,6 +35,18 @@ export default function Home() {
     setPrice(e.target.value);
   };
 
+  const filteredClothes = clothes.filter((item) => {
+    const isAnySizeSelected = Object.values(selectedSizes).some((isSelected) => isSelected);
+    const matchesSize = isAnySizeSelected ? selectedSizes[item.size] : true;
+
+    const isAnyCategorySelected = Object.values(selectedCategories).some((isSelected) => isSelected);
+    const matchesCategory = isAnyCategorySelected ? selectedCategories[item.category] : true;
+
+    const matchesPrice = parseFloat(item.price) <= price;
+
+    return matchesSize && matchesCategory && matchesPrice;
+  });
+
   return (
     <main className={styles.page}>
       <div className={styles.topBar}>Shop</div>
@@ -90,7 +102,7 @@ export default function Home() {
         <div className={styles.rightSection}>
           <div className={styles.merchandiseTitle}>Shop Yesterday Vintage's Merchandise</div>
           <div className={styles.merchandise}>
-            {clothes.map((item, index) => (
+            {filteredClothes.map((item, index) => (
               <div key={index} className={styles.Item}>
                 <Item
                   src={item.src}
