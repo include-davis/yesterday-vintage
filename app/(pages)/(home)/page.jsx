@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import styles from "./home.module.scss";
 import { clothes } from "../../lists/clothes.js";
 import { Item } from "./components/Item.jsx";
@@ -17,28 +19,71 @@ const clothesOptions = [
 ];
 
 export default function Home() {
+  const [selectedSizes, setSelectedSizes] = useState({});
+  const [selectedCategories, setSelectedCategories] = useState({});
+  const [price, setPrice] = useState(50);
+
+  const handleSizeChange = (e) => {
+    setSelectedSizes({ ...selectedSizes, [e.target.name]: e.target.checked });
+  };
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategories({ ...selectedCategories, [e.target.name]: e.target.checked });
+  };
+
+  const handlePriceChange = (e) => {
+    setPrice(e.target.value);
+  };
+
   return (
     <main className={styles.page}>
       <div className={styles.topBar}>Shop</div>
       <div className={styles.mainSection}>
         <div className={styles.leftSection}>
-          <div className={styles.filterTitle}>Category</div>
-          <div className={styles.filter}>
-            <div className={styles.sizeOptions}>
-              {sizeOptions.map((option) => (
-                <div key={option.id} className={styles.filterOption}>
-                  <input type="checkbox" id={option.id} name={option.id} />
-                  <label htmlFor={option.id}>{option.label}</label>
-                </div>
-              ))}
-            </div>
-            <div className={styles.clothesOptions}>
-              {clothesOptions.map((option) => (
-                <div key={option.id} className={styles.filterOption}>
-                  <input type="checkbox" id={option.id} name={option.id} />
-                  <label htmlFor={option.id}>{option.label}</label>
-                </div>
-              ))}
+          <div className={styles.filterContainer}>
+            <div className={styles.filterTitle}>Category</div>
+            <div className={styles.filter}>
+              <div className={styles.sizeOptions}>
+                {sizeOptions.map((option) => (
+                  <div key={option.id} className={styles.filterOption}>
+                    <input
+                      type="checkbox"
+                      id={option.id}
+                      name={option.id}
+                      checked={!!selectedSizes[option.id]}
+                      onChange={handleSizeChange}
+                    />
+                    <label htmlFor={option.id}>{option.label}</label>
+                  </div>
+                ))}
+              </div>
+              <div className={styles.clothesOptions}>
+                {clothesOptions.map((option) => (
+                  <div key={option.id} className={styles.filterOption}>
+                    <input
+                      type="checkbox"
+                      id={option.id}
+                      name={option.id}
+                      checked={!!selectedCategories[option.id]}
+                      onChange={handleCategoryChange}
+                    />
+                    <label htmlFor={option.id}>{option.label}</label>
+                  </div>
+                ))}
+              </div>
+              <div className={styles.priceFilter}>
+                <div className={styles.priceFilterTitle}>Price: ${price}</div>
+                <label>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    id="slider"
+                    value={price}
+                    onChange={handlePriceChange}
+                  />
+                </label>
+              </div>
             </div>
           </div>
         </div>
