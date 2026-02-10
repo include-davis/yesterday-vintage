@@ -3,7 +3,8 @@
 @use "../../_globals/mixins.scss"; 
 
 .page {
-  min-height: 100vh;
+  // min-height: 100vh;
+  height: 2000px;
   display: grid;
   place-items: center;
   gap: 12px;
