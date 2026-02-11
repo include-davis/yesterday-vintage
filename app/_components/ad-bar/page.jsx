@@ -14,8 +14,8 @@ export default function AdBar(){
             {messages}
           </span>
         ))}
-        {messages.map((messages, index) => (
-          <span key = {index} className={styles.text}>
+        {messages.map((messages, index2) => (
+          <span key = {index2} className={styles.text}>
             {messages}
           </span>
         ))}
