@@ -26,23 +26,54 @@
 }
 
 .faq {
-    width: 70%
+    border: 4px solid #8f1a22;
+    border-radius: 20px;
+    background-color: white;
+    width: 80%; 
+    overflow: hidden
 }
+.content {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
 
+}
 .question{
+    display: flex;
     width: 100%;
-    border: 2px solid;
-    border-color: #8f1a22;
     background-color: #fafafa;
     text-align: left;
-    font-size: 24px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    
 }
 
 .answer{
+    display: flex;
     width: 100%;
-    border: 2px solid;
-    border-color: #8f1a22;
     background-color: #b24a4f;
+    align-items: center;
     text-align: left;
-    font-size: 24px;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.letter{
+  font-family: var(--font-body);
+  font-size: 2.25rem;
+  margin-left: 20px;
+  min-width: 70px;
+  display: block;
+}
+
+.text{
+  flex: 1;
+  font-size: 1.5rem;
+  padding: 13px 0;
+}
+
+.arrow{
+  display: flex;
+  align-items: right;
 }
