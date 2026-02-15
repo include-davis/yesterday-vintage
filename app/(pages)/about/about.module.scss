@@ -1,0 +1,83 @@
+.container {
+    background-color: white;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    color: black;
+    background-color: var(--yv-yellow);
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+}
+
+.subtitle {
+    color: blue;
+}
+
+.body {
+    display: block;
+    color: aquamarine;
+    border: 1px solid black;
+    //width: 50%;
+} 
+
+.closingMessage {
+    color: green;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.veritcal {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    //width: 80%;
+    border: 1px solid black;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 5%;
+    margin-left: 5%;
+    gap: 4%;
+    //border: 1px solid black;
+}
+
+.imageDiv {
+    outline: 1px solid black;
+    width: 50%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    position: relative; //?
+}
+
+.image {
+    object-fit: cover;
+    width: 500px;
+    height: 500px;
+}
+
+.person {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    position: relative; //?
+}
+
+.personImage {
+    border: 1px solid red;
+    object-fit: cover;
+}
