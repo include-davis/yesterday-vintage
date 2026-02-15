@@ -21,6 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.variable} ${fraunces.variable}`}>
         {children}
+        <a href="/about">About</a>
       </body>
     </html>
   );
