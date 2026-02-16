@@ -21,7 +21,8 @@ const clothesOptions = [
 export default function Home() {
   const [selectedSizes, setSelectedSizes] = useState({});
   const [selectedCategories, setSelectedCategories] = useState({});
-  const [price, setPrice] = useState(50);
+  const [price, setPrice] = useState(100);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleSizeChange = (e) => {
     setSelectedSizes({ ...selectedSizes, [e.target.name]: e.target.checked });
@@ -44,7 +45,11 @@ export default function Home() {
 
     const matchesPrice = parseFloat(item.price) <= price;
 
-    return matchesSize && matchesCategory && matchesPrice;
+    const matchesSearch = searchQuery.trim() === ""
+      ? true
+      : item.title.toLowerCase().includes(searchQuery.trim().toLowerCase());
+
+    return matchesSize && matchesCategory && matchesPrice && matchesSearch;
   });
 
   return (
@@ -53,6 +58,28 @@ export default function Home() {
       <div className={styles.mainSection}>
         <div className={styles.leftSection}>
           <div className={styles.filterContainer}>
+            <div className={styles.searchBarWrapper}>
+              <svg
+                className={styles.searchIcon}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input
+                type="text"
+                className={styles.searchBar}
+                placeholder="Search by Clothes Name..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
             <div className={styles.filterTitle}>Category</div>
             <div className={styles.filter}>
               <div className={styles.sizeOptions}>

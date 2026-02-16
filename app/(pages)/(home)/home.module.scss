@@ -11,6 +11,7 @@
 .topBar {
   height: 18rem;
   font-size: 600%;
+  font-family: var(--yv-font-display);
   background-color: rgb(236, 238, 142);
   width: 100%;
   display: grid;
@@ -42,12 +43,46 @@
   border: 1px solid black;
   border-radius: 12px;
   padding: 1rem;
+  font-family: var(--yv-font-body);
 }
 
 .filterTitle {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-family: var(--yv-font-body);
+
+}
+
+.searchBarWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  color: #777;
+  pointer-events: none;
+}
+
+.searchBar {
+  width: 100%;
+  padding: 0.6rem 0.8rem 0.6rem 2.2rem;
+  border: 1px solid black;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: rgb(180, 182, 80);
+    box-shadow: 0 0 0 2px rgba(236, 238, 142, 0.5);
+  }
 }
 
 .sizeOptions {
@@ -83,8 +118,8 @@
 }
 
 .priceFilterTitle {
-  font-weight: bold;
   margin-bottom: 0.5rem;
+  font-family: var(--yv-font-body);
 }
 
 .rightSection {
@@ -103,6 +138,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  font-family: var(--yv-font-display);
 }
 
 .carouselItem {
