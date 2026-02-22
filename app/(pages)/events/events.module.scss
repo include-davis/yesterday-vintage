@@ -1,0 +1,136 @@
+.eventsRectangle {
+  position: relative;
+  width: 100%; 
+  height: 300px;
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.yellowBackground {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  background-color: #FFF1B9;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.title {
+  position: relative;
+  z-index: 2;
+  font-family: Fraunces, serif;
+  font-weight: 700;
+//  font-style: Bold;
+  font-size: 56px;
+ // leading-trim: NONE;
+  line-height: 72px;
+  letter-spacing: 0.75%;
+  text-align: center;
+}
+
+.calendarSection {
+    position: relative;
+    width: 80%;
+    height: 1080px;
+    //angle: 0 deg;
+    opacity: 1;
+    margin: 4rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calendarBackground {
+  position: absolute;
+  width: 107%;
+  height: 105%;
+  background-color: #b24a4f;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.calendarSection iframe {
+    position: relative;
+  width: 95%;
+  height: 95%;
+  border: none;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.upcomingEvents{
+    width: 504;
+    //height: 828;
+    //top: 1738px;
+    //left: 100px;
+    opacity: 1;
+    border-radius: 20px;
+    border-width: 5px;
+    border: 5px solid hsla(0, 0%, 17%, 1);
+}
+
+.eventHeader{
+    padding: 52px;
+    text-align: center;
+    color: hsla(356, 76%, 43%, 1);
+
+}
+.smallRectangle {
+  //position: relative;
+    width: 400px;
+    height: 48px;
+    opacity: 1;
+  background: hsla(0, 0%, 85%, 1);
+  border-radius: 20px;
+  margin-top: 4rem auto;
+  margin-left: 52px;
+  margin-right: 52px;
+  margin-bottom: 10px;
+}
+
+.eventInfo h3{
+    font-family: Inter;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 18px;
+    //leading-trim: NONE;
+    line-height: 30px;
+    letter-spacing: 0px;
+    color: hsla(0, 0%, 0%, 1);
+    // padding-left: 50px;
+    // padding-right: 50px;
+    width: 400;
+    height: 120;
+    top: 688px;
+    left: 52px;
+    //angle: 0 deg;
+    opacity: 1;
+    margin-left: 52px;
+    margin-right: 52px;
+    margin-bottom: 52px;
+}
+
+.mainImage {//this image is a little wide
+//   position: relative;
+//     width: 610;
+//     height: 828;
+//     top: 1738px;
+//     left: 730px;
+//     opacity: 1;
+    border-radius: 20px;
+    border-width: 5px;
+    border: 5px solid hsla(0, 0%, 17%, 1);
+    border-radius: 20px;
+}
+
+.eventsPlusImage{
+    margin-top: 100px;
+    display: flex;
+    gap: 126px;
+    justify-content: center;
+    align-items: center;
+      margin-bottom: 100px;
+}
