@@ -1,66 +1,74 @@
 import styles from './about.module.scss';
 import Image from 'next/image';
+import ourstory from '../../../public/Images/ourstory.png'; // use import so it can size :3
+import paragraphs from '../../../public/Images/paragraphs.png';
+import closing1 from '../../../public/Images/closing1.png';
+import closing2 from '../../../public/Images/closing2.png';
+import closing3 from '../../../public/Images/closing3.png';
+import person from '../../../public/Images/person_placeholder.png';
 
 export default function AboutUs() {
 
     //https://www.figma.com/design/YVD7QRKNOI1ApXogwJH4ij/Yesterday-Vintage-FW25--include-Design-Cohort-Project?node-id=3094-2903&p=f&t=iTeiaU79nGoGXURA-0
 
     const people = [
-        { name: "Name", imgsrc: "/Images/person_placeholder.png", alt: "image of Name" },
-        { name: "Name2", imgsrc: "/Images/person_placeholder.png", alt: "image of Name" },
-        { name: "Name3", imgsrc: "/Images/person_placeholder.png", alt: "image of Name" },
+        { name: "Michaela Landers", imgsrc: person, alt: "image of Michaela Landers" },
+        { name: "Donbi Kim", imgsrc: person, alt: "image of Donbi Kim" },
+        { name: "Stevie Tat", imgsrc: person, alt: "image of Tuan (Stevie) Tat" },
+        { name: "Jack Halet", imgsrc: person, alt: "image of John (Jack) Halet" },
     ];
 
     return (
         <div className={styles.container}>
-            <div className={styles.title}>About Us</div>
+            <h1 className={styles.title}>About Us</h1>
             <div className={styles.content}>
-                <div className={styles.horizontal}>
-                        <Image className={styles.image} src={"/Images/ourstory.png"} alt={"frog."} width={500} height={300}/>
-                        <div className={styles.veritcal}>
-                            <div className={styles.subtitle}>Our Story</div>
-                            <div className={styles.body}>
-                                Yesterday is an owner-operated, four member endeavor. Our names are Michaela Landers, Donbi Kim, Tuan (Stevie) Tat, and John (Jack) Halet. Donbi and Stevie attended UC Davis, and both graduated in 2022, while Jack and Michaela have lived in Davis now for over 3 years.
-                            </div>
-                        </div>
+                
+                <div className={styles.row}>
+                    <Image src={ourstory} alt="Our story" className={styles.largeImage} />
+                    <div className={styles.collumn}>
+                        <h2 className={styles.subtitle}>Here's Our <span className={styles.red}> Story!</span></h2>
+                        <p className={styles.body}>
+                            Yesterday is an owner-operated, four member endeavor. Our names are Michaela Landers, Donbi Kim, Tuan (Stevie) Tat, and John (Jack) Halet. Donbi and Stevie attended UC Davis, and both graduated in  2022, while Jack and Michaela have lived in  Davis now for over 3 years.
+                            {/* Yesterday is an owner-operated, four <br/> member endeavor. Our names are Michaela  <br/> Landers, Donbi Kim, Tuan (Stevie) Tat, and  <br/> John (Jack) Halet. Donbi and Stevie  <br/> attended UC Davis, and both graduated in  <br/> 2022, while Jack and Michaela have lived in  <br/> Davis now for over 3 years. */}
+                        </p>
+                    </div>
                 </div>
-                <div className={styles.horizontal}>
+
+                <div className={styles.pictureRow}>
                     {people.map((person) => (
                         <div key={person.name} className={styles.person}>
-                            <Image className={styles.personImage} src={person.imgsrc} alt={person.alt} fill/>
+                            <Image className={styles.personImage} src={person.imgsrc} alt={person.alt} />
+                            <p className={styles.personName}>{person.name}</p>
                         </div>
                     ))}
                 </div>
-                <div className={styles.horizontal}>
-                    <div className={styles.imageDiv} >
-                        <Image className={styles.image} src={"/Images/paragraphs.png"} alt={"!!!!frog."} fill/>
-                    </div>
+
+                <div className={styles.row}>
                     <div className={styles.body}>
-                        lalajofe
+                        We all began selling vintage at different stages in our lives, but found ourselves all in Davis when we wanted to open a physical storefront. As soon as we stepped foot into the shop, we knew it was the space for us! It was a quick turnaround; our doors opened 30 days after we signed our lease in September of 2023!
                     </div>
+                    <Image className={styles.mediumImage} src={paragraphs} alt={"!!!!frog."}  />
                 </div>
-                <div className={styles.horizontal}>
+
+                <div className={styles.row}> 
+                    <Image className={styles.mediumImage} src={paragraphs} alt={"frog."} />
                     <div className={styles.body}>
-                        jwefjwjef
-                    </div>
-                    <div className={styles.imageDiv} >
-                        <Image className={styles.image} src={"/Images/paragraphs.png"} alt={"frog."} fill/>
+                        Now, we’ve been in Downtown Davis for two years, and feel more grateful than ever to be in a community with so many wonderful fellow business owners and patrons. We’ve been able to engage in awesome collaborations with UC Davis and local student organizations, participate in Davis pop-ups, and now help put together our community-oriented event “Day in Downtown”. 
                     </div>
                 </div>
-                <div className={styles.horizontal}>
-                    <div className={styles.imageDiv} >
-                        <Image className={styles.image} src={"/Images/closing1.png"} alt={"frog."} fill/>
-                    </div>
-                    <div className={styles.imageDiv} >
-                        <Image className={styles.image} src={"/Images/closing2.png"} alt={"frog."} fill/>
-                    </div>
-                    <div className={styles.imageDiv} >
-                        <Image className={styles.image} src={"/Images/closing3.png"} alt={"frog."} fill/>
-                    </div>
+
+                <div className={styles.pictureRow}>
+                    <Image className={styles.smallImage} src={closing1} alt={"frog."} />
+                    <Image className={styles.smallImage} src={closing2} alt={"frog."} />
+                    <Image className={styles.smallImage} src={closing3} alt={"frog."} />
                 </div>
+
                 <div className={styles.closingMessage}>
-                    bye
+                    As we approach the new year, we’re excited to tie up some loose ends in our shop, and bring our complete vision to life! We feel humbled to have made it this far, and we are ever-indebted to our Davis community. Whether you have been following us from the very beginning, or you just discovered us today, Yesterday wouldn’t be possible without you all. 
+                    <br /> <br />
+                    Love, Donbi, Michaela, Stevie, & Jack 
                 </div>
+
             </div>
         </div>
     );
