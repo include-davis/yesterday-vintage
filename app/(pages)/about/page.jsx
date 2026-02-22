@@ -20,20 +20,22 @@ export default function AboutUs() {
 
     return (
         <div className={styles.container}>
+            {/** Title */}
             <h1 className={styles.title}>About Us</h1>
             <div className={styles.content}>
-                
+
+                {/** Here's Our Story Section */}
                 <div className={styles.row}>
-                    <Image src={ourstory} alt="Our story" className={styles.largeImage} />
+                    <Image src={ourstory} alt={"All staff talking over cake."} className={styles.largeImage} />
                     <div className={styles.collumn}>
                         <h2 className={styles.subtitle}>Here's Our <span className={styles.red}> Story!</span></h2>
                         <p className={styles.body}>
                             Yesterday is an owner-operated, four member endeavor. Our names are Michaela Landers, Donbi Kim, Tuan (Stevie) Tat, and John (Jack) Halet. Donbi and Stevie attended UC Davis, and both graduated in  2022, while Jack and Michaela have lived in  Davis now for over 3 years.
-                            {/* Yesterday is an owner-operated, four <br/> member endeavor. Our names are Michaela  <br/> Landers, Donbi Kim, Tuan (Stevie) Tat, and  <br/> John (Jack) Halet. Donbi and Stevie  <br/> attended UC Davis, and both graduated in  <br/> 2022, while Jack and Michaela have lived in  <br/> Davis now for over 3 years. */}
                         </p>
                     </div>
                 </div>
 
+                {/** Staff Section */}
                 <div className={styles.pictureRow}>
                     {people.map((person) => (
                         <div key={person.name} className={styles.person}>
@@ -43,26 +45,26 @@ export default function AboutUs() {
                     ))}
                 </div>
 
+                {/** Paragraphs Section */}
                 <div className={styles.row}>
                     <div className={styles.body}>
                         We all began selling vintage at different stages in our lives, but found ourselves all in Davis when we wanted to open a physical storefront. As soon as we stepped foot into the shop, we knew it was the space for us! It was a quick turnaround; our doors opened 30 days after we signed our lease in September of 2023!
                     </div>
-                    <Image className={styles.mediumImage} src={paragraphs} alt={"!!!!frog."}  />
+                    <Image className={styles.mediumImage} src={paragraphs} alt={"Two stylish people posing in Yesterday Vintage."}  />
                 </div>
-
                 <div className={styles.row}> 
-                    <Image className={styles.mediumImage} src={paragraphs} alt={"frog."} />
+                    <Image className={styles.mediumImage} src={paragraphs} alt={"Two stylish people posing in Yesterday Vintage."} />
                     <div className={styles.body}>
                         Now, we’ve been in Downtown Davis for two years, and feel more grateful than ever to be in a community with so many wonderful fellow business owners and patrons. We’ve been able to engage in awesome collaborations with UC Davis and local student organizations, participate in Davis pop-ups, and now help put together our community-oriented event “Day in Downtown”. 
                     </div>
                 </div>
 
+                {/** Closing Section */}
                 <div className={styles.pictureRow}>
-                    <Image className={styles.smallImage} src={closing1} alt={"frog."} />
-                    <Image className={styles.smallImage} src={closing2} alt={"frog."} />
-                    <Image className={styles.smallImage} src={closing3} alt={"frog."} />
+                    <Image className={styles.smallImage} src={closing1} alt={"All the staff smiling in one photo."} />
+                    <Image className={styles.smallImage} src={closing2} alt={"All staff talking over cake."} />
+                    <Image className={styles.smallImage} src={closing3} alt={"All the staff smiling in one photo."} />
                 </div>
-
                 <div className={styles.closingMessage}>
                     As we approach the new year, we’re excited to tie up some loose ends in our shop, and bring our complete vision to life! We feel humbled to have made it this far, and we are ever-indebted to our Davis community. Whether you have been following us from the very beginning, or you just discovered us today, Yesterday wouldn’t be possible without you all. 
                     <br /> <br />
