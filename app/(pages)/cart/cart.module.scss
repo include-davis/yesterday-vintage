@@ -3,88 +3,115 @@
 .page {
   max-width: 75rem;
   margin: 0 auto;
-  padding: 3rem 6.25rem;
+  /* Extra top/bottom padding to leave room for header/footer */
+  padding: 4rem 6.25rem 5rem;
 
   @include mixins.tablet {
-    padding: 2.5rem 1.5rem;
+    padding: 3rem 1.5rem 4rem;
   }
 
   @include mixins.phone {
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem 3.5rem;
   }
 }
 
 .title {
   text-align: center;
   margin-bottom: 3rem;
+  font-family: var(--font-display);
+  /* 56px → 3.5rem */
+  font-size: 3.5rem;
+  font-weight: 700;
 }
 
 .label {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--canvas);
+  /* 1px black divider line across content width */
+  border-bottom: 1px solid var(--black);
+  text-align: left;
+  /* 24px → 1.5rem */
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 .productSection {
-  margin-bottom: 3rem;
+  margin-top: 0;
+  margin-bottom: 4rem;
 }
 
 .productItem {
   display: flex;
-  align-items: center;
-  gap: 5rem;
-  margin-bottom: 2rem;
+  align-items: center;   /* vertically center info next to image */
+  gap: 3.5rem;             /* push text slightly further right */
+  margin-bottom: 2.5rem;
+
+  /* add space between the divider line and the FIRST logo row only */
+  &:first-of-type {
+    margin-top: 2.5rem;
+  }
 
   @include mixins.phone {
-    gap: 2rem;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 }
 
+// Image ~1.5× wider than tall (design: e.g. 150px × 100px)
 .productImage {
   position: relative;
-  width: 31.5625rem;
-  height: 22.8125rem;
+  /* Keep 505×365 ratio (~1.38:1) but slightly larger */
+  width: 24rem;
+  height: 17.25rem;
   flex-shrink: 0;
   background: var(--yv-blue);
 
   @include mixins.phone {
-    width: 9.375rem;
-    height: 9.375rem;
+    width: 9.375rem;   // 150px
+    height: 6.25rem;  // 100px — 1.5:1
   }
 }
 
 .productInfo {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 0;
 
   h4 {
     margin: 0 0 0.5rem 0;
+    /* Product Name: 24px → 1.5rem */
+    font-size: 1.5rem;
     font-weight: 400;
   }
 }
 
 .price {
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.75rem 0;
   color: var(--black);
+  /* $25: 24px → 1.5rem */
+  font-size: 1.5rem;
 }
 
 .quantity {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   align-items: center;
 }
 
+// Small grey boxes ~25px, tight spacing, subtle border
 .quantityBtn {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5625rem;   // 25px
+  height: 1.5625rem;
   background: var(--canvas);
-  border: none;
+  border: none;        /* no outline */
   border-radius: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.875rem;
+  color: var(--black);
 
   &:hover {
     background: var(--beige);
@@ -92,44 +119,62 @@
 }
 
 .quantityNum {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5625rem;
+  height: 1.5625rem;
   background: var(--canvas);
+  border: none;        /* no outline */
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.875rem;
 }
 
 .subtotalSection {
+  margin-top: 3rem;
+  margin-bottom: 4rem;  /* add space at bottom of page */
+
   .label {
     text-align: left;
+    /* Subtotal label: 32px → 2rem */
+    font-size: 2rem;
+    font-weight: 400;
   }
 }
 
 .subtotalText {
-  margin: 1rem 0;
+  margin: 1rem 0 0.25rem 0;
   text-align: right;
+  /* Subtotal amount: 32px → 2rem */
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 .note {
   color: var(--gray);
-  margin-bottom: 1rem;
+  /* Taxes note: 24px → 1.5rem */
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
   text-align: right;
 }
 
 .checkoutBtn {
-  background: var(--canvas);
+  /* Dimensions: 295px × 63px → 18.4375rem × 3.9375rem */
+  width: 18.4375rem;
+  height: 3.9375rem;
+  padding: 0;
+  background: #acaaaa;
   color: var(--black);
-  padding: 0.875rem 3rem;
   border: none;
   border-radius: 0;
   cursor: pointer;
   float: right;
-  font-size: 1.125rem;
-  letter-spacing: 0.05em;
-  margin-bottom: 5rem;
+  /* Checkout text: 32px → 2rem */
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-align: center;
 
   &:hover {
-    background: var(--beige);
+    background: #bfbcbc;
   }
 }

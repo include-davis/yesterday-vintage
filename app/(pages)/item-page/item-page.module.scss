@@ -1,0 +1,223 @@
+@use "../../_globals/mixins.scss";
+
+.page {
+  max-width: 75rem;
+  margin: 0 auto;
+  /* Extra top/bottom space so content clears header/footer */
+  padding: 4rem 6rem 5rem;
+
+  @include mixins.tablet {
+    padding: 3rem 2rem 4rem;
+  }
+
+  @include mixins.phone {
+    padding: 2.5rem 1rem 3.5rem;
+  }
+}
+
+/* ------------------ BACK BUTTON ------------------ */
+
+.back {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 3rem;
+  /* 32px → 2rem */
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--black);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ------------------ MAIN LAYOUT ------------------ */
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 7rem;  /* more space between image and product info */
+
+  @include mixins.tablet {
+    gap: 3rem;
+  }
+
+  @include mixins.phone {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+/* ------------------ LEFT PANEL (IMAGE) ------------------ */
+
+.imageWrapper {
+  /* Slightly larger than cart image, same wide ratio */
+  width: 26rem;
+  height: 18rem;
+  background: var(--yv-blue);
+  flex-shrink: 0;
+
+  /* Never let it overflow on smaller screens */
+  max-width: 100%;
+
+  @include mixins.tablet {
+    width: 100%;
+    height: 20rem;
+  }
+
+  @include mixins.phone {
+    width: 100%;
+    height: 18rem;
+  }
+}
+
+/* ------------------ RIGHT PANEL ------------------ */
+
+.info {
+  flex: 1;
+  max-width: 20rem; /* matches narrow right column in screenshot */
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: var(--font-body); /* ensure all right-panel text uses same font */
+}
+
+/* TITLE */
+
+.name {
+  /* 40px → 2.5rem */
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* DESCRIPTION */
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  p {
+    /* 24px → 1.5rem */
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--gray);
+  }
+}
+
+/* OPTIONS */
+
+.options {
+  margin-top: 1rem;
+
+  .optionsLabel {
+    /* 24px → 1.5rem */
+    font-size: 1.5rem;
+    font-family: var(--font-body);
+    letter-spacing: 0.04em;
+    color: var(--gray);
+    margin-bottom: 0.25rem;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+    list-style: disc;
+
+    li {
+      /* 24px → 1.5rem */
+      font-size: 1.5rem;
+      line-height: 1.4; // tighter gap between bullet points
+      font-family: var(--font-body);
+      color: var(--gray);
+    }
+  }
+}
+
+/* PRICE */
+
+.price {
+  margin: 0.5rem 0; /* even tighter spacing above and below $25 */
+  /* 32px → 2rem */
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+}
+
+/* QUANTITY */
+
+.quantitySection {
+  margin-top: 0; /* equalize spacing: Large→$25 and $25→Quantity */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quantityLabel {
+  /* 24px → 1.5rem */
+  font-size: 1.5rem;
+  font-family: var(--font-body);
+  color: var(--gray); /* same color as ABOUT/OPTIONS text */
+}
+
+.quantity {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.quantityBtn {
+  /* 54px × 51px → 3.375rem × 3.1875rem */
+  width: 3.375rem;
+  height: 3.1875rem;
+  border: none;
+  background: var(--canvas);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 0; // match cart page (no rounding)
+  font-family: var(--font-body);
+  /* 24px → 1.5rem */
+  font-size: 1.5rem;
+
+  &:hover {
+    background: var(--beige);
+  }
+}
+
+.quantityNum {
+  /* 54px × 51px → 3.375rem × 3.1875rem */
+  width: 3.375rem;
+  height: 3.1875rem;
+  border: none;
+  background: var(--canvas);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-body);
+  /* 24px → 1.5rem */
+  font-size: 1.5rem;
+}
+
+/* BUTTON */
+
+.addToCart {
+  margin-top: 1rem;
+  /* 400px × 44px → 25rem × 2.75rem */
+  width: 25rem;
+  height: 2.75rem;
+  padding: 0;
+  font-size: 1.5rem; /* 24px */
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  background: var(--yv-yellow);
+  border: none;
+  cursor: pointer;
+  border-radius: 0; // override global rounded buttons
+  font-family: var(--font-body);
+
+  &:hover {
+    background: var(--cream);
+  }
+}
