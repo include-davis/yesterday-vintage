@@ -92,7 +92,7 @@ export default function Home() {
             </button>
 
             <div className={styles["review-text"]}>
-              <img className={styles["stars"]} src="/images/stars.png"
+              <img className={styles["stars"]} src="/images/stars.svg"
                 alt="Stars">
               </img>
 
