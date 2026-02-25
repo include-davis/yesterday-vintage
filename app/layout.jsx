@@ -19,14 +19,19 @@ export const metadata = {
   description: "Vintage Clothing",
 };
 
+// app/layout.jsx (or wherever RootLayout is)
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${fraunces.variable}`}>
-        <AdBar/>
-        <NavBar/> 
+        <header className="siteHeader">
+          <AdBar />
+          <NavBar />
+        </header>
+
         {children}
-        <Footer/>
+
+        <Footer />
       </body>
     </html>
   );

@@ -29,7 +29,10 @@ export default function Home() {
   };
 
   const handleCategoryChange = (e) => {
-    setSelectedCategories({ ...selectedCategories, [e.target.name]: e.target.checked });
+    setSelectedCategories({
+      ...selectedCategories,
+      [e.target.name]: e.target.checked,
+    });
   };
 
   const handlePriceChange = (e) => {
@@ -37,17 +40,24 @@ export default function Home() {
   };
 
   const filteredClothes = clothes.filter((item) => {
-    const isAnySizeSelected = Object.values(selectedSizes).some((isSelected) => isSelected);
+    const isAnySizeSelected = Object.values(selectedSizes).some(
+      (isSelected) => isSelected,
+    );
     const matchesSize = isAnySizeSelected ? selectedSizes[item.size] : true;
 
-    const isAnyCategorySelected = Object.values(selectedCategories).some((isSelected) => isSelected);
-    const matchesCategory = isAnyCategorySelected ? selectedCategories[item.category] : true;
+    const isAnyCategorySelected = Object.values(selectedCategories).some(
+      (isSelected) => isSelected,
+    );
+    const matchesCategory = isAnyCategorySelected
+      ? selectedCategories[item.category]
+      : true;
 
     const matchesPrice = parseFloat(item.price) <= price;
 
-    const matchesSearch = searchQuery.trim() === ""
-      ? true
-      : item.title.toLowerCase().includes(searchQuery.trim().toLowerCase());
+    const matchesSearch =
+      searchQuery.trim() === ""
+        ? true
+        : item.title.toLowerCase().includes(searchQuery.trim().toLowerCase());
 
     return matchesSize && matchesCategory && matchesPrice && matchesSearch;
   });
@@ -130,18 +140,16 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.rightSection}>
-          <div className={styles.merchandiseTitle}>Shop Yesterday Vintage's Merchandise</div>
+          <div className={styles.merchandiseTitle}>
+            Shop Yesterday Vintage's Merchandise
+          </div>
           <div className={styles.merchandise}>
             {filteredClothes.map((item, index) => (
               <div key={index} className={styles.Item}>
-                <Item
-                  src={item.src}
-                  title={item.title}
-                  price={item.price}
-                />
+                <Item src={item.src} title={item.title} price={item.price} />
               </div>
-            ))}</div>
-
+            ))}
+          </div>
         </div>
       </div>
     </main>
