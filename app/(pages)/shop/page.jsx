@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import styles from "./home.module.scss";
+import styles from "./shop.module.scss";
 import { clothes } from "../../lists/clothes.js";
 import { Item } from "./components/Item.jsx";
 
@@ -75,12 +75,12 @@ export default function Home() {
               <input
                 type="text"
                 className={styles.searchBar}
-                placeholder="Search by Clothes Name..."
+                placeholder=""
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <div className={styles.filterTitle}>Category</div>
+            <div className={styles.filterTitle}>CATEGORY</div>
             <div className={styles.filter}>
               <div className={styles.sizeOptions}>
                 {sizeOptions.map((option) => (
@@ -96,6 +96,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+              <div className={styles.border} />
               <div className={styles.clothesOptions}>
                 {clothesOptions.map((option) => (
                   <div key={option.id} className={styles.filterOption}>
@@ -110,9 +111,10 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+              <div className={styles.border} />
               <div className={styles.priceFilter}>
-                <div className={styles.priceFilterTitle}>Price: ${price}</div>
-                <label>
+                <div className={styles.priceFilterTitle}>PRICE</div>
+                <label className={styles.priceFilterSlider}>
                   <input
                     type="range"
                     min="0"
@@ -122,6 +124,7 @@ export default function Home() {
                     onChange={handlePriceChange}
                   />
                 </label>
+                <div className={styles.priceFilterValue}>${price}</div>
               </div>
             </div>
           </div>
