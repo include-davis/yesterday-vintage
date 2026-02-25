@@ -1,0 +1,38 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 17rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    h3 {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+        color: #333;
+        font-family: var(--yv-font-body);
+    }
+
+    p {
+        margin: 0;
+        color: #4a16c5;
+        font-weight: bold;
+        font-size: 1.1rem;
+        font-family: var(--yv-font-body);
+    }
+}
+
+.imageContainer {
+    width: 17rem;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
