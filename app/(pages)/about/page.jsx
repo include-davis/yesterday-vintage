@@ -30,7 +30,7 @@ export default function AboutUs() {
                     <div className={styles.collumn}>
                         <h2 className={styles.subtitle}>Here's Our <span className={styles.red}> Story!</span></h2>
                         <p className={styles.body}>
-                            Yesterday is an owner-operated, four member endeavor. Our names are Michaela Landers, Donbi Kim, Tuan (Stevie) Tat, and John (Jack) Halet. Donbi and Stevie attended UC Davis, and both graduated in  2022, while Jack and Michaela have lived in  Davis now for over 3 years.
+                            Yesterday is an owner-operated, four member endeavor. Our names are Michaela Landers, Donbi Kim, Tuan (Stevie) Tat, and John (Jack) Halet. Donbi and Stevie attended UC Davis, and both graduated in 2022, while Jack and Michaela have lived in Davis now for over 3 years.
                         </p>
                     </div>
                 </div>
@@ -47,16 +47,16 @@ export default function AboutUs() {
 
                 {/** Paragraphs Section */}
                 <div className={styles.row}>
-                    <div className={styles.body}>
+                    <p className={styles.body}>
                         We all began selling vintage at different stages in our lives, but found ourselves all in Davis when we wanted to open a physical storefront. As soon as we stepped foot into the shop, we knew it was the space for us! It was a quick turnaround; our doors opened 30 days after we signed our lease in September of 2023!
-                    </div>
+                    </p>
                     <Image className={styles.mediumImage} src={paragraphs} alt={"Two stylish people posing in Yesterday Vintage."}  />
                 </div>
                 <div className={styles.row}> 
                     <Image className={styles.mediumImage} src={paragraphs} alt={"Two stylish people posing in Yesterday Vintage."} />
-                    <div className={styles.body}>
+                    <p className={styles.body}>
                         Now, we’ve been in Downtown Davis for two years, and feel more grateful than ever to be in a community with so many wonderful fellow business owners and patrons. We’ve been able to engage in awesome collaborations with UC Davis and local student organizations, participate in Davis pop-ups, and now help put together our community-oriented event “Day in Downtown”. 
-                    </div>
+                    </p>
                 </div>
 
                 {/** Closing Section */}
