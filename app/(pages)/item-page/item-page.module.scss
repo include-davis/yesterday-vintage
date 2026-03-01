@@ -99,7 +99,7 @@
 }
 
 .name {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -334,12 +334,12 @@
 
 .cartItem {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .cartItemImage {
-  width: 6.5rem;
-  height: 5rem;
+  width: 9rem;
+  height: 6.75rem;
   background: var(--yv-blue);
   flex-shrink: 0;
   overflow: hidden;
@@ -352,14 +352,15 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 1;
 }
 
 .cartItemName {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .cartItemPrice {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .cartItemQuantity {
