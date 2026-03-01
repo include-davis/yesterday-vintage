@@ -144,9 +144,9 @@ export default function Home() {
             Shop Yesterday Vintage's Merchandise
           </div>
           <div className={styles.merchandise}>
-            {filteredClothes.map((item, index) => (
-              <div key={index} className={styles.Item}>
-                <Item src={item.src} title={item.title} price={item.price} />
+            {filteredClothes.map((item) => (
+              <div key={item.id} className={styles.Item}>
+                <Item item={item} />
               </div>
             ))}
           </div>
