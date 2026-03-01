@@ -55,11 +55,15 @@ export default function AboutUs() {
                     </p>
                     <Image className={styles.mediumImage} src={paragraphs} alt={"Two stylish people posing in Yesterday Vintage."}  />
                 </div>
+                <div className={styles.invert}>
                 <div className={styles.row}> 
+                    
                     <Image className={styles.mediumImage} src={paragraphs} alt={"Two stylish people posing in Yesterday Vintage."} />
                     <p className={styles.body}>
                         Now, we’ve been in Downtown Davis for two years, and feel more grateful than ever to be in a community with so many wonderful fellow business owners and patrons. We’ve been able to engage in awesome collaborations with UC Davis and local student organizations, participate in Davis pop-ups, and now help put together our community-oriented event “Day in Downtown”. 
                     </p>
+                    
+                </div>
                 </div>
 
                 {/** Closing Section */}

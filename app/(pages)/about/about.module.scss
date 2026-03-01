@@ -41,10 +41,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include mixins.phone {
+        padding: 5% 0;
+    }
 }
 
 .collumn {
     width: auto;
+
+    @include mixins.phone {
+        //padding-top: 7%;
+    }
     
     display: flex;
     flex-direction: column;
@@ -66,18 +74,39 @@
 .row {
     padding-bottom: 3%;
     gap: 9%;
+
+    @include mixins.phone {
+        //padding: 2% 0; // this
+        flex-direction: column;
+        align-items: center;
+        //gap: 5%; // FUCK (it measure height)
+    }
+
+    // ** border: 1px solid black;
+}
+
+.row > :first-child {
+     @include mixins.phone {
+        padding-bottom: 5%;
+    }
 }
 
 .pictureRow {
     padding-bottom: 1%;
     gap: 4%;
+
+    flex-wrap: wrap;
 }
 
 .person {
     gap: 3%;
     width: 60%;
 
-    flex-wrap: wrap; // this was a copilot suggestion
+    @include mixins.phone {
+        width: 47%;
+    }
+
+    // ? flex-wrap: wrap; // this was a copilot suggestion
 
     display: flex;
     flex-direction: column;
@@ -85,6 +114,11 @@
 
     // ** border: 1px solid black;
     // ? align-items: center;
+}
+
+.invert .row {
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 
@@ -100,14 +134,26 @@
 
 .largeImage {
     width: 50%;
+
+    @include mixins.phone {
+        width: 100%;
+    }
 }
 
 .mediumImage {
     width: 40%;
+
+    @include mixins.phone {
+        width: 100%;
+    }
 }
 
 .smallImage {
     width: 30%;
+
+    @include mixins.phone {
+        width: 100%;
+    }
 }
 
 .personImage {
@@ -135,7 +181,8 @@
     }
 
     @include mixins.phone {
-        font-size: 1rem;
+        font-size: 1.6rem;
+        padding: 12%;
     }
 
     display: flex;
@@ -155,7 +202,8 @@
     }
 
     @include mixins.phone {
-        font-size: 0.6rem;
+        font-size: 1.6rem;
+        text-align: center;
     }
 
     .red {
@@ -176,13 +224,17 @@
     }
 
     @include mixins.phone {
-        font-size: 0.4rem;
-        line-height: 0.7rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
     }
 }
 
 .smallBody {
     padding-right: 6%;
+
+    @include mixins.phone {
+        padding-right: 0;
+    }
     
     // ** border: 1px solid black;
 } 
