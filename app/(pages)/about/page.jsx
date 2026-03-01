@@ -50,7 +50,7 @@ export default function AboutUs() {
 
                 {/** Paragraphs Section */}
                 <div className={styles.row}>
-                    <p className={styles.body}>
+                    <p className={styles.smallBody}>
                         We all began selling vintage at different stages in our lives, but found ourselves all in Davis when we wanted to open a physical storefront. As soon as we stepped foot into the shop, we knew it was the space for us! It was a quick turnaround; our doors opened 30 days after we signed our lease in September of 2023!
                     </p>
                     <Image className={styles.mediumImage} src={paragraphs} alt={"Two stylish people posing in Yesterday Vintage."}  />

@@ -165,7 +165,7 @@
     // ** border: 1px solid black;
 }
 
-.body, .closingMessage, .personName {
+.body, .smallBody, .closingMessage, .personName {
     font-family: var(--yv-font-body);
     font-size: 1.5rem; // ? dunno why line breaks are different TwT, gonna assume because of the different fonts
     line-height: 2.5rem;
@@ -181,8 +181,8 @@
     }
 }
 
-.body {
-    margin: 1%;
+.smallBody {
+    padding-right: 5.2%;
 } 
 
 .closingMessage {
