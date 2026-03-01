@@ -2,10 +2,16 @@
 
 import styles from "./nav-bar.module.scss";
 import Link from "next/link";
-import {usePathname} from "next/navigation";
+import { usePathname } from "next/navigation";
+import { useCart } from "../../_context/CartContext";
 
 export default function NavBar() {
   const pathname = usePathname();
+  const { items } = useCart() || { items: [] };
+  const cartCount = items.reduce(
+    (sum, item) => sum + (item.quantity ?? 0),
+    0,
+  );
   const pages = [
     {label: "Home", href: "/"},
     {label: "About", href: "/about"},
@@ -76,7 +82,7 @@ export default function NavBar() {
               strokeWidth="2.6"/>
           </svg>
         </Link>
-        <Link href="/home">
+        <Link href="/cart" className={styles.cartLink}>
           <svg 
             className={styles.cart}
             viewBox="0 0 24 24" 
@@ -87,6 +93,9 @@ export default function NavBar() {
               fill="#212529"
             />
           </svg>
+          {cartCount > 0 && (
+            <span className={styles.cartBadge}>{cartCount}</span>
+          )}
         </Link>
         </div>
       </nav>

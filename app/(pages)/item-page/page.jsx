@@ -1,20 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./item-page.module.scss";
 import { useCart } from "../../_context/CartContext";
-
-const PRODUCT = {
-  id: "product-1",
-  name: "Product Name",
-  price: 25,
-  image: "/assets/logo.png",
-};
+import { getItemById } from "../../lists/clothes.js";
 
 export default function ItemPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const itemId = searchParams.get("id");
+  const product = useMemo(() => getItemById(itemId), [itemId]);
+
   const [quantity, setQuantity] = useState(1);
   const [showCart, setShowCart] = useState(false);
   const { items, addItem, updateQuantity, subtotal } = useCart();
@@ -28,9 +27,27 @@ export default function ItemPage() {
   };
 
   const handleAddToCart = () => {
-    addItem({ ...PRODUCT, quantity });
+    if (!product) return;
+    addItem({
+      id: product.id,
+      name: product.title,
+      price: parseFloat(product.price),
+      image: product.src,
+      quantity,
+    });
     setShowCart(true);
   };
+
+  if (!product) {
+    return (
+      <main className={styles.page}>
+        <Link href="/shop" className={styles.back}>
+          Back to shop
+        </Link>
+        <p>Product not found.</p>
+      </main>
+    );
+  }
 
   return (
     <main className={styles.page}>
@@ -42,15 +59,15 @@ export default function ItemPage() {
         <div className={styles.imageWrapper}>
           <Image
             src="/assets/logo.png"
-            alt="Product"
-            width={505}
-            height={365}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            alt={product.title}
+            fill
+            style={{ objectFit: "contain" }}
+            sizes="(max-width: 540px) 100vw, (max-width: 1048px) 50vw, 505px"
           />
         </div>
 
         <div className={styles.info}>
-          <h2 className={styles.name}>Product Name</h2>
+          <h2 className={styles.name}>{product.title}</h2>
 
           <div className={styles.description}>
             <p>ABOUT THE PRODUCT</p>
@@ -61,13 +78,11 @@ export default function ItemPage() {
           <div className={styles.options}>
             <p className={styles.optionsLabel}>OPTIONS</p>
             <ul>
-              <li>Small</li>
-              <li>Medium</li>
-              <li>Large</li>
+              <li>{product.size}</li>
             </ul>
           </div>
 
-          <p className={styles.price}>$25</p>
+          <p className={styles.price}>${product.price}</p>
 
           <div className={styles.quantitySection}>
             <p className={styles.quantityLabel}>Quantity</p>
@@ -94,85 +109,83 @@ export default function ItemPage() {
         }`}
       >
         <div className={styles.cartDrawerInner}>
-            <div className={styles.cartDrawerHeader}>
-              <h2>Shopping Cart</h2>
-              <button
-                type="button"
-                className={styles.cartClose}
-                onClick={() => setShowCart(false)}
-              >
-                X
-              </button>
-            </div>
+          <div className={styles.cartDrawerHeader}>
+            <h2>Shopping Cart</h2>
+            <button
+              type="button"
+              className={styles.cartClose}
+              onClick={() => setShowCart(false)}
+            >
+              X
+            </button>
+          </div>
 
-            <div className={styles.cartItems}>
-              {items.length === 0 ? (
-                <p>Your cart is empty.</p>
-              ) : (
-                items.map((item) => (
-                  <div key={item.id} className={styles.cartItem}>
-                    <div className={styles.cartItemImage}>
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        width={120}
-                        height={90}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      />
-                    </div>
-                    <div className={styles.cartItemInfo}>
-                      <p className={styles.cartItemName}>{item.name}</p>
-                      <p className={styles.cartItemPrice}>${item.price}</p>
-                      <div className={styles.cartItemQuantity}>
-                        <button
-                          type="button"
-                          onClick={() => updateQuantity(item.id, -1)}
-                        >
-                          -
-                        </button>
-                        <span>{item.quantity}</span>
-                        <button
-                          type="button"
-                          onClick={() => updateQuantity(item.id, 1)}
-                        >
-                          +
-                        </button>
-                      </div>
+          <div className={styles.cartItems}>
+            {items.length === 0 ? (
+              <p>Your cart is empty.</p>
+            ) : (
+              items.map((item) => (
+                <div key={item.id} className={styles.cartItem}>
+                  <div className={styles.cartItemImage}>
+                    <Image
+                      src="/assets/logo.png"
+                      alt={item.name}
+                      fill
+                      style={{
+                        objectFit: "contain",
+                      }}
+                      sizes="6.5rem"
+                    />
+                  </div>
+                  <div className={styles.cartItemInfo}>
+                    <p className={styles.cartItemName}>{item.name}</p>
+                    <p className={styles.cartItemPrice}>${item.price}</p>
+                    <div className={styles.cartItemQuantity}>
+                      <button
+                        type="button"
+                        onClick={() => updateQuantity(item.id, -1)}
+                      >
+                        -
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button
+                        type="button"
+                        onClick={() => updateQuantity(item.id, 1)}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
-                ))
-              )}
-            </div>
+                </div>
+              ))
+            )}
+          </div>
 
-            <div className={styles.cartDrawerFooter}>
-              <div className={styles.cartSubtotalRow}>
-                <span>Subtotal</span>
-                <span>${subtotal.toFixed(2)}</span>
-              </div>
-              <p className={styles.cartTaxes}>
-                Taxes and Shipping calculated at checkout
-              </p>
-              <div className={styles.cartDrawerButtons}>
-                <button
-                  type="button"
-                  className={styles.cartSecondaryButton}
-                  onClick={() => setShowCart(false)}
-                >
-                  KEEP SHOPPING
-                </button>
-                <button
-                  type="button"
-                  className={styles.cartPrimaryButton}
-                  onClick={() => router.push("/cart")}
-                >
-                  CART
-                </button>
-              </div>
+          <div className={styles.cartDrawerFooter}>
+            <div className={styles.cartSubtotalRow}>
+              <span>Subtotal</span>
+              <span>${subtotal.toFixed(2)}</span>
             </div>
+            <p className={styles.cartTaxes}>
+              Taxes and Shipping calculated at checkout
+            </p>
+            <div className={styles.cartDrawerButtons}>
+              <button
+                type="button"
+                className={styles.cartSecondaryButton}
+                onClick={() => setShowCart(false)}
+              >
+                KEEP SHOPPING
+              </button>
+              <Link
+                href="/cart"
+                className={styles.cartPrimaryButton}
+                onClick={() => setShowCart(false)}
+              >
+                VIEW CART
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </main>
