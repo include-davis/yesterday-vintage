@@ -5,17 +5,20 @@ import paragraphs from '../../../public/Images/paragraphs.png';
 import closing1 from '../../../public/Images/closing1.png';
 import closing2 from '../../../public/Images/closing2.png';
 import closing3 from '../../../public/Images/closing3.png';
-import person from '../../../public/Images/person_placeholder.png';
+import MichaelaLanders from '../../../public/Images/MichaelaLanders.png';
+import DonbiKim from '../../../public/Images/DonbiKim.png';
+import StevieTat from '../../../public/Images/StevieTat.png';
+import JackHalet from '../../../public/Images/JackHatlet.png';
 
 export default function AboutUs() {
 
     //https://www.figma.com/design/YVD7QRKNOI1ApXogwJH4ij/Yesterday-Vintage-FW25--include-Design-Cohort-Project?node-id=3094-2903&p=f&t=iTeiaU79nGoGXURA-0
 
     const people = [
-        { name: "Michaela Landers", imgsrc: person, alt: "image of Michaela Landers" },
-        { name: "Donbi Kim", imgsrc: person, alt: "image of Donbi Kim" },
-        { name: "Stevie Tat", imgsrc: person, alt: "image of Tuan (Stevie) Tat" },
-        { name: "Jack Halet", imgsrc: person, alt: "image of John (Jack) Halet" },
+        { name: "Michaela Landers", imgsrc: MichaelaLanders, alt: "image of Michaela Landers" },
+        { name: "Donbi Kim", imgsrc: DonbiKim, alt: "image of Donbi Kim" },
+        { name: "Stevie Tat", imgsrc: StevieTat, alt: "image of Tuan (Stevie) Tat" },
+        { name: "Jack Halet", imgsrc: JackHalet, alt: "image of John (Jack) Halet" },
     ];
 
     return (
