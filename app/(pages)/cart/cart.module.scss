@@ -3,7 +3,6 @@
 .page {
   max-width: 75rem;
   margin: 0 auto;
-  /* Extra top/bottom padding to leave room for header/footer */
   padding: 4rem 6.25rem 5rem;
 
   @include mixins.tablet {
@@ -19,7 +18,6 @@
   text-align: center;
   margin-bottom: 3rem;
   font-family: var(--font-display);
-  /* 56px → 3.5rem */
   font-size: 3.5rem;
   font-weight: 700;
 }
@@ -27,10 +25,8 @@
 .label {
   margin-bottom: 0;
   padding-bottom: 0.75rem;
-  /* 1px black divider line across content width */
   border-bottom: 1px solid var(--black);
   text-align: left;
-  /* 24px → 1.5rem */
   font-size: 1.5rem;
   font-weight: 300;
 }
@@ -42,11 +38,10 @@
 
 .productItem {
   display: flex;
-  align-items: center;   /* vertically center info next to image */
-  gap: 3.5rem;             /* push text slightly further right */
+  align-items: center;
+  gap: 3.5rem;
   margin-bottom: 2.5rem;
 
-  /* add space between the divider line and the FIRST logo row only */
   &:first-of-type {
     margin-top: 2.5rem;
   }
@@ -57,18 +52,16 @@
   }
 }
 
-// Image ~1.5× wider than tall (design: e.g. 150px × 100px)
 .productImage {
   position: relative;
-  /* Keep 505×365 ratio (~1.38:1) but slightly larger */
   width: 24rem;
   height: 17.25rem;
   flex-shrink: 0;
   background: var(--yv-blue);
 
   @include mixins.phone {
-    width: 9.375rem;   // 150px
-    height: 6.25rem;  // 100px — 1.5:1
+    width: 9.375rem; 
+    height: 6.25rem; 
   }
 }
 
@@ -80,7 +73,6 @@
 
   h4 {
     margin: 0 0 0.5rem 0;
-    /* Product Name: 24px → 1.5rem */
     font-size: 1.5rem;
     font-weight: 400;
   }
@@ -89,7 +81,6 @@
 .price {
   margin: 0 0 0.75rem 0;
   color: var(--black);
-  /* $25: 24px → 1.5rem */
   font-size: 1.5rem;
 }
 
@@ -99,12 +90,11 @@
   align-items: center;
 }
 
-// Small grey boxes ~25px, tight spacing, subtle border
 .quantityBtn {
-  width: 1.5625rem;   // 25px
+  width: 1.5625rem;
   height: 1.5625rem;
-  background: var(--canvas);
-  border: none;        /* no outline */
+  background: #acaaaa;
+  border: none;       
   border-radius: 0;
   cursor: pointer;
   display: flex;
@@ -121,8 +111,8 @@
 .quantityNum {
   width: 1.5625rem;
   height: 1.5625rem;
-  background: var(--canvas);
-  border: none;        /* no outline */
+  background: #acaaaa;
+  border: none;        
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,11 +121,10 @@
 
 .subtotalSection {
   margin-top: 3rem;
-  margin-bottom: 4rem;  /* add space at bottom of page */
+  margin-bottom: 4rem;
 
   .label {
     text-align: left;
-    /* Subtotal label: 32px → 2rem */
     font-size: 2rem;
     font-weight: 400;
   }
@@ -144,21 +133,18 @@
 .subtotalText {
   margin: 1rem 0 0.25rem 0;
   text-align: right;
-  /* Subtotal amount: 32px → 2rem */
   font-size: 2rem;
   font-weight: 400;
 }
 
 .note {
   color: var(--gray);
-  /* Taxes note: 24px → 1.5rem */
   font-size: 1.5rem;
   margin: 0 0 1rem 0;
   text-align: right;
 }
 
 .checkoutBtn {
-  /* Dimensions: 295px × 63px → 18.4375rem × 3.9375rem */
   width: 18.4375rem;
   height: 3.9375rem;
   padding: 0;
@@ -168,7 +154,6 @@
   border-radius: 0;
   cursor: pointer;
   float: right;
-  /* Checkout text: 32px → 2rem */
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 0.08em;

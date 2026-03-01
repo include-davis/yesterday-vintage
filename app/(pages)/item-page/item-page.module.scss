@@ -3,7 +3,6 @@
 .page {
   max-width: 75rem;
   margin: 0 auto;
-  /* Extra top/bottom space so content clears header/footer */
   padding: 4rem 6rem 5rem;
 
   @include mixins.tablet {
@@ -15,14 +14,11 @@
   }
 }
 
-/* ------------------ BACK BUTTON ------------------ */
-
 .back {
   background: none;
   border: none;
   padding: 0;
   margin-bottom: 3rem;
-  /* 32px → 2rem */
   font-size: 2rem;
   cursor: pointer;
   color: var(--black);
@@ -32,12 +28,10 @@
   }
 }
 
-/* ------------------ MAIN LAYOUT ------------------ */
-
 .container {
   display: flex;
   align-items: flex-start;
-  gap: 7rem;  /* more space between image and product info */
+  gap: 7rem;
 
   @include mixins.tablet {
     gap: 3rem;
@@ -49,16 +43,12 @@
   }
 }
 
-/* ------------------ LEFT PANEL (IMAGE) ------------------ */
-
 .imageWrapper {
-  /* Slightly larger than cart image, same wide ratio */
   width: 26rem;
   height: 18rem;
   background: var(--yv-blue);
   flex-shrink: 0;
 
-  /* Never let it overflow on smaller screens */
   max-width: 100%;
 
   @include mixins.tablet {
@@ -72,27 +62,20 @@
   }
 }
 
-/* ------------------ RIGHT PANEL ------------------ */
-
 .info {
   flex: 1;
-  max-width: 20rem; /* matches narrow right column in screenshot */
+  max-width: 20rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  font-family: var(--font-body); /* ensure all right-panel text uses same font */
+  font-family: var(--font-body);
 }
 
-/* TITLE */
-
 .name {
-  /* 40px → 2.5rem */
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
-
-/* DESCRIPTION */
 
 .description {
   display: flex;
@@ -100,20 +83,16 @@
   gap: 0.3rem;
 
   p {
-    /* 24px → 1.5rem */
     font-size: 1.5rem;
     letter-spacing: 0.04em;
     color: var(--gray);
   }
 }
 
-/* OPTIONS */
-
 .options {
   margin-top: 1rem;
 
   .optionsLabel {
-    /* 24px → 1.5rem */
     font-size: 1.5rem;
     font-family: var(--font-body);
     letter-spacing: 0.04em;
@@ -126,39 +105,32 @@
     list-style: disc;
 
     li {
-      /* 24px → 1.5rem */
       font-size: 1.5rem;
-      line-height: 1.4; // tighter gap between bullet points
+      line-height: 1.4;
       font-family: var(--font-body);
       color: var(--gray);
     }
   }
 }
 
-/* PRICE */
-
 .price {
-  margin: 0.5rem 0; /* even tighter spacing above and below $25 */
-  /* 32px → 2rem */
+  margin: 0.5rem 0;
   font-size: 2rem;
   font-weight: 500;
   font-family: var(--font-body);
 }
 
-/* QUANTITY */
-
 .quantitySection {
-  margin-top: 0; /* equalize spacing: Large→$25 and $25→Quantity */
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
 .quantityLabel {
-  /* 24px → 1.5rem */
   font-size: 1.5rem;
   font-family: var(--font-body);
-  color: var(--gray); /* same color as ABOUT/OPTIONS text */
+  color: var(--gray);
 }
 
 .quantity {
@@ -167,18 +139,16 @@
 }
 
 .quantityBtn {
-  /* 54px × 51px → 3.375rem × 3.1875rem */
   width: 3.375rem;
-  height: 3.1875rem;
+  height: 3.375rem;
   border: none;
-  background: var(--canvas);
+  background: #acaaaa;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-radius: 0; // match cart page (no rounding)
+  border-radius: 0;
   font-family: var(--font-body);
-  /* 24px → 1.5rem */
   font-size: 1.5rem;
 
   &:hover {
@@ -187,37 +157,190 @@
 }
 
 .quantityNum {
-  /* 54px × 51px → 3.375rem × 3.1875rem */
   width: 3.375rem;
-  height: 3.1875rem;
+  height: 3.375rem;
   border: none;
-  background: var(--canvas);
+  background: #acaaaa;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: var(--font-body);
-  /* 24px → 1.5rem */
   font-size: 1.5rem;
 }
 
-/* BUTTON */
-
 .addToCart {
   margin-top: 1rem;
-  /* 400px × 44px → 25rem × 2.75rem */
   width: 25rem;
   height: 2.75rem;
   padding: 0;
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.07em;
   background: var(--yv-yellow);
   border: none;
   cursor: pointer;
-  border-radius: 0; // override global rounded buttons
+  border-radius: 0;
   font-family: var(--font-body);
 
   &:hover {
     background: var(--cream);
   }
+}
+
+.cartDrawer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cartDrawerOpen {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.cartDrawerClosed {
+  opacity: 0;
+}
+
+.cartDrawerInner {
+  width: 26rem;
+  max-width: 100%;
+  height: 100%;
+  background: #d9d9d9;
+  padding: 2.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.cartDrawerOpen .cartDrawerInner {
+  transform: translateX(0);
+}
+
+.cartDrawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.cartClose {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.cartItems {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+.cartItem {
+  display: flex;
+  gap: 1rem;
+}
+
+.cartItemImage {
+  width: 6.5rem;
+  height: 5rem;
+  background: var(--yv-blue);
+  flex-shrink: 0;
+}
+
+.cartItemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cartItemName {
+  font-size: 1.5rem;
+}
+
+.cartItemPrice {
+  font-size: 1.5rem;
+}
+
+.cartItemQuantity {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.cartItemQuantity button {
+  width: 1.5625rem;
+  height: 1.5625rem;
+  border: none;
+  background: #acaaaa;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.cartItemQuantity span {
+  width: 1.5625rem;
+  height: 1.5625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #acaaaa;
+}
+
+.cartDrawerFooter {
+  border-top: 1px solid var(--black);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cartSubtotalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+.cartTaxes {
+  font-size: 1.5rem;
+}
+
+.cartDrawerButtons {
+  display: flex;
+  gap: 0;
+  padding: 0 0.5rem;
+}
+
+.cartSecondaryButton,
+.cartPrimaryButton {
+  flex: 1;
+  margin: 0 0.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  font-size: 1.25rem;
+  letter-spacing: 0.07em;
+  padding: 0.9rem 1rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cartSecondaryButton {
+  background: var(--yv-yellow);
+}
+
+.cartPrimaryButton {
+  background: var(--yv-yellow);
 }

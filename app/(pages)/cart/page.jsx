@@ -1,24 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import styles from "./cart.module.scss";
 import Image from "next/image";
-
-const ITEM_PRICE = 25;
+import styles from "./cart.module.scss";
+import { useCart } from "../../_context/CartContext";
 
 export default function Cart() {
-  const [quantities, setQuantities] = useState([1, 1, 1]);
-
-  const handleChange = (index, delta) => {
-    setQuantities((prev) =>
-      prev.map((q, i) => (i === index ? Math.max(1, q + delta) : q))
-    );
-  };
-
-  const subtotal = quantities.reduce(
-    (total, qty) => total + qty * ITEM_PRICE,
-    0
-  );
+  const { items, updateQuantity, subtotal } = useCart();
 
   return (
     <main className={styles.page}>
@@ -27,37 +14,43 @@ export default function Cart() {
       <div className={styles.productSection}>
         <p className={styles.label}>Product</p>
 
-        {quantities.map((qty, index) => (
-          <div key={index} className={styles.productItem}>
-            <div className={styles.productImage}>
-              <Image
-                src="/assets/logo.png"
-                alt="Product"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </div>
-            <div className={styles.productInfo}>
-              <h4>Product Name</h4>
-              <p className={styles.price}>${ITEM_PRICE}</p>
-              <div className={styles.quantity}>
-                <button
-                  className={styles.quantityBtn}
-                  onClick={() => handleChange(index, -1)}
-                >
-                  -
-                </button>
-                <span className={styles.quantityNum}>{qty}</span>
-                <button
-                  className={styles.quantityBtn}
-                  onClick={() => handleChange(index, 1)}
-                >
-                  +
-                </button>
+        {items.length === 0 ? (
+          <p style={{ marginTop: "2rem" }}>Your cart is empty.</p>
+        ) : (
+          items.map((item) => (
+            <div key={item.id} className={styles.productItem}>
+              <div className={styles.productImage}>
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+              <div className={styles.productInfo}>
+                <h4>{item.name}</h4>
+                <p className={styles.price}>${item.price}</p>
+                <div className={styles.quantity}>
+                  <button
+                    type="button"
+                    className={styles.quantityBtn}
+                    onClick={() => updateQuantity(item.id, -1)}
+                  >
+                    -
+                  </button>
+                  <span className={styles.quantityNum}>{item.quantity}</span>
+                  <button
+                    type="button"
+                    className={styles.quantityBtn}
+                    onClick={() => updateQuantity(item.id, 1)}
+                  >
+                    +
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
 
       <div className={styles.subtotalSection}>
@@ -66,7 +59,9 @@ export default function Cart() {
           Subtotal: ${subtotal.toFixed(2)}
         </p>
         <p className={styles.note}>Taxes and Shipping calculated at checkout</p>
-        <button className={styles.checkoutBtn}>CHECKOUT</button>
+        <button type="button" className={styles.checkoutBtn}>
+          CHECKOUT
+        </button>
       </div>
     </main>
   );
