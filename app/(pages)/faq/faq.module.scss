@@ -110,6 +110,7 @@
     padding-right: 6.1875rem;
 
     @include mixins.lg-phone {
+      font-weight: 400;
       padding-top: .8461rem;
       padding-right: 1.875rem;
       padding-bottom: .923rem;
@@ -154,7 +155,12 @@
   flex: 1;
   font-size: 1.5rem;
 
+<<<<<<< HEAD
   @include mixins.lg-phone {
+=======
+  @include mixins.phone {
+    font-weight: 700;
+>>>>>>> 448ce09 (final mobile)
     font-size: 1.25rem;
     line-height: 1.3;
   }
@@ -172,6 +178,7 @@
   @include mixins.lg-phone {
     font-size: 1rem;
     line-height: 1.4;
+    font-weight: 400;
   }
 }
 
