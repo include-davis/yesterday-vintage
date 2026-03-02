@@ -42,6 +42,11 @@ export default function Home() {
         <div className={`${styles["banner-item"]} ${styles.right}`}>
           <img src="/images/right-banner.png" alt="Picture right" />
         </div>
+
+
+        <div className={styles["banner-mobile"]}>
+          <img src="/images/mobile_banner.svg" alt="Mobile banner" />
+          </div>
       </section>
 
       <section className={styles["welcome"]}>
@@ -50,17 +55,38 @@ export default function Home() {
           <h1 className={styles.title}>Welcome to <span className={styles["title-red"]}>Yesterday!</span></h1>
           <p className={styles["welcome-text"]}> We are a locally owned and operated vintage clothing and accessories store located in Davis, California. We carry clothing in sizes XS-3X for all genders, spanning from the 60s to the early 2000s. Come stop by and say hi!</p>
           <a href="#" className={styles["learn-more-button"]}>Learn More</a>
+          <p className ={styles["welcome-text"]}> We are a locally owned and operated vintage clothing and accessories store located in Davis, California. We carry clothing in sizes XS-3X for all genders, spanning from the 60s to the early 2000s. Come stop by and say hi!</p>
+          <a href="/about" className={styles["learn-more-button"]}>Learn More</a>
         </div>
 
         <div className={styles["welcome-image"]}>
           <img src="/images/welcome-section.png" alt="Welcome Image" />
+          <img
+            className={styles["welcome-image-desktop"]}
+            src="/images/welcome-section.png"
+            alt="Welcome Image"
+          />
+          <img
+            className={styles["welcome-image-mobile"]}
+            src="/images/mobile_welcome.svg"
+            alt="Welcome Image"
+          />
         </div>
 
       </section>
 
       <section className={styles["events-container"]}>
         <div className={styles["event-card"]}>
-          <img src="/images/event.png" alt="Event Calendar" />
+          <img
+            className={styles["event-image-desktop"]}
+            src="/images/event.png"
+            alt="Event Calendar"
+          />
+          <img
+            className={styles["event-image-mobile"]}
+            src="/images/mobile_events.svg"
+            alt="Event Calendar"
+          />
         </div>
 
         <div className={styles["event-info"]}>
@@ -73,7 +99,7 @@ export default function Home() {
             <li>___</li>
             <li>In-Store Events</li>
           </ul>
-          <button className={styles["events-btn"]}>Events</button>
+          <a href="/events" className={styles["events-btn"]}>Events</a>
         </div>
       </section>
 
@@ -116,6 +142,21 @@ export default function Home() {
             >
               <img src="/images/rightarrow.svg" alt="" aria-hidden="true" />
             </button>
+          </div>
+
+          <div className={styles["reviews-mobile"]} aria-label="Customer reviews">
+            {reviews.map((review, index) => (
+              <article key={`${review.author}-${index}`} className={styles["review-card"]}>
+                <img className={styles["stars"]} src="/images/stars.svg" alt="Stars" />
+                <p className={styles["text"]}>
+                  "{review.text}"
+                </p>
+                <p className={styles["author"]}>
+                  {review.author} <br />
+                  {review.time}
+                </p>
+              </article>
+            ))}
           </div>
 
 
