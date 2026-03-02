@@ -11,10 +11,10 @@ export function Item({ item }) {
             <div className={styles.item}>
                 <div className={styles.imageContainer}>
                     <Image src={src} alt={title} width={400} height={400} />
-                </div>
-                <div className={styles.infoContainer}>
-                    <h3>{title}</h3>
-                    <p>${price}</p>
+                    <div className={styles.infoContainer}>
+                        <h3>{title}</h3>
+                        <p>${price}</p>
+                    </div>
                 </div>
             </div>
         </Link>
