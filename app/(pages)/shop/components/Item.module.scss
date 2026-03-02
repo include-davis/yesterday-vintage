@@ -1,3 +1,6 @@
+@use "../../../_globals/mixins.scss" as *;
+
+
 .item {
     display: flex;
     flex-direction: column;
