@@ -4,27 +4,18 @@
   max-width: 75rem;
   width: 100%;
   margin: 0 auto;
-  padding: 4rem 6rem 3.5rem;
+  padding: clamp(1.25rem, 4vw, 4rem) clamp(1.25rem, 6vw, 6rem) clamp(1.5rem, 3vw, 3.5rem);
   font-family: var(--font-body);
   overflow-x: hidden;
   box-sizing: border-box;
-
-  @include mixins.tablet {
-    padding: 3rem 2rem 4rem;
-  }
-
-  @include mixins.phone {
-    max-width: 100%;
-    padding: 1.25rem 1.25rem 1.5rem;
-  }
 }
 
 .back {
   background: none;
   border: none;
   padding: 0;
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  font-size: clamp(1rem, 2vw, 1.5rem);
   cursor: pointer;
   color: var(--black);
   font-family: var(--font-body);
@@ -32,49 +23,37 @@
   &:hover {
     text-decoration: underline;
   }
-
-  @include mixins.phone {
-    font-size: 1rem;
-    margin-bottom: 1.25rem;
-  }
 }
 
 .container {
   display: flex;
   align-items: flex-start;
-  gap: 5rem;
-
-  @include mixins.tablet {
-    gap: 2.5rem;
-  }
+  gap: clamp(1.25rem, 5vw, 5rem);
 
   @include mixins.phone {
     flex-direction: column;
-    gap: 1.25rem;
   }
 }
 
 .imageWrapper {
   position: relative;
-  width: 28rem;
-  height: 20rem;
+  width: clamp(16rem, 38%, 28rem);
+  aspect-ratio: 7 / 5;
+  height: auto;
   background: var(--yv-blue);
   flex-shrink: 0;
-  border: 5px solid var(--yv-red);
+  border: clamp(3px, 0.4vw, 5px) solid var(--yv-red);
   border-radius: 0.5rem;
   overflow: hidden;
   box-sizing: border-box;
-  max-width: 100%;
 
   @include mixins.tablet {
-    width: 100%;
-    height: 20rem;
+    width: clamp(16rem, 45%, 26rem);
   }
 
   @include mixins.phone {
     width: 100%;
     max-width: 100%;
-    height: auto;
     aspect-ratio: 4 / 3;
     border-width: 3px;
   }
@@ -86,22 +65,14 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-body);
-
-  @include mixins.phone {
-    width: 100%;
-  }
 }
 
 .name {
   font-family: var(--font-body);
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 400;
   color: var(--black);
   margin: 0 0 0.75rem;
-
-  @include mixins.phone {
-    font-size: 1.65rem;
-  }
 }
 
 .description {
@@ -113,7 +84,7 @@
   margin-bottom: 1rem;
 
   p {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     font-family: var(--font-body);
     letter-spacing: 0.03em;
     color: var(--black);
@@ -127,7 +98,7 @@
   margin-bottom: 1.25rem;
 
   .optionsLabel {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     font-family: var(--font-body);
     letter-spacing: 0.03em;
     color: var(--black);
@@ -140,7 +111,7 @@
     margin: 0;
 
     li {
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
       line-height: 1.6;
       font-family: var(--font-body);
       color: var(--black);
@@ -150,14 +121,10 @@
 
 .price {
   margin: 0 0 1rem;
-  font-size: 1.8rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
   font-weight: 400;
   font-family: var(--font-body);
   color: var(--black);
-
-  @include mixins.phone {
-    font-size: 1.5rem;
-  }
 }
 
 .quantitySection {
@@ -168,7 +135,7 @@
 }
 
 .quantityLabel {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   font-family: var(--font-body);
   color: var(--black);
 }
@@ -179,8 +146,8 @@
 }
 
 .quantityBtn {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: clamp(2.25rem, 3.5vw, 2.75rem);
+  height: clamp(2.25rem, 3.5vw, 2.75rem);
   border: 3px solid var(--black);
   background: #acaaaa;
   display: flex;
@@ -189,45 +156,33 @@
   cursor: pointer;
   border-radius: 50%;
   font-family: var(--font-body);
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
 
   &:hover {
     background: var(--beige);
   }
-
-  @include mixins.phone {
-    width: 2.25rem;
-    height: 2.25rem;
-    font-size: 1rem;
-  }
 }
 
 .quantityNum {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: clamp(2.25rem, 3.5vw, 2.75rem);
+  height: clamp(2.25rem, 3.5vw, 2.75rem);
   border: 3px solid var(--black);
   background: #acaaaa;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: var(--font-body);
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
   border-radius: 0.5rem;
-
-  @include mixins.phone {
-    width: 2.25rem;
-    height: 2.25rem;
-    font-size: 1rem;
-  }
 }
 
 .addToCart {
   width: 100%;
-  max-width: 22rem;
-  height: 3rem;
+  max-width: clamp(14rem, 70%, 22rem);
+  height: clamp(2.75rem, 4vw, 3rem);
   padding: 0;
   margin-top: 0;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 500;
   letter-spacing: 0.07em;
   background: var(--yv-yellow);
@@ -243,12 +198,10 @@
 
   @include mixins.phone {
     max-width: 100%;
-    font-size: 1rem;
-    height: 2.75rem;
   }
 }
 
-// ── Cart Drawer ──────────────────────────────────────────────────────────────
+/* ── Cart Drawer ─────────────────────────────────────── */
 
 .cartDrawer {
   position: fixed;
@@ -278,11 +231,11 @@
 }
 
 .cartDrawerInner {
-  width: 26rem;
+  width: clamp(20rem, 30vw, 28rem);
   max-width: 100%;
   height: 100%;
   background: #d9d9d9;
-  padding: 2rem 1.5rem 1.5rem;
+  padding: clamp(1.25rem, 2vw, 2rem) clamp(1rem, 1.5vw, 1.5rem) clamp(1rem, 1.5vw, 1.5rem);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -298,7 +251,6 @@
     margin: 0;
     height: auto;
     max-height: 90dvh;
-    padding: 1.25rem 1.25rem 1rem;
     transform: none;
     border-radius: 0;
   }
@@ -316,15 +268,9 @@
 
   h2 {
     font-family: var(--font-body);
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
     font-weight: 600;
     margin: 0;
-  }
-
-  @include mixins.phone {
-    h2 {
-      font-size: 1.1rem;
-    }
   }
 }
 
@@ -353,19 +299,15 @@
 }
 
 .cartItemImage {
-  width: 8.5rem;
-  height: 6rem;
+  width: clamp(6rem, 10vw, 8.5rem);
+  aspect-ratio: 17 / 12;
+  height: auto;
   background: var(--yv-blue);
   flex-shrink: 0;
   overflow: hidden;
   position: relative;
   border: 2px solid var(--yv-red);
   border-radius: 0.25rem;
-
-  @include mixins.phone {
-    width: 8rem;
-    height: 5.5rem;
-  }
 }
 
 .cartItemInfo {
@@ -377,7 +319,7 @@
 }
 
 .cartItemName {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
   font-family: var(--font-body);
   font-weight: 500;
   white-space: nowrap;
@@ -386,7 +328,7 @@
 }
 
 .cartItemPrice {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-family: var(--font-body);
 }
 
@@ -395,36 +337,36 @@
   gap: 0.2rem;
   align-items: center;
   margin-top: 0.15rem;
-}
 
-.cartItemQuantity button {
-  width: 1.9rem;
-  height: 1.9rem;
-  border: 2px solid var(--black);
-  background: #acaaaa;
-  cursor: pointer;
-  border-radius: 50%;
-  font-size: 1.05rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  button {
+    width: 1.9rem;
+    height: 1.9rem;
+    border: 2px solid var(--black);
+    background: #acaaaa;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  &:hover {
-    background: var(--beige);
+    &:hover {
+      background: var(--beige);
+    }
   }
-}
 
-.cartItemQuantity span {
-  width: 1.9rem;
-  height: 1.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #acaaaa;
-  border: 2px solid var(--black);
-  border-radius: 0.45rem;
-  font-size: 1.05rem;
-  font-family: var(--font-body);
+  span {
+    width: 1.9rem;
+    height: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #acaaaa;
+    border: 2px solid var(--black);
+    border-radius: 0.45rem;
+    font-size: 1.05rem;
+    font-family: var(--font-body);
+  }
 }
 
 .cartDrawerFooter {
@@ -439,7 +381,7 @@
 .cartSubtotalRow {
   display: flex;
   justify-content: space-between;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
   font-family: var(--font-body);
   font-weight: 500;
 }
@@ -465,7 +407,7 @@
   cursor: pointer;
   border-radius: 12px;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
   font-weight: 500;
   letter-spacing: 0.04em;
   padding: 0.7rem 0.5rem;
