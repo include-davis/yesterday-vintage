@@ -1,5 +1,9 @@
-@use "../../../_globals/mixins.scss" as *;
+.itemLink {
+  text-decoration: none;
+  color: inherit;
+}
 
+@use "../../../_globals/mixins.scss" as *;
 
 .item {
     display: flex;
