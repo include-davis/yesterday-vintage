@@ -1,10 +1,11 @@
 @use "../../_globals/mixins.scss";
 
+/* ─── Page shell ─────────────────────────────────── */
 .page {
   max-width: 75rem;
   width: 100%;
   margin: 0 auto;
-  padding: 4rem 6rem 5rem;
+  padding: 4rem 6rem 3.5rem;
   font-family: var(--font-body);
   overflow-x: hidden;
   box-sizing: border-box;
@@ -14,56 +15,58 @@
   }
 
   @include mixins.phone {
-    max-width: 26rem;
-    padding: 1.5rem 1rem 2.5rem;
+    max-width: 100%;
+    padding: 1.25rem 1.25rem 1.5rem;
   }
 }
 
+/* ─── Back button ────────────────────────────────── */
 .back {
   background: none;
   border: none;
   padding: 0;
-  margin-bottom: 3rem;
-  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   color: var(--black);
+  font-family: var(--font-body);
 
   &:hover {
     text-decoration: underline;
   }
 
   @include mixins.phone {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
   }
 }
 
+/* ─── Product layout ─────────────────────────────── */
 .container {
   display: flex;
   align-items: flex-start;
-  gap: 7rem;
+  gap: 5rem;
 
   @include mixins.tablet {
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   @include mixins.phone {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.25rem;
   }
 }
 
 .imageWrapper {
   position: relative;
-  width: 26rem;
-  height: 18rem;
+  width: 28rem;
+  height: 20rem;
   background: var(--yv-blue);
   flex-shrink: 0;
   border: 5px solid var(--yv-red);
   border-radius: 0.5rem;
   overflow: hidden;
   box-sizing: border-box;
-
   max-width: 100%;
 
   @include mixins.tablet {
@@ -73,72 +76,62 @@
 
   @include mixins.phone {
     width: 100%;
-    max-width: 20rem;
-    margin: 0 0 1.5rem;
+    max-width: 100%;
     height: auto;
     aspect-ratio: 4 / 3;
-    flex-shrink: 1;
+    border-width: 3px;
   }
 }
 
+/* ─── Product info ───────────────────────────────── */
 .info {
   flex: 1;
-  max-width: 20rem;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   font-family: var(--font-body);
 
-  @include mixins.tablet {
-    max-width: 24rem;
-  }
-
   @include mixins.phone {
-    max-width: 100%;
+    width: 100%;
+    gap: 0.6rem;
   }
 }
 
 .name {
   font-family: var(--font-body);
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #333;
+  margin: 0 0 0.6rem;
 
   @include mixins.phone {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
 .description {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.25rem;
 
   p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: var(--font-body);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     color: var(--gray);
-
-    @include mixins.phone {
-      font-size: 1rem;
-    }
   }
 }
 
 .options {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 
   .optionsLabel {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: var(--font-body);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     color: var(--gray);
-    margin-bottom: 0.25rem;
-
-    @include mixins.phone {
-      font-size: 1rem;
-    }
+    margin-bottom: 0.2rem;
   }
 
   ul {
@@ -146,58 +139,47 @@
     list-style: disc;
 
     li {
-      font-size: 1.5rem;
-      line-height: 1.4;
+      font-size: 1rem;
+      line-height: 1.5;
       font-family: var(--font-body);
       color: var(--gray);
-
-      @include mixins.phone {
-        font-size: 1rem;
-      }
     }
   }
 }
 
 .price {
-  margin: 0.5rem 0;
-  font-size: 2rem;
-  font-weight: 500;
+  margin: 0.35rem 0;
+  font-size: 1.6rem;
+  font-weight: 400;
   font-family: var(--font-body);
 
   @include mixins.phone {
-    font-size: 1.75rem;
+    font-size: 1.35rem;
   }
 }
 
+/* ─── Quantity controls ──────────────────────────── */
 .quantitySection {
-  margin-top: 0;
+  margin-top: 0.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
 .quantityLabel {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-family: var(--font-body);
   color: var(--gray);
-
-  @include mixins.phone {
-    font-size: 1rem;
-  }
 }
 
 .quantity {
   display: flex;
   gap: 0.25rem;
-
-  @include mixins.phone {
-    justify-content: flex-start;
-  }
 }
 
 .quantityBtn {
-  width: 3.375rem;
-  height: 3.375rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border: 3px solid var(--black);
   background: #acaaaa;
   display: flex;
@@ -206,45 +188,46 @@
   cursor: pointer;
   border-radius: 50%;
   font-family: var(--font-body);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 
   &:hover {
     background: var(--beige);
   }
 
   @include mixins.phone {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.1rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1rem;
   }
 }
 
 .quantityNum {
-  width: 3.375rem;
-  height: 3.375rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border: 3px solid var(--black);
   background: #acaaaa;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: var(--font-body);
-  font-size: 1.5rem;
-  border-radius: 0.75rem;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
 
   @include mixins.phone {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.1rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1rem;
   }
 }
 
+/* ─── Add to cart button ─────────────────────────── */
 .addToCart {
   margin-top: 1rem;
-  width: 25rem;
-  max-width: 100%;
-  height: 2.75rem;
+  width: 100%;
+  max-width: 22rem;
+  height: 3rem;
   padding: 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.07em;
   background: var(--yv-yellow);
@@ -255,8 +238,9 @@
   box-sizing: border-box;
 
   @include mixins.phone {
-    width: 100%;
-    font-size: 1.1rem;
+    max-width: 100%;
+    font-size: 1rem;
+    height: 2.75rem;
   }
 
   &:hover {
@@ -264,16 +248,23 @@
   }
 }
 
+/* ─── Cart drawer overlay ────────────────────────── */
 .cartDrawer {
   position: fixed;
   inset: 0;
   display: flex;
   justify-content: flex-end;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 40;
+  align-items: stretch;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
+
+  @include mixins.phone {
+    justify-content: flex-start;   // align panel to the left
+    align-items: flex-start;       // align panel to the top
+  }
 }
 
 .cartDrawerOpen {
@@ -285,164 +276,223 @@
   opacity: 0;
 }
 
+/* ─── Cart drawer panel ──────────────────────────── */
 .cartDrawerInner {
   width: 26rem;
   max-width: 100%;
   height: 100%;
   background: #d9d9d9;
-  padding: 2.5rem 2rem 2rem;
+  padding: 2rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   transform: translateX(100%);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease;
   box-sizing: border-box;
+  overflow-y: auto;
   overflow-x: hidden;
+
+  @include mixins.phone {
+    width: 100%;
+    max-width: 27rem;          
+    margin: 0;                
+    height: auto;
+    max-height: 90dvh;      
+    padding: 1.25rem 1.25rem 1rem;
+    transform: none;         
+    border-radius: 0;
+  }
 }
 
 .cartDrawerOpen .cartDrawerInner {
   transform: translateX(0);
 }
 
+/* ─── Cart drawer header ─────────────────────────── */
 .cartDrawerHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  flex-shrink: 0;
 
   h2 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 600;
     margin: 0;
+  }
+
+  @include mixins.phone {
+    h2 {
+      font-size: 1.1rem;
+    }
   }
 }
 
 .cartClose {
   background: none;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
 }
 
+/* ─── Cart items list ────────────────────────────── */
 .cartItems {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .cartItem {
   display: flex;
-  gap: 1.25rem;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
 .cartItemImage {
-  width: 9rem;
-  height: 6.75rem;
+  width: 8.5rem;
+  height: 6rem;
   background: var(--yv-blue);
   flex-shrink: 0;
   overflow: hidden;
   position: relative;
-  border: 3px solid var(--yv-red);
+  border: 2px solid var(--yv-red);
   border-radius: 0.25rem;
+
+  @include mixins.phone {
+    width: 8rem;
+    height: 5.5rem;
+  }
 }
 
 .cartItemInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
   flex: 1;
+  min-width: 0;
 }
 
 .cartItemName {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cartItemPrice {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
+  font-family: var(--font-body);
 }
 
 .cartItemQuantity {
   display: flex;
-  gap: 0.25rem;
+  gap: 0.2rem;
+  align-items: center;
+  margin-top: 0.15rem;
 }
 
 .cartItemQuantity button {
-  width: 1.5625rem;
-  height: 1.5625rem;
-  border: 3px solid var(--black);
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 2px solid var(--black);
   background: #acaaaa;
   cursor: pointer;
   border-radius: 50%;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: var(--beige);
+  }
 }
 
 .cartItemQuantity span {
-  width: 1.5625rem;
-  height: 1.5625rem;
+  width: 1.9rem;
+  height: 1.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #acaaaa;
-  border: 3px solid var(--black);
-  border-radius: 0.5rem;
+  border: 2px solid var(--black);
+  border-radius: 0.45rem;
+  font-size: 1.05rem;
+  font-family: var(--font-body);
 }
 
+/* ─── Cart drawer footer ─────────────────────────── */
 .cartDrawerFooter {
   border-top: 1px solid var(--black);
-  padding-top: 1rem;
+  padding-top: 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .cartSubtotalRow {
   display: flex;
   justify-content: space-between;
-  font-size: 2rem;
+  font-size: 1.1rem;
+  font-family: var(--font-body);
+  font-weight: 500;
 }
 
 .cartTaxes {
-  font-size: 1.5rem;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  color: var(--gray);
 }
 
 .cartDrawerButtons {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   padding: 0;
-  min-width: 0;
 }
 
 .cartSecondaryButton,
 .cartPrimaryButton {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
   margin: 0;
   border: 3px solid var(--black);
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 12px;
   font-family: var(--font-body);
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  padding: 0.75rem 0.5rem;
-  white-space: nowrap;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.7rem 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-
-  @include mixins.phone {
-    font-size: 0.875rem;
-    padding: 0.65rem 0.35rem;
-  }
+  box-sizing: border-box;
 }
 
 .cartSecondaryButton {
   background: var(--yv-yellow);
+
+  &:hover {
+    background: var(--cream);
+  }
 }
 
 .cartPrimaryButton {
   background: var(--yv-yellow);
   text-decoration: none;
   color: inherit;
+
+  &:hover {
+    background: var(--cream);
+  }
 }
