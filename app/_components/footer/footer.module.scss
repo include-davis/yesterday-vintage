@@ -1,20 +1,19 @@
-@use "../../_globals/mixins.scss" as breakpoint; 
+@use "../../_globals/mixins.scss" as mixins;
 
 .footer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 29.75rem;
   width: 100%;
   background: var(--cloud);
   padding-left: 6.25rem;
   color: var(--black);
   font-family: var(--yv-font-body);
+}
 
-  @include breakpoint.phone {
-    width: 100%;
-    height: 56.875rem;
-    padding-left: 1rem;
-  }
+.topFooter {
+  display: flex;
+  flex-direction: row;
 }
 
 .header {
@@ -22,14 +21,6 @@
   font-size: 1.5rem;
   padding-top: 4rem;
   line-height: 1.75rem;
-
-  @include breakpoint.phone {
-    padding-top: 2rem;
-    width: 11.125rem;
-    height: 1.69rem;
-    font-size: 1.25rem;
-
-  }
 }
 
 .text {
@@ -38,10 +29,6 @@
   line-height: 1.75rem;
   width: 38.125rem;
   margin-top: 1rem;
-
-  @include breakpoint.phone {
-    width: 23rem;
-  }
 }
 
 .info {
@@ -122,25 +109,20 @@
 
 .icons a {
   color: var(--black);
-  margin-top: 0.5rem; 
-}
-
-.copyright {
-  padding-top: 4rem;
-  font-size: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .signup {
   display: flex;
   flex-direction: column;
   margin-left: 7.81rem;
+  margin-top: 4rem;
   font-family: var(--yv-font-body);
 }
 
 .title {
   font-size: 1.125rem;
   font-weight: 500;
-  margin-top: 4rem;
   line-height: 1.875rem;
 }
 
@@ -182,5 +164,93 @@
     background-color: var(--lagoon);
     color: var(--white);
     border-color: #165A6C;
+  }
+}
+
+.copyright {
+  padding-top: 4rem;
+  font-size: 0.75rem;
+}
+
+@include mixins.phone {
+  .footer {
+    width: 100%;
+    height: 56.875rem;
+    padding-left: 1rem;
+  }
+  
+  .topFooter {
+    flex-direction: column;
+  }
+
+  .header {
+    padding-top: 2rem;
+    width: 11.125rem;
+    height: 1.69rem;
+    font-size: 1.25rem;
+  }
+
+  .info {
+    flex-direction: column;
+  }
+
+  .text {
+    width: 23rem;
+    height: 8.07rem;
+    padding-top: 1rem;
+  }
+
+  .address {
+    margin-top: 2.5rem;
+  }
+
+  .socials {
+    margin-left: 0rem;
+  }
+
+  .phone {
+    margin-top: 2.07rem;
+  }
+
+  .phoneNum {
+    margin-top: 1.5rem;
+  }
+
+  .signup {
+    margin-left: 0rem;
+    margin-top: 2.5rem
+  }
+
+  .title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.875rem;
+  }
+
+  .subtitle {
+    margin-top: 0.5rem;
+    width: 23.125rem;
+    height: 3.19rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .form input {
+    width: 23.125rem;
+    height: 1.75rem;
+  }
+
+  .form button {
+    width: 23.125rem;
+    height: 3rem;
+  }
+
+  .copyright {
+    padding-top: 3.5rem;
   }
 }
