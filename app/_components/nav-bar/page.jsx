@@ -135,34 +135,34 @@ export default function NavBar() {
                   </a>
                 </section>
               </div>
-              <div className={styles.signup}>
-                <p className={styles.title}>We Have a Loyalty Program!</p>
-                <p className={styles.subtitle}>Want to stay updated with us? Sign up down below!</p>
-                <form className={styles.form} onSubmit={handleSubmit}>
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <input
-                    type="tel"
-                    placeholder="Phone Number"
-                    required
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                  <button type="submit">Subscribe</button>
-                </form>
-              </div>
+            </div>
+            <div className={styles.signup}>
+              <p className={styles.title}>We Have a Loyalty Program!</p>
+              <p className={styles.subtitle}>Want to stay updated with us? Sign up down below!</p>
+              <form className={styles.form} onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                <button type="submit">Subscribe</button>
+              </form>
             </div>
           </div>
         </div>

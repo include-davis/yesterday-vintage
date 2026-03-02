@@ -93,7 +93,7 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    width: 60%;
+    width: 75%;
     height: 100%;
     background-color: var(--eggshell);
     left: -100%;
@@ -114,6 +114,7 @@
     justify-content: space-between;
     width: 100%;
     height: 4rem;
+    flex-shrink: 0;
   }
 
   .dropLogo {
@@ -160,21 +161,18 @@
   .dropInfo {
     display: flex;
     flex-direction: column;
-    height: 17.375rem;
     padding-left: 1rem;
     font-family: var(--yv-font-body);
     font-size: 1rem;
     font-weight: 400;
     color: var(--black);
     border-bottom: 0.06rem solid var(--canvas);
-
   }
 
   .address {
     display: flex;
     flex-direction: column;
-    width: 15.93rem;
-    height: 5.56rem;
+    width: 100%;
     font-weight: 400;
     line-height: 2.25rem;
     margin-top: 2rem;
@@ -210,6 +208,7 @@
     height: 1.15rem;
     margin-top: 2.06rem;
     margin-right: 1rem;
+    flex-shrink: 0;
   }
 
   .phoneNum {
@@ -222,6 +221,7 @@
     height: 1rem;
     margin-top: 0.75rem;
     margin-right: 0.75rem;
+    flex-shrink: 0;
   }
 
   .email {
@@ -236,6 +236,7 @@
     width: 1.5rem;
     gap: 1.81rem;
     margin-top: 0.5rem;
+    margin-bottom: 2rem;
   }
 
   .icons a {
@@ -247,6 +248,8 @@
     flex-direction: column;
     margin-top: 4rem;
     font-family: var(--yv-font-body);
+    margin-left: 1rem;
+    
   }
 
   .title {
@@ -290,6 +293,7 @@
     border-style: solid;
     font-size: 1rem;
     font-weight: 600;
+    margin-bottom: 4rem;
 
     &:hover {
       background-color: var(--lagoon);
