@@ -10,8 +10,14 @@
     }
 }
 
-@mixin phone {
+@mixin lg-phone {
     @media screen and (max-width: 760px) {
+        @content;
+    }
+}
+
+@mixin md-phone {
+    @media screen and (max-width: 600px) {
         @content;
     }
 }
