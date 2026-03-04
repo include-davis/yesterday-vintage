@@ -1,6 +1,6 @@
 // This is just example code, will need to be reworked
 
-@use "../../_globals/mixins.scss"; 
+@use "../../_globals/mixins.scss" as mixins;
 
 .navBar {
   display: flex;
@@ -15,29 +15,34 @@
   z-index: 100;
 }
 
-.navRight{
+.navLogo {
+  display: flex;
+  padding-left: 6.25rem;
+  align-items: center;
+
+  .logo {
+    width: 9.4rem;
+    height: 1.6rem;
+  }
+}
+
+
+.navRight {
   display: flex;
   align-items: center;
 }
 
 .navLeft {
-  display: flex;
+  display: none;
   align-items: center;
-  padding-left: 6.25rem;
-
-  .logo {
-    width: 9.4rem;
-    height: 1.6rem;
-    align-items: center;
- }
 }
 
- .navCenter {
+.navCenter {
   display: flex;
   gap: 3.25rem;
- }
+}
 
- .navButton {
+.navButton {
   color: var(--black);
   font-family: var(--yv-font-body);
   font-weight: 500;
@@ -53,7 +58,7 @@
   gap: 4rem;
   padding-right: 7.75rem;
 
-  .account{
+  .account {
     width: 1.69rem;
     height: 1.69rem;
   }
@@ -68,21 +73,311 @@
     width: 1.5rem;
     height: 1.5rem;
   }
+}
 
-  .cartBadge {
+@include mixins.tablet {
+  .navLogo {
+    padding-left: 3rem;
+  }
+
+  .navRight {
+    padding-right: 3rem;
+    gap: 2rem;
+  }
+
+  .navCenter {
+    gap: 1.75rem;
+  }
+
+  .navButton {
+    font-size: 1.06rem;
+  }
+}
+
+@include mixins.phone
+{
+  .navBar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .navLeft {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+
+    .hamburgerButton {
+      width: 1.125rem;
+      height: 1rem;
+      cursor: pointer;
+      border: none;
+    }
+  }
+
+  .dropDownMenu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: var(--eggshell);
+    left: -100%;
+    top: 2rem;
+    overflow-y: auto;
+    transition: left 0.75s ease;
+  }
+
+  .dropDownMenu.open {
+    left: 0;
+  }
+
+  .dropHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+    height: 4rem;
+    flex-shrink: 0;
+  }
+
+  .dropLogo {
+    width: 8.125rem;
+    height: 1.375rem;
     position: absolute;
-    top: -0.4rem;
-    right: -0.4rem;
-    min-width: 1.25rem;
-    height: 1.25rem;
-    padding: 0 0.25rem;
-    background: var(--black);
-    color: var(--eggshell);
-    font-size: 0.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .xButton {
+    border: none;
+    cursor: pointer;
+    padding-right: 1.125rem;
+    margin-left: auto;
+
+    img {
+      display: block;
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+  }
+
+  .navButtons {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    gap: 1.5rem;
+    border-top: 0.06rem solid var(--canvas);
+    border-bottom: 0.06rem solid var(--canvas);
+  }
+
+  .navButton {
+    width: 3.625rem;
+    height: 1.5rem;
+    font-family: var(--yv-font-body);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .dropInfo {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    font-family: var(--yv-font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--black);
+    border-bottom: 0.06rem solid var(--canvas);
+  }
+
+  .address {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-weight: 400;
+    line-height: 2.25rem;
+    margin-top: 2rem;
+  }
+
+  .address p {
+    font-size: 1rem;
+  }
+
+  .address a {
+    color: var(--black);
     font-weight: 600;
-    border-radius: 50%;
+    text-decoration: underline;
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: column;
+    color: var(--black);
+    font-family: var(--yv-font-body);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 2.12rem;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .phone {
+    width: 1rem;
+    height: 1.15rem;
+    margin-top: 2.06rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+
+  .phoneNum {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .mail {
+    width: 1.25rem;
+    height: 1rem;
+    margin-top: 0.75rem;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .email {
+    font-size: 1rem;
+    color: var(--black);
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: row;
+    height: 1.5rem;
+    width: 1.5rem;
+    gap: 1.81rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .icons a {
+    color: var(--black);
+  }
+
+  .signup {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    font-family: var(--yv-font-body);
+    margin-left: 1rem;
+    
+  }
+
+  .title {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+    margin-top: 0.5rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    padding-right: 1rem;
+  }
+
+  .form input {
+    width: 100%;
+    height: 1.75rem;
+    border-radius: 0.31rem;
+    border: 0.06rem;
+    border-style: solid;
+    border-color: var(--charcoal);
+    padding-left: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .form button {
+    background-color: var(--white);
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.31rem;
+    border: 0.125rem;
+    border-color: var(--gray);
+    border-style: solid;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+
+    &:hover {
+      background-color: var(--lagoon);
+      color: var(--white);
+      border-color: #165A6C;
+    }
+  }
+
+  .navLogo {
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: center;
+    padding-left: 0;
+
+    .logo {
+      width: 8.125rem;
+      height: 1.375rem;
+    }
   }
+
+  .navCenter {
+    display: none;
+  }
+
+  .navRight {
+    justify-self: end;
+    padding-right: 0;
+    gap: 1.5rem;
+    padding-right: 1rem;
+
+    .account {
+      width: 1.125rem;
+      height: 1.125rem;
+      display: none;
+    }
+
+    .cart {
+      width: 1.25rem;
+      height: 1.25rem;
+      display: none;
+    }
+  }
+}
+
+
+.cartBadge {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.4rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.25rem;
+  background: var(--black);
+  color: var(--eggshell);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

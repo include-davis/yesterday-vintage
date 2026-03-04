@@ -16,13 +16,7 @@
     }
 }
 
-@mixin md-phone {
-    @media screen and (max-width: 600px) {
-        @content;
-    }
-}
-
-@mixin phone {
+@mixin phone-small {
     @media screen and (max-width: 540px) {
         @content;
     }
