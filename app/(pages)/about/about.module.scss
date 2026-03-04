@@ -1,35 +1,202 @@
-// This is just example code, will need to be reworked
+/**
+ * Hello :D i like among us please let us play among us or just any social deduction game for the include social
+ * 
+ * TABLE OF CONTENTS:
+ *   1. SPACES
+ *   2. IMAGES
+ *   3. TEXT
+ * 
+ * CTRL F Shortcuts:
+ *   - '>>' for catagories
+ *   - '?' for stuff that i added but then commented out bc i didnt see any difference / questions
+ *   - '**' for things that would be helpful to uncomment for debugging maybe
+ * 
+ * Classes structure:
+ *   1. Styling/colors/fun stuff
+ *   2. dont touch that shit
+ *   3. Comments
+ * 
+ * hi im sleep deprevied
+ * i need my boba
+ */
 
-@use "../../_globals/mixins.scss"; 
+ @use "../../_globals/mixins.scss"; 
 
-.page {
-//   min-height: 100vh;
-height: 2000px;
-  display: grid;
-  place-items: center;
-  gap: 12px;
-  padding: 48px 24px;
-  text-align: center;
 
-  @include mixins.tablet {
-    padding: 36px 20px;
-  }
 
-  @include mixins.phone {
-    padding: 28px 16px;
-  }
+// >> SPACES
+.container {
+    background-color: var(--white);
+
+    display: flex;
+    flex-direction: column;
+
+    // ? position: relative;
+    // ? justify-content: center;
+}
+
+.content {
+    padding: 5% 1%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.collumn {
+    width: auto;
+    
+    display: flex;
+    flex-direction: column;
+
+    // ** border: 1px solid black;
+}
+
+.row, .pictureRow {
+    margin: 2% 5%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center; // just for that one row of images
+    align-items: flex-start;  
+
+    // ** border: 1px solid black;
+}
+
+.row {
+    padding-bottom: 3%;
+    gap: 9%;
+}
+
+.pictureRow {
+    padding-bottom: 1%;
+    gap: 4%;
+}
+
+.person {
+    gap: 3%;
+    width: 60%;
+
+    flex-wrap: wrap; // this was a copilot suggestion
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // ** border: 1px solid black;
+    // ? align-items: center;
+}
+
+
+
+// >> IMAGES
+.largeImage, .mediumImage, .smallImage, .personImage {
+    flex-shrink: 0;
+    height: auto;
+    object-fit: contain;
+
+    // ** border: 5px solid black;
+}
+
+.largeImage {
+    width: 50%;
+}
+
+.mediumImage {
+    width: 40%;
+}
+
+.smallImage {
+    width: 30%;
+}
+
+.personImage {
+    width: 100%;
+}
+
+
+
+// >> TEXT
+.title, .subtitle, .body, .closingMessage, .personName {
+    color: var(--black);
+    
+    // ** border: 1px solid black;
+    // ? display: flex;
 }
 
 .title {
-  margin: 0;
+    font-family: var(--yv-font-display);
+    background-color: var(--yv-yellow);
+    padding: 8%;
+    font-size: 5rem;
+
+    @include mixins.tablet {
+        font-size: 3rem;
+    }
+
+    @include mixins.phone {
+        font-size: 1rem;
+    }
+
+    display: flex;
+    justify-content: center;
+
+    //font-family: var(--font-display);
+    //font-weight: bolder;
 }
 
-.text {
-  margin: 0;
-  opacity: 0.8;
+.subtitle {
+    font-family: var(--yv-font-display);
+    padding-bottom: 5%;
+    font-size: 3rem;
+
+    @include mixins.tablet {
+        font-size: 1.6rem;
+    }
+
+    @include mixins.phone {
+        font-size: 0.6rem;
+    }
+
+    .red {
+        color: var(--yv-red);
+    }
+
+    // ** border: 1px solid black;
 }
 
-.logo {
-  margin: 0;
-  font-family: var(--font-logo);
+.body, .smallBody, .closingMessage, .personName {
+    font-family: var(--yv-font-body);
+    font-size: 1.5rem; // ? dunno why line breaks are different TwT, gonna assume because of the different fonts
+    line-height: 2.5rem;
+
+    @include mixins.tablet {
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+    }
+
+    @include mixins.phone {
+        font-size: 0.4rem;
+        line-height: 0.7rem;
+    }
+}
+
+.smallBody {
+    padding-right: 6%;
+    
+    // ** border: 1px solid black;
+} 
+
+.closingMessage {
+    width: 80%;
+
+    text-align: center; 
+    margin: 0 auto;
+}
+
+.personName {
+    padding: 9% 0;
+    font-weight: bold;
+
+    text-align: center; 
 }

@@ -1,0 +1,205 @@
+// This is just example code, will need to be reworked
+
+@use "../../_globals/mixins.scss";
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topBar {
+  height: 18rem;
+  font-size: 450%;
+  font-weight: bold;
+  font-family: var(--yv-font-display);
+  background-color: var(--yv-yellow);
+  width: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--black);
+}
+
+.mainSection {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 5rem;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.leftSection {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 5.5rem;
+  justify-content: flex-start;
+  min-width: 20rem;
+}
+
+.filter {
+  display: flex;
+  background-color: var(--yv-yellow);
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 1.5rem;
+  font-family: var(--yv-font-body);
+}
+
+.filterTitle {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  font-family: var(--yv-font-body);
+}
+
+.searchBarWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  color: #000000;
+  pointer-events: none;
+}
+
+.searchBar {
+  width: 100%;
+  padding: 0.6rem 0.8rem 0.6rem 2.2rem;
+  border: 1px solid black;
+  border-radius: 1.6rem;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: rgb(180, 182, 80);
+    box-shadow: 0 0 0 2px rgba(236, 238, 142, 0.5);
+  }
+}
+
+.sizeOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  gap: 1.5rem;
+}
+
+.clothesOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.border {
+  border-top: 1px solid black;
+  margin-top: 1.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding-top: 1.5rem;
+}
+
+.filterOption {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2.5rem;
+
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--yv-yellow);
+    border: 1px solid black;
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    transition: background-color 0.2s ease;
+
+    &::after {
+      content: "";
+      width: 0.35rem;
+      height: 0.65rem;
+      border: solid black;
+      border-width: 1px;
+      transform: rotate(45deg);
+      display: none;
+      margin-bottom: 0.15rem;
+    }
+
+    &:checked::after {
+      display: block;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px rgba(236, 238, 142, 0.5);
+    }
+  }
+}
+
+.priceFilter {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.8rem;
+}
+
+.priceFilterTitle {
+  font-family: var(--yv-font-body);
+}
+
+.priceFilterValue {
+  font-family: var(--yv-font-body);
+  margin-top: -0.9rem;
+}
+
+.priceFilterSlider {
+  font-family: var(--yv-font-body);
+  width: 100%;
+
+  input {
+    width: 100%;
+  }
+}
+
+.rightSection {
+  flex: 3.5;
+  background-color: #ffffff;
+  min-width: 20rem;
+}
+
+.merchandise {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(max(17rem, 33.33%), 1fr));
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.merchandiseTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-family: var(--yv-font-display);
+}
+
+.carouselItem {
+  display: flex;
+  justify-content: center;
+}

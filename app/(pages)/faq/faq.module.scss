@@ -1,0 +1,142 @@
+@use "../../_globals/mixins.scss"; 
+
+.page {
+  // min-height: 100vh;
+  display: grid;
+  place-items: center;
+  // gap: 12px;
+  // padding: 48px 24px;
+  text-align: center;
+
+  @include mixins.tablet {
+    padding: 36px 20px;
+  }
+
+  @include mixins.phone {
+    padding: 28px 16px;
+  }
+}
+
+.title {
+    font-family: Fraunces;
+    width: 100%;
+    background-color: #fff1b9;
+    padding: 7rem 0;
+    display: flex;
+    justify-content: center;
+}
+.container{
+  padding-top: 5rem;
+  padding-right: 12.81rem;
+  padding-left: 12.81rem;
+  padding-bottom: 5rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.faq {
+    border: 4px solid #B24A4F;
+    border-radius: 20px;
+    background-color: white;
+    width: 80%; 
+    overflow: hidden;
+    
+    
+}
+.content {
+  display: flex;
+  align-items: center;  
+  flex: 1;
+  gap: 0;
+}
+.question{
+    display: flex;
+    width: 100%;
+    background-color: #fafafa;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    
+}
+
+.answer{
+    display: flex;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    width: 100%;
+    background-color: #F4D9DA;
+    text-align: left;
+    font-size: 1.5rem;
+    padding-right: 6.1875;
+}
+
+.letter{
+  color: var(--Black, #212529);
+  flex: 0 0 120px;
+  width: 120px;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 64px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.textQ{
+  flex: 1;
+  font-family: Fraunces;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 48px;
+  flex: 1;
+  font-size: 1.5rem;
+  padding-top: .875 rem;
+  padding-bottom: 1.1875 rem;
+}
+
+.textA{
+  flex: 1;
+  color: var(--Black, #212529);
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  padding-top: .8125 rem;
+  padding-bottom: 1.4375 rem;
+}
+
+.arrow{
+  display: flex;
+  align-items: right;
+  padding-right: 20px;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  //transition: transform 0.3s ease; // Smooth animation
+  
+  img {
+    width: 20px; // Adjust size as needed
+    height: auto;
+    transform-origin: center;
+  }
+
+
+  &.isOpen {
+    transform: scaleY(-1);
+  }
+}
