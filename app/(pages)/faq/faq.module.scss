@@ -155,12 +155,7 @@
   flex: 1;
   font-size: 1.5rem;
 
-<<<<<<< HEAD
   @include mixins.lg-phone {
-=======
-  @include mixins.phone {
-    font-weight: 700;
->>>>>>> 448ce09 (final mobile)
     font-size: 1.25rem;
     line-height: 1.3;
   }
