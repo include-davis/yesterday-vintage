@@ -353,29 +353,31 @@
     .account {
       width: 1.125rem;
       height: 1.125rem;
+      display: none;
     }
 
     .cart {
       width: 1.25rem;
       height: 1.25rem;
+      display: none;
     }
   }
 }
 
-  .cartBadge {
-    position: absolute;
-    top: -0.4rem;
-    right: -0.4rem;
-    min-width: 1.25rem;
-    height: 1.25rem;
-    padding: 0 0.25rem;
-    background: var(--black);
-    color: var(--eggshell);
-    font-size: 0.7rem;
-    font-weight: 600;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
+.cartBadge {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.4rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.25rem;
+  background: var(--black);
+  color: var(--eggshell);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
