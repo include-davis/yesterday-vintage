@@ -94,7 +94,7 @@
   }
 }
 
-@include mixins.phone
+@include mixins.phone-small
 {
   .navBar {
     display: grid;

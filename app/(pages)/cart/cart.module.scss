@@ -30,7 +30,7 @@
     margin-top: 0.25rem;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     height: auto;
     font-size: 200%;
     padding: 2.25rem 1rem;
@@ -47,7 +47,7 @@
     padding: 3rem 2rem 4rem;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     max-width: 100%;
     margin: 0;
     padding: 2rem 1rem 3rem;
@@ -84,7 +84,7 @@
   font-size: 1.5rem;
   font-weight: 300;
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     font-size: 1.1rem;
   }
 }
@@ -93,7 +93,7 @@
   margin-top: 0;
   margin-bottom: 4rem;
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     margin-bottom: 3rem;
   }
 }
@@ -112,7 +112,7 @@
     gap: 2.5rem;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
@@ -135,7 +135,7 @@
     height: 13rem;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     width: 100%;
     max-width: 12rem;
     height: auto;
@@ -187,7 +187,7 @@
     background: var(--beige);
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     width: 2.5rem;
     height: 2.5rem;
     font-size: 1.1rem;
@@ -206,7 +206,7 @@
   font-size: 1.5rem;
   border-radius: 0.75rem;
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     width: 2.5rem;
     height: 2.5rem;
     font-size: 1.1rem;
@@ -224,7 +224,7 @@
     font-weight: 400;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     margin-top: 2rem;
     margin-bottom: 2rem;
 
@@ -240,7 +240,7 @@
   font-size: 2rem;
   font-weight: 400;
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     font-size: 1.1rem;
     text-align: left;
   }
@@ -253,7 +253,7 @@
   text-align: right;
   font-family: var(--font-body);
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     font-size: 0.85rem;
     text-align: left;
     word-wrap: break-word;
@@ -284,7 +284,7 @@
     background: #bfbcbc;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     float: none;
     width: 100%;
     max-width: 100%;

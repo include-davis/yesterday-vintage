@@ -18,7 +18,7 @@
         align-items: center;
     }
 
-    @include phone {
+    @include phone-small {
         width: 78%;
         align-items: center;
     }
@@ -74,7 +74,7 @@
             width: 100%;
         }
 
-        @include phone {
+        @include phone-small {
             width: 110%;
         }
     }

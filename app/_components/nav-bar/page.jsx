@@ -173,7 +173,7 @@ export default function NavBar() {
           </div>
         </div>
         <div className={styles.navLogo}>
-          <Link href="/home">
+          <Link href="/">
             <svg
               className={styles.logo}
               viewBox="0 0 151 26"

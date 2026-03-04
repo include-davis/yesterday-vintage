@@ -13,7 +13,7 @@
     padding: 3rem 2rem 4rem;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     max-width: 26rem;
     padding: 1.5rem 1rem 2.5rem;
   }
@@ -32,7 +32,7 @@
     text-decoration: underline;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
   }
@@ -47,7 +47,7 @@
     gap: 3rem;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     flex-direction: column;
     gap: 2rem;
   }
@@ -71,7 +71,7 @@
     height: 20rem;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     width: 100%;
     max-width: 20rem;
     margin: 0 0 1.5rem;
@@ -93,7 +93,7 @@
     max-width: 24rem;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     max-width: 100%;
   }
 }
@@ -104,7 +104,7 @@
   font-weight: 600;
   margin-bottom: 1rem;
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     font-size: 2rem;
   }
 }
@@ -120,7 +120,7 @@
     letter-spacing: 0.04em;
     color: var(--gray);
 
-    @include mixins.phone {
+    @include mixins.phone-small {
       font-size: 1rem;
     }
   }
@@ -136,7 +136,7 @@
     color: var(--gray);
     margin-bottom: 0.25rem;
 
-    @include mixins.phone {
+    @include mixins.phone-small {
       font-size: 1rem;
     }
   }
@@ -151,7 +151,7 @@
       font-family: var(--font-body);
       color: var(--gray);
 
-      @include mixins.phone {
+      @include mixins.phone-small {
         font-size: 1rem;
       }
     }
@@ -164,7 +164,7 @@
   font-weight: 500;
   font-family: var(--font-body);
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     font-size: 1.75rem;
   }
 }
@@ -181,7 +181,7 @@
   font-family: var(--font-body);
   color: var(--gray);
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     font-size: 1rem;
   }
 }
@@ -190,7 +190,7 @@
   display: flex;
   gap: 0.25rem;
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     justify-content: flex-start;
   }
 }
@@ -212,7 +212,7 @@
     background: var(--beige);
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     width: 2.5rem;
     height: 2.5rem;
     font-size: 1.1rem;
@@ -231,7 +231,7 @@
   font-size: 1.5rem;
   border-radius: 0.75rem;
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     width: 2.5rem;
     height: 2.5rem;
     font-size: 1.1rem;
@@ -254,7 +254,7 @@
   font-family: var(--font-body);
   box-sizing: border-box;
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     width: 100%;
     font-size: 1.1rem;
   }
@@ -431,7 +431,7 @@
   justify-content: center;
   text-align: center;
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     font-size: 0.875rem;
     padding: 0.65rem 0.35rem;
   }
