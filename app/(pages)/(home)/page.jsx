@@ -46,14 +46,14 @@ export default function Home() {
 
       <section className={styles["welcome"]}>
 
-        <div className={styles["welcome-content"]}> 
+        <div className={styles["welcome-content"]}>
           <h1 className={styles.title}>Welcome to <span className={styles["title-red"]}>Yesterday!</span></h1>
-          <p className ={styles["welcome-text"]}> We are a locally owned and operated vintage clothing and accessories store located in Davis, California. We carry clothing in sizes XS-3X for all genders, spanning from the 60s to the early 2000s. Come stop by and say hi!</p>
+          <p className={styles["welcome-text"]}> We are a locally owned and operated vintage clothing and accessories store located in Davis, California. We carry clothing in sizes XS-3X for all genders, spanning from the 60s to the early 2000s. Come stop by and say hi!</p>
           <a href="#" className={styles["learn-more-button"]}>Learn More</a>
         </div>
 
         <div className={styles["welcome-image"]}>
-          <img src="/images/welcome-section.png" alt="Welcome Image"/>
+          <img src="/images/welcome-section.png" alt="Welcome Image" />
         </div>
 
       </section>
@@ -126,7 +126,7 @@ export default function Home() {
         <div className={styles["social-container"]}>
           <h1 className={styles.title}><span className={styles["title-red"]}>Follow us on social!</span></h1>
           <div className={styles["social-img-container"]}>
-            
+
             <div className={styles["social-card"]}>
               <img
                 className={styles["social-image"]}
@@ -177,7 +177,7 @@ export default function Home() {
                 <span className={styles["social-label"]}>Facebook</span>
               </a>
             </div>
-            
+
           </div>
 
 
