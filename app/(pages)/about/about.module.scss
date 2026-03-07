@@ -85,9 +85,9 @@
     // ** border: 1px solid black;
 }
 
-.row > :first-child {
+.row .mediumImage {
      @include mixins.phone {
-        padding-bottom: 5%;
+        padding-top: 8%;
     }
 }
 
@@ -95,7 +95,10 @@
     padding-bottom: 1%;
     gap: 4%;
 
-    flex-wrap: wrap;
+    //width: 100%;
+     @include mixins.phone {
+        flex-wrap: wrap;
+    }
 }
 
 .person {
@@ -121,7 +124,10 @@
     flex-direction: column-reverse;
 }
 
-
+.invert {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 // >> IMAGES
 .largeImage, .mediumImage, .smallImage, .personImage {
@@ -137,6 +143,7 @@
 
     @include mixins.phone {
         width: 100%;
+        padding-bottom: 6%;
     }
 }
 
@@ -152,7 +159,8 @@
     width: 30%;
 
     @include mixins.phone {
-        width: 100%;
+        width: 46.5%;
+        margin-bottom: 6%;
     }
 }
 
@@ -229,6 +237,12 @@
     }
 }
 
+.body, .smallBody {
+    @include mixins.phone {
+        padding-bottom: 4%;
+    }
+}
+
 .smallBody {
     padding-right: 6%;
 
@@ -244,6 +258,13 @@
 
     text-align: center; 
     margin: 0 auto;
+
+    @include mixins.phone {
+        width: 90%;
+        text-align: left;
+        padding-top: 4%;
+        padding-bottom: 7%;
+    }
 }
 
 .personName {

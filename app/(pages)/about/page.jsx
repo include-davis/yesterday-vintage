@@ -67,15 +67,18 @@ export default function AboutUs() {
                 </div>
 
                 {/** Closing Section */}
+                <div className={styles.invert}>
                 <div className={styles.pictureRow}>
                     <Image className={styles.smallImage} src={closing1} alt={"All the staff smiling in one photo."} />
                     <Image className={styles.smallImage} src={closing2} alt={"All staff talking over cake."} />
+                    <Image className={styles.smallImage} src={closing3} alt={"All the staff smiling in one photo."} />
                     <Image className={styles.smallImage} src={closing3} alt={"All the staff smiling in one photo."} />
                 </div>
                 <div className={styles.closingMessage}>
                     As we approach the new year, we’re excited to tie up some loose ends in our shop, and bring our complete vision to life! We feel humbled to have made it this far, and we are ever-indebted to our Davis community. Whether you have been following us from the very beginning, or you just discovered us today, Yesterday wouldn’t be possible without you all. 
                     <br /> <br />
                     Love, Donbi, Michaela, Stevie, & Jack 
+                </div>
                 </div>
 
             </div>
