@@ -14,7 +14,7 @@
     padding: 36px 20px;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     padding: 28px 16px;
   }
 }

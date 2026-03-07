@@ -1,0 +1,224 @@
+@use "../../_globals/mixins.scss" as m;
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.eventsRectangle {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include m.lg-phone {
+    width: 100%;
+    height: 180px;
+    opacity: 1;
+  }
+}
+
+.yellowBackground {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  background-color: #fff1b9;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  @include m.lg-phone {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+.title {
+  position: relative;
+  z-index: 2;
+  font-family: Fraunces, serif;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 72px;
+  letter-spacing: 0.75%;
+  text-align: center;
+
+  @include m.lg-phone {
+    color: var(--Black, #212529);
+    font-family: Fraunces;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.24px;
+  }
+}
+
+.calendarSection {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 80px 100px 100px 100px;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include m.lg-phone {
+    width: 100%;
+    height: 323px;
+    left: 0;
+    opacity: 1;
+    margin: 0 auto;
+    padding: 5%;
+  }
+}
+
+.calendarBackground {
+  padding: 32px 36px 32px 36px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1240 / 1080;
+  background-color: #b24a4f;
+  border-radius: 20px;
+  z-index: 1;
+
+  @include m.lg-phone {
+    width: 83%;
+    aspect-ratio: 1240 / 1080;
+    background-color: #b24a4f;
+    border-radius: 20px;
+    z-index: 1;
+    padding: 5%;
+  }
+}
+
+.calendarSection iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.upcomingEvents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+  max-width: 504px;
+  aspect-ratio: 5 / 8;
+  opacity: 1;
+  border-radius: 20px;
+  border: 5px solid hsla(0, 0%, 17%, 1);
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  .eventScroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 52px 32px 52px;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  @include m.lg-phone {
+    width: 90%;
+    height: auto;
+    opacity: 1;
+  }
+}
+
+.eventHeader {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.eventHeader h2 {
+  color: hsla(356, 76%, 43%, 1);
+  font-size: 48px;
+  margin: 0;
+}
+
+.smallRectangle {
+  width: 100%;
+  height: 48px;
+  background: #d9d9d9;
+  border-radius: 20px;
+
+  @include m.lg-phone {
+    width: 90%;
+  }
+}
+
+.eventInfo h3 {
+  width: 100%;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
+  color: #000000;
+  height: auto;
+  margin-bottom: 3rem;
+  opacity: 1;
+
+  @include m.lg-phone {
+    width: 80%;
+    padding-left: 5%;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  @include m.lg-phone {
+    padding-bottom: 10%;
+  }
+}
+
+.mainImage {
+  width: 55%;
+  max-width: 610px;
+  min-width: 61px;
+  aspect-ratio: 3/4;
+  height: auto;
+  border: 5px solid hsla(0, 0%, 17%, 1);
+  border-radius: 20px;
+
+  @include m.lg-phone {
+    opacity: 1;
+    position: relative;
+    width: 90%;
+    height: auto;
+  }
+}
+
+.eventsPlusImage {
+  display: flex;
+  margin-bottom: 80px;
+  padding: 0px 100px 0px 100px;
+  width: 100%;
+  height: 100%;
+  gap: 8.75%;
+  justify-content: center;
+  align-items: stretch;
+
+  @include m.lg-phone {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    padding: 0 5%;
+  }
+}

@@ -236,6 +236,8 @@
     @include mixins.phone {
         font-size: 1.6rem;
         padding: 12%;
+    @include mixins.phone-small {
+        font-size: 1rem;
     }
 
     display: flex;
@@ -257,6 +259,8 @@
     @include mixins.phone {
         font-size: 1.6rem;
         text-align: center;
+    @include mixins.phone-small {
+        font-size: 0.6rem;
     }
 
     .red {
@@ -285,6 +289,9 @@
 .body, .smallBody {
     @include mixins.phone {
         padding-bottom: 4%;
+    @include mixins.phone-small {
+        font-size: 0.4rem;
+        line-height: 0.7rem;
     }
 }
 

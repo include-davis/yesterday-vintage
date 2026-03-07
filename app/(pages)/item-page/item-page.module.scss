@@ -1,0 +1,448 @@
+@use "../../_globals/mixins.scss";
+
+.page {
+  max-width: 75rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 4rem 6rem 5rem;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  @include mixins.tablet {
+    padding: 3rem 2rem 4rem;
+  }
+
+  @include mixins.phone-small {
+    max-width: 26rem;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+}
+
+.back {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--black);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include mixins.phone-small {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 7rem;
+
+  @include mixins.tablet {
+    gap: 3rem;
+  }
+
+  @include mixins.phone-small {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 26rem;
+  height: 18rem;
+  background: var(--yv-blue);
+  flex-shrink: 0;
+  border: 5px solid var(--yv-red);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  max-width: 100%;
+
+  @include mixins.tablet {
+    width: 100%;
+    height: 20rem;
+  }
+
+  @include mixins.phone-small {
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 0 1.5rem;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    flex-shrink: 1;
+  }
+}
+
+.info {
+  flex: 1;
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+
+  @include mixins.tablet {
+    max-width: 24rem;
+  }
+
+  @include mixins.phone-small {
+    max-width: 100%;
+  }
+}
+
+.name {
+  font-family: var(--font-body);
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+
+  @include mixins.phone-small {
+    font-size: 2rem;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  p {
+    font-size: 1.5rem;
+    font-family: var(--font-body);
+    letter-spacing: 0.04em;
+    color: var(--gray);
+
+    @include mixins.phone-small {
+      font-size: 1rem;
+    }
+  }
+}
+
+.options {
+  margin-top: 1rem;
+
+  .optionsLabel {
+    font-size: 1.5rem;
+    font-family: var(--font-body);
+    letter-spacing: 0.04em;
+    color: var(--gray);
+    margin-bottom: 0.25rem;
+
+    @include mixins.phone-small {
+      font-size: 1rem;
+    }
+  }
+
+  ul {
+    padding-left: 1.25rem;
+    list-style: disc;
+
+    li {
+      font-size: 1.5rem;
+      line-height: 1.4;
+      font-family: var(--font-body);
+      color: var(--gray);
+
+      @include mixins.phone-small {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.price {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+
+  @include mixins.phone-small {
+    font-size: 1.75rem;
+  }
+}
+
+.quantitySection {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quantityLabel {
+  font-size: 1.5rem;
+  font-family: var(--font-body);
+  color: var(--gray);
+
+  @include mixins.phone-small {
+    font-size: 1rem;
+  }
+}
+
+.quantity {
+  display: flex;
+  gap: 0.25rem;
+
+  @include mixins.phone-small {
+    justify-content: flex-start;
+  }
+}
+
+.quantityBtn {
+  width: 3.375rem;
+  height: 3.375rem;
+  border: 3px solid var(--black);
+  background: #acaaaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+
+  &:hover {
+    background: var(--beige);
+  }
+
+  @include mixins.phone-small {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+.quantityNum {
+  width: 3.375rem;
+  height: 3.375rem;
+  border: 3px solid var(--black);
+  background: #acaaaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  border-radius: 0.75rem;
+
+  @include mixins.phone-small {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+.addToCart {
+  margin-top: 1rem;
+  width: 25rem;
+  max-width: 100%;
+  height: 2.75rem;
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  background: var(--yv-yellow);
+  border: 3px solid var(--black);
+  cursor: pointer;
+  border-radius: 15px;
+  font-family: var(--font-body);
+  box-sizing: border-box;
+
+  @include mixins.phone-small {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  &:hover {
+    background: var(--cream);
+  }
+}
+
+.cartDrawer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cartDrawerOpen {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.cartDrawerClosed {
+  opacity: 0;
+}
+
+.cartDrawerInner {
+  width: 26rem;
+  max-width: 100%;
+  height: 100%;
+  background: #d9d9d9;
+  padding: 2.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.cartDrawerOpen .cartDrawerInner {
+  transform: translateX(0);
+}
+
+.cartDrawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
+
+.cartClose {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.cartItems {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+.cartItem {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.cartItemImage {
+  width: 9rem;
+  height: 6.75rem;
+  background: var(--yv-blue);
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid var(--yv-red);
+  border-radius: 0.25rem;
+}
+
+.cartItemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.cartItemName {
+  font-size: 1.75rem;
+}
+
+.cartItemPrice {
+  font-size: 1.75rem;
+}
+
+.cartItemQuantity {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.cartItemQuantity button {
+  width: 1.5625rem;
+  height: 1.5625rem;
+  border: 3px solid var(--black);
+  background: #acaaaa;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.cartItemQuantity span {
+  width: 1.5625rem;
+  height: 1.5625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #acaaaa;
+  border: 3px solid var(--black);
+  border-radius: 0.5rem;
+}
+
+.cartDrawerFooter {
+  border-top: 1px solid var(--black);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cartSubtotalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+.cartTaxes {
+  font-size: 1.5rem;
+}
+
+.cartDrawerButtons {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+  min-width: 0;
+}
+
+.cartSecondaryButton,
+.cartPrimaryButton {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  border: 3px solid var(--black);
+  cursor: pointer;
+  border-radius: 15px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 0.5rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  @include mixins.phone-small {
+    font-size: 0.875rem;
+    padding: 0.65rem 0.35rem;
+  }
+}
+
+.cartSecondaryButton {
+  background: var(--yv-yellow);
+}
+
+.cartPrimaryButton {
+  background: var(--yv-yellow);
+  text-decoration: none;
+  color: inherit;
+}
