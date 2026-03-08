@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @mixin sm-desktop {
     @media screen and (max-width: 1280px) {
         @content;
@@ -20,4 +21,28 @@
     @media screen and (max-width: 540px) {
         @content;
     }
+=======
+@mixin sm-desktop {
+    @media screen and (max-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 1048px) {
+        @content;
+    }
+}
+
+@mixin lg-phone {
+    @media screen and (max-width: 760px) {
+        @content;
+    }
+}
+
+@mixin phone-small {
+    @media screen and (max-width: 540px) {
+        @content;
+    }
+>>>>>>> f8112d402a0273c2cffdb9b5452064476a798cca
 }
