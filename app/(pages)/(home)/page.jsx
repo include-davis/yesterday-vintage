@@ -47,14 +47,16 @@ export default function Home() {
     <main className={styles.page}>
 
       <section className={styles["banner-container"]}>
-        <div className={`${styles["banner-item"]} ${styles.left}`}>
-          <img src="/images/left-banner.png" alt="Picture left" />
-        </div>
-        <div className={`${styles["banner-item"]} ${styles.center}`}>
-          <img src="/images/center-banner.png" alt="Middle picture" />
-        </div>
-        <div className={`${styles["banner-item"]} ${styles.right}`}>
-          <img src="/images/right-banner.png" alt="Picture right" />
+        <div className={styles["banner-desktop"]}>
+          <div className={`${styles["banner-item"]} ${styles.left}`}>
+            <img src="/images/left-banner.png" alt="Picture left" />
+          </div>
+          <div className={`${styles["banner-item"]} ${styles.center}`}>
+            <img src="/images/center-banner.png" alt="Middle picture" />
+          </div>
+          <div className={`${styles["banner-item"]} ${styles.right}`}>
+            <img src="/images/right-banner.png" alt="Picture right" />
+          </div>
         </div>
 
 
