@@ -10,6 +10,12 @@
     }
 }
 
+@mixin phone {
+    @media screen and (max-width: 760px) {
+        @content;
+    }
+}
+
 @mixin lg-phone {
     @media screen and (max-width: 760px) {
         @content;
