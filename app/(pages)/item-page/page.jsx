@@ -41,74 +41,79 @@ export default function ItemPage() {
   if (!product) {
     return (
       <main className={styles.page}>
-        <Link href="/shop" className={styles.back}>
-          Back to shop
-        </Link>
-        <p>Product not found.</p>
+        <div className={styles.topBar}>Shop</div>
+        <div className={styles.inner}>
+          <Link href="/shop" className={styles.back}>
+            Back to shop
+          </Link>
+          <p>Product not found.</p>
+        </div>
       </main>
     );
   }
 
   return (
     <main className={styles.page}>
-      <button className={styles.back} onClick={() => router.back()}>
-        Back
-      </button>
+      <div className={styles.topBar}>Shop</div>
+      <div className={styles.inner}>
+        <button className={styles.back} onClick={() => router.back()}>
+          Back
+        </button>
 
-      <div className={styles.container}>
-        <div className={styles.imageWrapper}>
-          <Image
-            src="/assets/logo.png"
-            alt={product.title}
-            fill
-            style={{ objectFit: "contain" }}
-            sizes="(max-width: 540px) 100vw, (max-width: 1048px) 50vw, 505px"
-          />
-        </div>
-
-        <div className={styles.info}>
-          <h2 className={styles.name}>{product.title}</h2>
-
-          <div className={styles.description}>
-            <p>ABOUT THE PRODUCT</p>
-            <p>ABOUT THE PRODUCT</p>
-            <p>ABOUT THE PRODUCT</p>
+        <div className={styles.container}>
+          <div className={styles.imageWrapper}>
+            <Image
+              src="/assets/logo.png"
+              alt={product.title}
+              fill
+              style={{ objectFit: "contain" }}
+              sizes="(max-width: 540px) 100vw, (max-width: 1048px) 50vw, 505px"
+            />
           </div>
 
-          <div className={styles.options}>
-            <p className={styles.optionsLabel}>OPTIONS</p>
-            <ul>
-              <li>{product.size}</li>
-            </ul>
-          </div>
+          <div className={styles.info}>
+            <h2 className={styles.name}>{product.title}</h2>
 
-          <p className={styles.price}>${product.price}</p>
-
-          <div className={styles.quantitySection}>
-            <p className={styles.quantityLabel}>Quantity</p>
-            <div className={styles.quantity}>
-              <button className={styles.quantityBtn} onClick={handleDecrease}>
-                -
-              </button>
-              <span className={styles.quantityNum}>{quantity}</span>
-              <button className={styles.quantityBtn} onClick={handleIncrease}>
-                +
-              </button>
+            <div className={styles.description}>
+              <p>ABOUT THE PRODUCT</p>
+              <p>ABOUT THE PRODUCT</p>
+              <p>ABOUT THE PRODUCT</p>
             </div>
-          </div>
 
-          <button className={styles.addToCart} onClick={handleAddToCart}>
-            ADD TO CART
-          </button>
+            <div className={styles.options}>
+              <p className={styles.optionsLabel}>OPTIONS</p>
+              <ul>
+                <li>{product.size}</li>
+              </ul>
+            </div>
+
+            <p className={styles.price}>${product.price}</p>
+
+            <div className={styles.quantitySection}>
+              <p className={styles.quantityLabel}>Quantity</p>
+              <div className={styles.quantity}>
+                <button className={styles.quantityBtn} onClick={handleDecrease}>
+                  -
+                </button>
+                <span className={styles.quantityNum}>{quantity}</span>
+                <button className={styles.quantityBtn} onClick={handleIncrease}>
+                  +
+                </button>
+              </div>
+            </div>
+
+            <button className={styles.addToCart} onClick={handleAddToCart}>
+              ADD TO CART
+            </button>
+          </div>
         </div>
       </div>
 
       <div
-        className={`${styles.cartDrawer} ${
-          showCart ? styles.cartDrawerOpen : styles.cartDrawerClosed
-        }`}
+        className={`${styles.cartDrawer} ${showCart ? styles.cartDrawerOpen : styles.cartDrawerClosed}`}
+        onClick={() => setShowCart(false)}
       >
-        <div className={styles.cartDrawerInner}>
+        <div className={styles.cartDrawerInner} onClick={(e) => e.stopPropagation()}>
           <div className={styles.cartDrawerHeader}>
             <h2>Shopping Cart</h2>
             <button

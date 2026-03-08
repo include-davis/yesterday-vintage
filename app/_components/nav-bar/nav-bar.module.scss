@@ -94,8 +94,7 @@
   }
 }
 
-@include mixins.phone-small
-{
+@include mixins.phone-small {
   .navBar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -125,6 +124,7 @@
     top: 2rem;
     overflow-y: auto;
     transition: left 0.75s ease;
+    z-index: 200;
   }
 
   .dropDownMenu.open {
@@ -274,7 +274,7 @@
     margin-top: 4rem;
     font-family: var(--yv-font-body);
     margin-left: 1rem;
-    
+
   }
 
   .title {
@@ -359,7 +359,7 @@
     .cart {
       width: 1.25rem;
       height: 1.25rem;
-      display: none;
+      display: flex;
     }
   }
 }
