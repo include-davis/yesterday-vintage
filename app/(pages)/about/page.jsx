@@ -7,11 +7,16 @@ import closing2 from '../../../public/Images/closing2.png';
 import closing3 from '../../../public/Images/closing3.png';
 
 import allStaff from '../../../public/Images/about/allStaff.svg';
+import uncroppedAllStaff from '../../../public/Images/about/uncroppedAllStaff.svg';
 
 import MichaelaLanders from '../../../public/Images/MichaelaLanders.png';
 import DonbiKim from '../../../public/Images/DonbiKim.png';
 import StevieTat from '../../../public/Images/StevieTat.png';
 import JackHalet from '../../../public/Images/JackHatlet.png';
+
+import clothing from '../../../public/Images/about/clothing.svg';
+import staffPose from '../../../public/Images/about/staffPose.svg';
+
 
 import cutCake from '../../../public/Images/about/cutCake.svg';
 import rack from '../../../public/Images/about/rack.svg';
@@ -35,8 +40,8 @@ export default function AboutUs() {
             {/** Title */}
             <h1 className={styles.title}>About Us</h1>
 
-            {/** Here's Our Story Section */}
-            <Image src={allStaff} alt={"All staff talking over cake."} className={styles.largeImage} />
+            {/** Here's Our Story Section */} {/** Fix cropping!! */}
+            <Image src={uncroppedAllStaff} alt={"All staff talking over cake."} className={styles.largeImage} />
 
             <div className={styles.content}>
 
@@ -66,10 +71,18 @@ export default function AboutUs() {
                     ))}
                 </div>
 
+                <div className={styles.hidden} > 
+                    <Image className={styles.image} src={clothing} alt={"All the staff smiling in one photo."} />
+                    <Image className={styles.image} src={staffPose} alt={"All the staff smiling in one photo."} />
+                </div>
+
                 {/** Other Images */}
                 <div className={styles.wideRow}>
                     <Image className={styles.image} src={cutCake} alt={"All the staff smiling in one photo."} />
                     <Image className={styles.image} src={shelf} alt={"All the staff smiling in one photo."} />
+                    <div className={styles.hidden} >
+                        <Image className={styles.image} src={rack} alt={"All the staff smiling in one photo."} />
+                    </div>
                     <Image className={styles.image} src={talkCake} alt={"All the staff smiling in one photo."} />
                 </div>
 

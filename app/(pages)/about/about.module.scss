@@ -22,6 +22,23 @@
 
  @use "../../_globals/mixins.scss"; 
 
+.hidden {
+    display: none;
+
+    @include mixins.lg-phone {
+        display: flex;
+    }
+}
+
+.content > .hidden {
+    @include mixins.lg-phone {
+        display: flex;
+        flex-direction: column;
+        padding: 13% 0;
+        row-gap: 4rem;
+    }
+}
+
  // >> SPACES
 .container {
     background-color: var(--white);
@@ -39,24 +56,43 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include mixins.lg-phone {
+        padding: 7% 3%;
+        padding-bottom: 15%;
+    }
 }
 
+$row-gap: 3%;
+
 .row, .wideRow{
-    padding-top: 5%;
+    padding-top: 5%; //15%;
     width: 100%;
-    gap: 3%;
+    gap: $row-gap;
 
     display: flex;
     flex-direction: row;
     justify-content: center; // just for that one row of images
     align-items: flex-start;  
 
-    //overflow: hidden;
-    border: 1px solid black;
+    @include mixins.lg-phone {
+        padding-top: 15%;
+        flex-wrap: wrap;
+        row-gap: 1.5rem; 
+    }
+
+    // ** overflow: hidden;
+    // ** border: 1px solid black;
 }
 
 .wideRow {
     gap: 5%;
+
+    @include mixins.lg-phone {
+        padding-top: 0;
+        gap: $row-gap;
+        row-gap: 1.5rem;
+    }
 }
 
 .person {
@@ -67,12 +103,22 @@
 // >> IMAGES
 .largeImage {
     width: 100%;
-    height: auto;
+    height: 50%;
+
+    @include mixins.lg-phone {
+        height: auto;
+    }
 }
 
 .image {
     width: 100%;
     height: auto;
+}
+
+.row .person, .wideRow > .image, .wideRow .hidden {
+    @include mixins.lg-phone {
+        width: calc(50% - ($row-gap / 2)); 
+    }
 }
 
 // >> TEXT
@@ -81,10 +127,15 @@
     color: var(--black);
     font-weight: lighter;
     padding: 8%;
-    font-size: 5rem;
+    font-size: 3.5rem;
 
     display: flex;
     justify-content: center;
+
+    @include mixins.lg-phone {
+        font-size: 2rem;
+        padding: 15%;
+    }
 
     //font-family: var(--font-display);
     //font-weight: bolder;
@@ -92,8 +143,19 @@
 
 .body, .personName {
     font-family: var(--yv-font-body);
+    color: var(--black);
     font-size: 1.5rem; // ? dunno why line breaks are different TwT, gonna assume because of the different fonts
     line-height: 2.5rem;
+
+    @include mixins.tablet {
+        font-size: 0.9rem;
+        line-height: 1.625rem;
+    }
+
+    @include mixins.lg-phone {
+        font-size: 1rem;
+        line-height: 1.625rem;
+    }
 }
 
 .personName {
