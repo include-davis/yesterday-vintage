@@ -34,32 +34,54 @@
 }
 
 .content {
-    padding: 5% 1%;
+    padding: 3.5% 6%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
 
-    @include mixins.phone {
-        padding: 5% 0;
-    }
+.row, .wideRow{
+    padding-top: 5%;
+    width: 100%;
+    gap: 3%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center; // just for that one row of images
+    align-items: flex-start;  
+
+    //overflow: hidden;
+    border: 1px solid black;
+}
+
+.wideRow {
+    gap: 5%;
+}
+
+.person {
+    width: 100%;
+    height: auto;
+}
+
+// >> IMAGES
+.largeImage {
+    width: 100%;
+    height: auto;
+}
+
+.image {
+    width: 100%;
+    height: auto;
 }
 
 // >> TEXT
 .title {
     font-family: var(--yv-font-display);
-    background-color: var(--yv-yellow);
+    color: var(--black);
+    font-weight: lighter;
     padding: 8%;
     font-size: 5rem;
-
-    @include mixins.tablet {
-        font-size: 3rem;
-    }
-
-    @include mixins.phone {
-        font-size: 1.6rem;
-        padding: 12%;
-    }
 
     display: flex;
     justify-content: center;
@@ -68,7 +90,20 @@
     //font-weight: bolder;
 }
 
-/*
+.body, .personName {
+    font-family: var(--yv-font-body);
+    font-size: 1.5rem; // ? dunno why line breaks are different TwT, gonna assume because of the different fonts
+    line-height: 2.5rem;
+}
+
+.personName {
+    font-family: var(--yv-font-display);
+    font-weight: lighter;
+
+    text-align: center; 
+}
+
+/* all of my work....
 // >> SPACES
 .container {
     background-color: var(--white);

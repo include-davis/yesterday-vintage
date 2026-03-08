@@ -5,10 +5,19 @@ import paragraphs from '../../../public/Images/paragraphs.png';
 import closing1 from '../../../public/Images/closing1.png';
 import closing2 from '../../../public/Images/closing2.png';
 import closing3 from '../../../public/Images/closing3.png';
+
+import allStaff from '../../../public/Images/about/allStaff.svg';
+
 import MichaelaLanders from '../../../public/Images/MichaelaLanders.png';
 import DonbiKim from '../../../public/Images/DonbiKim.png';
 import StevieTat from '../../../public/Images/StevieTat.png';
 import JackHalet from '../../../public/Images/JackHatlet.png';
+
+import cutCake from '../../../public/Images/about/cutCake.svg';
+import rack from '../../../public/Images/about/rack.svg';
+import shelf from '../../../public/Images/about/shelf.svg';
+import talkCake from '../../../public/Images/about/talkCake.svg';
+
 
 export default function AboutUs() {
 
@@ -27,7 +36,7 @@ export default function AboutUs() {
             <h1 className={styles.title}>About Us</h1>
 
             {/** Here's Our Story Section */}
-            <Image src={ourstory} alt={"All staff talking over cake."} className={styles.largeImage} />
+            <Image src={allStaff} alt={"All staff talking over cake."} className={styles.largeImage} />
 
             <div className={styles.content}>
 
@@ -48,21 +57,20 @@ export default function AboutUs() {
                 </div>
 
                 {/** Staff */}
-                <div className={styles.pictureRow}>
+                <div className={styles.row}>
                     {people.map((person) => (
                         <div key={person.name} className={styles.person}>
-                            <Image className={styles.personImage} src={person.imgsrc} alt={person.alt} />
+                            <Image className={styles.image} src={person.imgsrc} alt={person.alt} />
                             <p className={styles.personName}>{person.name}</p>
                         </div>
                     ))}
                 </div>
 
                 {/** Other Images */}
-                <div className={styles.pictureRow}>
-                    <Image className={styles.image} src={closing1} alt={"All the staff smiling in one photo."} />
-                    <Image className={styles.image} src={closing2} alt={"All staff talking over cake."} />
-                    <Image className={styles.image} src={closing3} alt={"All the staff smiling in one photo."} />
-                    <Image className={styles.image} src={closing3} alt={"All the staff smiling in one photo."} />
+                <div className={styles.wideRow}>
+                    <Image className={styles.image} src={cutCake} alt={"All the staff smiling in one photo."} />
+                    <Image className={styles.image} src={shelf} alt={"All the staff smiling in one photo."} />
+                    <Image className={styles.image} src={talkCake} alt={"All the staff smiling in one photo."} />
                 </div>
 
             </div>
