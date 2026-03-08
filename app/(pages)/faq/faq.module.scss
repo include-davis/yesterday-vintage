@@ -1,140 +1,149 @@
-@use "../../_globals/mixins.scss"; 
+@use "../../_globals/mixins.scss";
 
 .page {
-  // min-height: 100vh;
   display: grid;
   place-items: center;
-  // gap: 12px;
-  // padding: 48px 24px;
   text-align: center;
-
-  @include mixins.tablet {
-    padding: 36px 20px;
-  }
-
-  @include mixins.phone {
-    padding: 28px 16px;
-  }
 }
 
 .title {
-    font-family: Fraunces;
-    width: 100%;
-    background-color: #fff1b9;
-    padding: 7rem 0;
-    display: flex;
-    justify-content: center;
+  font-family: Fraunces;
+  width: 100%;
+  background-color: #fff1b9;
+  padding: 7rem 0;
+  display: flex;
+  justify-content: center;
+
+  @include mixins.lg-phone {
+    padding: 3rem 0;
+    font-size: 32px;
+  }
 }
-.container{
-  padding-top: 5rem;
-  padding-right: 12.81rem;
-  padding-left: 12.81rem;
-  padding-bottom: 5rem;
+
+.container {
+  padding: 5rem 12.8125rem;
   width: 100%;
   height: 100%;
   display: flex;
-  gap: 2rem;
   flex-direction: column;
   align-items: center;
   gap: 4rem;
+
+  @include mixins.tablet {
+    padding: 3rem 4rem;
+    gap: 3rem;
+  }
+
+  @include mixins.lg-phone {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
 }
 
 .faq {
-    border: 4px solid #B24A4F;
-    border-radius: 20px;
-    background-color: white;
-    width: 80%; 
-    overflow: hidden;
-    
-    
+  border: 4px solid #b24a4f;
+  border-radius: 20px;
+  background-color: white;
+  width: 80%;
+  overflow: hidden;
+
+  @include mixins.tablet {
+    width: 90%;
+  }
+
+  @include mixins.lg-phone {
+    width: 100%;
+  }
 }
+
 .content {
   display: flex;
-  align-items: center;  
+  align-items: center;
   flex: 1;
-  gap: 0;
-}
-.question{
-    display: flex;
-    width: 100%;
-    background-color: #fafafa;
-    text-align: left;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    
 }
 
-.answer{
-    display: flex;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 30px;
-    width: 100%;
-    background-color: #F4D9DA;
-    text-align: left;
-    font-size: 1.5rem;
-    padding-right: 6.1875;
+.question {
+  display: flex;
+  width: 100%;
+  background-color: #fafafa;
+  text-align: left;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  padding: 0.813rem 0 1.125rem 0;
+
+  @include mixins.lg-phone {
+    padding: 0.75rem 0 0.5rem 0;
+  }
 }
 
-.letter{
+.answer {
+  display: flex;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 30px;
+  width: 100%;
+  background-color: #f4d9da;
+  text-align: left;
+  font-size: 1.5rem;
+  padding: 0.813rem 6.1875rem 1.125rem 0;
+
+  @include mixins.lg-phone {
+    font-weight: 400;
+    padding: 0.8461rem 1.875rem 0.923rem 0;
+  }
+}
+
+.letter {
   color: var(--Black, #212529);
-  flex: 0 0 120px;
+  flex: 0 0 7.5rem;
   width: 120px;
   font-family: Inter;
   font-size: 40px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 64px; 
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
-.textQ{
+.textQ {
   flex: 1;
   font-family: Fraunces;
-  font-size: 32px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 48px;
-  flex: 1;
   font-size: 1.5rem;
-  padding-top: .875 rem;
-  padding-bottom: 1.1875 rem;
 }
 
-.textA{
+.textA {
   flex: 1;
   color: var(--Black, #212529);
   font-family: Inter;
-  font-size: 18px;
-  font-style: normal;
   font-weight: 500;
   line-height: 30px;
-  padding-top: .8125 rem;
-  padding-bottom: 1.4375 rem;
-}
+  font-size: 1.125rem;
 
-.arrow{
-  display: flex;
-  align-items: right;
-  padding-right: 20px;
+  a {
+    text-decoration: underline;
+    color: inherit;
+  }
+
+  @include mixins.lg-phone {
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 400;
+  }
 }
 
 .arrow {
   display: flex;
   align-items: center;
-  //transition: transform 0.3s ease; // Smooth animation
-  
+  padding-right: 20px;
+
   img {
-    width: 20px; // Adjust size as needed
+    width: 20px;
     height: auto;
     transform-origin: center;
   }
-
 
   &.isOpen {
     transform: scaleY(-1);

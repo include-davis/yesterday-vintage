@@ -23,7 +23,7 @@
   place-items: center;
   color: var(--black);
 
-  @include phone {
+  @include phone-small {
     font-size: 300%;
   }
 }
@@ -300,6 +300,11 @@
   @include lg-phone {
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
+  }
+
+  @include phone-small {
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 }
 
