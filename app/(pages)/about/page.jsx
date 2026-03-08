@@ -4,7 +4,7 @@ import Image from 'next/image';
 import uncroppedAllStaff from '../../../public/Images/about/uncroppedAllStaff.svg';
 
 import MichaelaLanders from '../../../public/Images/about/MichaelaLanders.svg';
-import DonbiKim from '../../../public/Images/DonbiKim.svg';
+import DonbiKim from '../../../public/Images/about/DonbiKim.svg';
 import StevieTat from '../../../public/Images/about/StevieTat.svg';
 import JackHalet from '../../../public/Images/about/JackHatlet.svg';
 
