@@ -56,8 +56,8 @@
 
 .welcome {
   display: flex;
-  gap: 60px;
-  padding: 80px 100px;
+  gap: clamp(24px, 4vw, 60px);
+  padding: 80px clamp(16px, 6vw, 100px);
   max-width: 1440px;
   margin: 0 auto;
   align-items: flex-start;
@@ -65,6 +65,7 @@
 
 .welcome-content {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -84,8 +85,8 @@
 .welcome-text {
   margin: 0;
   font-family: var(--yv-font-body);
-  width: 609px;
-  height: 209px;
+  width: min(609px, 100%);
+  height: auto;
   font-weight: 500;
   font-size: 24px;
   line-height: 40px;
@@ -94,21 +95,23 @@
 
 .welcome-image {
   flex: 1;
+  min-width: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
 .welcome-image-desktop {
-  width: 525px;
-  height: 400px;
-  // border-radius: 20px;
+  width: clamp(320px, 44vw, 610px);
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
   // border: 5px solid black;
   object-fit: cover;
   display: block;
 }
 
-.welcome-image-mobile {
+.welcome-image-mobile-grid {
   display: none;
 }
 
@@ -140,25 +143,31 @@
   align-items: center;
   flex-direction: row;
   background-color: var(--lagoon);
-  gap: 100px;
+  gap: clamp(24px, 6vw, 100px);
   border-radius: 40px;
-  width: 1239px;
-  height: 633px;
+  width: min(1239px, 100%);
+  min-height: 633px;
+  height: auto;
+  padding: clamp(24px, 3vw, 40px);
+  box-sizing: border-box;
   margin: 0 auto;
 
-  @include mixins.phone {
-    flex-direction: row; // Stack elements vertically
-    width: 100%;           // Fill mobile screen width
-    height: auto;          // Let content dictate height
-    padding: 40px 20px;    // Add breathing room
-    gap: 30px;             // Tighten gap for mobile
-    border-radius: 0;      // Usually flat edges on mobile
+  @include mixins.lg-phone {
+    flex-direction: row;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 24px 16px;
+    gap: 16px;
+    border-radius: 0;
   }
 }
 
 .event-card {
-  width: 715px;
-  height: 475px;
+  width: clamp(300px, 56vw, 715px);
+  max-width: 100%;
+  aspect-ratio: 715 / 475;
+  height: auto;
 
   .event-image-desktop {
     display: block;
@@ -171,7 +180,7 @@
     display: none;
   }
 
-  @include mixins.phone {
+  @include mixins.lg-phone {
     width: 191px;          // Based on Rectangle 59 in Figma
     height: 264px;
     margin: 0 auto;
@@ -183,8 +192,9 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 50px;
+  min-width: 0;
 
-  @include mixins.phone {
+  @include mixins.lg-phone {
     gap: 8px;
     align-items: center;   // Center text/button for mobile
     text-align: center;
@@ -200,7 +210,7 @@
   line-height: 72px; /* 128.571% */
   letter-spacing: 0.42px;
 
-    @include mixins.phone {
+    @include mixins.lg-phone {
       font-size: 28px;       // Scaled down from 56px
       line-height: 1;
       align-self: flex-start; // Keeps "Events" left-aligned as per Figma
@@ -217,7 +227,7 @@
   font-size: 20px;
   line-height: 40px; /* 200% */
 
-    @include mixins.phone {
+    @include mixins.lg-phone {
       font-size: 16px;
       line-height: 26px;
       align-items: flex-start;
@@ -239,7 +249,7 @@
   font-size: 20px;
   font-weight: bold;
 
-  @include mixins.phone {
+  @include mixins.lg-phone {
     width: 160px;          // Slightly smaller button
     height: 50px;
     font-size: 16px;
@@ -275,14 +285,6 @@
   background: var(--yv-yellow);
   width: min(1028px, 100%);
   height: 228px;
-
-  .stars {
-    margin-top: 10px;
-  }
-
-  .author {
-    margin: 0;
-  }
 }
 
 .reviews-mobile {
@@ -309,7 +311,8 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 24px;
+  gap: 13px;
+  padding-top: 36px;
   width: 51.5625rem;
   height: 100%;
 }
@@ -324,13 +327,16 @@
 
 .text {
   font-family: var(--yv-font-body);
+  font-size: 16px;
   margin: 0;
+  font-weight: 400;
+  line-height: 30px;
 }
 
 .author {
-  font-family: var(--yv-font-body);
-  font-size: 14px;
-  margin: auto 0 0;
+  font-family: var(--yv-font-display);
+  font-size: 24px;
+  margin: 0;
 }
 
 .right-arrow {
@@ -406,7 +412,7 @@
   line-height: 1;
 }
 
-@include mixins.phone {
+@include mixins.lg-phone {
   .banner-item {
     display: none;
   }
@@ -472,11 +478,35 @@
     display: none;
   }
 
-  .welcome-image-mobile {
-    display: block;
+  .welcome-image-mobile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .welcome-image-mobile-grid img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 0;
+  }
+
+  .welcome-image-mobile-grid img:nth-child(1) {
+    border-radius: 10px 0 0 0;
+  }
+
+  .welcome-image-mobile-grid img:nth-child(2) {
+    border-radius: 0 10px 0 0;
+  }
+
+  .welcome-image-mobile-grid img:nth-child(3) {
+    border-radius: 0 0 0 10px;
+  }
+
+  .welcome-image-mobile-grid img:nth-child(4) {
+    border-radius: 0 0 10px 0;
   }
 
 
@@ -500,14 +530,16 @@
   }
 
   .events-container {
-    width: 402px;
-    height: 328px;
+    width: min(402px, 100%);
+    max-width: 100%;
+    height: auto;
     margin-top: 40px;
   }
 
   .event-card {
-    width: 191px;
-    height: 264px;
+    width: min(191px, 48%);
+    height: auto;
+    aspect-ratio: 191 / 264;
     border-radius: 0px;
   }
 
@@ -570,6 +602,14 @@
   .review-text,
   .review-card {
     font-size: 16px;
+  }
+
+  .review-card .author {
+    font-size: 24px;
+  }
+
+  .review-card .text {
+    font-size: 13px;
   }
 
   .social-img-container {
