@@ -14,10 +14,10 @@ export async function POST(request) {
     });
 
     await transporter.sendMail({
-        from: `"Yesterday Vintage Website" <${process.env.SMTP_USER}>`,
-        to: "yesterdayvintagetest@gmail.com",
-        subject: "New Signup",
-        text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}`,
+        from: `"Yesterday Rewards" <${process.env.SMTP_USER}>`,
+        to: email,
+        subject: "[IMPORTANT] Yesterday Rewards Signup",
+        text: `Welcome to Yesterday Rewards ${name}! Thank you for joining our rewards program!\nBelow is your submitted user information:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`,
     });
 
     return new Response(null, { status: 200});
