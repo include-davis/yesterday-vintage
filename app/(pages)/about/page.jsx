@@ -1,18 +1,12 @@
 import styles from './about.module.scss';
 import Image from 'next/image';
-import ourstory from '../../../public/Images/ourstory.png'; // use import so it can size :3
-import paragraphs from '../../../public/Images/paragraphs.png';
-import closing1 from '../../../public/Images/closing1.png';
-import closing2 from '../../../public/Images/closing2.png';
-import closing3 from '../../../public/Images/closing3.png';
 
-import allStaff from '../../../public/Images/about/allStaff.svg';
 import uncroppedAllStaff from '../../../public/Images/about/uncroppedAllStaff.svg';
 
-import MichaelaLanders from '../../../public/Images/MichaelaLanders.png';
-import DonbiKim from '../../../public/Images/DonbiKim.png';
-import StevieTat from '../../../public/Images/StevieTat.png';
-import JackHalet from '../../../public/Images/JackHatlet.png';
+import MichaelaLanders from '../../../public/Images/about/MichaelaLanders.svg';
+import DonbiKim from '../../../public/Images/DonbiKim.svg';
+import StevieTat from '../../../public/Images/about/StevieTat.svg';
+import JackHalet from '../../../public/Images/about/JackHatlet.svg';
 
 import clothing from '../../../public/Images/about/clothing.svg';
 import staffPose from '../../../public/Images/about/staffPose.svg';
