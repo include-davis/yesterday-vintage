@@ -134,7 +134,7 @@
         font-size: 3rem;
     }
 
-    @include mixins.phone {
+    @include mixins.phone-small {
         font-size: 1rem;
     }
 
@@ -154,7 +154,7 @@
         font-size: 1.6rem;
     }
 
-    @include mixins.phone {
+    @include mixins.phone-small {
         font-size: 0.6rem;
     }
 
@@ -175,7 +175,7 @@
         line-height: 1.5rem;
     }
 
-    @include mixins.phone {
+    @include mixins.phone-small {
         font-size: 0.4rem;
         line-height: 0.7rem;
     }

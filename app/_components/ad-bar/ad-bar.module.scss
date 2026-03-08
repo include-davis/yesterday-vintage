@@ -1,6 +1,6 @@
 // This is just example code, will need to be reworked
 
-@use "../../_globals/mixins.scss"; 
+@use "../../_globals/mixins.scss" as breakpoint; 
 
 .adBar {
   display: flex;
@@ -13,6 +13,12 @@
   left: 0;
   z-index: 100;
   overflow: hidden;
+
+  @include breakpoint.phone-small {
+    width: 100%;
+    height: 2rem;
+    top: 0;
+  }
 }
 
 .scroller {

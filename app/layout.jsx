@@ -2,7 +2,7 @@ import { Inter, Fraunces } from "next/font/google";
 import "./_globals/globals.scss";
 import { CartProvider } from "./_context/CartContext";
 import AdBar from "./_components/ad-bar/page.jsx";
-import NavBar from "./_components/nav-bar/page.jsx"; 
+import NavBar from "./_components/nav-bar/page.jsx";
 import Footer from "./_components/footer/page.jsx";
 
 const inter = Inter({
