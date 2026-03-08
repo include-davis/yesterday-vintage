@@ -105,6 +105,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include mixins.tablet {
+    flex: 0 0 90px;
+    width: 90px;
+    font-size: 32px;
+  }
+
+  @include mixins.lg-phone {
+    flex: 0 0 60px;
+    width: 60px;
+    font-size: 24px;
+  }
+}
+
+  @include mixins.tablet {
+    flex: 0 0 90px;
+    width: 90px;
+    font-size: 32px;
+  }
+
+  @include mixins.phone {
+    flex: 0 0 60px;
+    width: 60px;
+    font-size: 24px;
+  }
 }
 
 .textQ {
@@ -120,12 +145,6 @@
   font-family: Inter;
   font-weight: 500;
   line-height: 30px;
-  font-size: 1.125rem;
-
-  a {
-    text-decoration: underline;
-    color: inherit;
-  }
 
   @include mixins.lg-phone {
     font-size: 1rem;
