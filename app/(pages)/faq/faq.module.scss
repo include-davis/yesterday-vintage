@@ -68,8 +68,8 @@
   padding: 1rem 0 1rem 1.6875rem;
   gap: 2.315rem;
 
-  @include mixins.lg-phone{
-    padding: 0 0 0 1rem ;
+  @include mixins.lg-phone {
+    padding: 0 0 0 1rem;
     gap: 0.4375rem;
   }
 }
@@ -123,46 +123,47 @@
     font-size: 24px;
   }
 
-.textQ {
-  flex: 1;
-  font-family: var(--yv-font-body);
-  font-weight: 600;
-  font-size: 1.5rem;
-}
-
-.textA {
-  flex: 1;
-  color: var(--Black, #212529);
-  font-family: var(--yv-font-body);
-  font-weight: 500;
-  line-height: 30px;
-
-  @include mixins.lg-phone {
-    font-size: 1rem;
-    line-height: 1.4;
-    font-weight: 400;
-    padding-left: 0.24rem;
-  }
-}
-
-.arrow {
-  padding-right: 3.0625rem;
-
-  img {
-    width: 20px;
-    height: auto;
-    transform-origin: center;
+  .textQ {
+    flex: 1;
+    font-family: var(--yv-font-body);
+    font-weight: 600;
+    font-size: 1.5rem;
   }
 
-  &.isOpen {
-    transform: scaleY(-1);
+  .textA {
+    flex: 1;
+    color: var(--Black, #212529);
+    font-family: var(--yv-font-body);
+    font-weight: 500;
+    line-height: 30px;
+
+    @include mixins.lg-phone {
+      font-size: 1rem;
+      line-height: 1.4;
+      font-weight: 400;
+      padding-left: 0.24rem;
+    }
   }
 
-  @include mixins.lg-phone{
-    padding-right: 1.125;
-  }
-}
+  .arrow {
+    padding-right: 3.0625rem;
 
-.shopsLink {
-  border-bottom: 2px solid black;
+    img {
+      width: 20px;
+      height: auto;
+      transform-origin: center;
+    }
+
+    &.isOpen {
+      transform: scaleY(-1);
+    }
+
+    @include mixins.lg-phone {
+      padding-right: 1.125;
+    }
+  }
+
+  .shopsLink {
+    border-bottom: 2px solid black;
+  }
 }
