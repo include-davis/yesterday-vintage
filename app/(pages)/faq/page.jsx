@@ -10,7 +10,7 @@ const faqs = [
     answer: (
       <>
         We are open every day of the week 12:00 PM - 6:00 PM! Check our Google
-        Calendar on the <Link href="/shop">Shops</Link> page to see our holiday
+        Calendar on the <Link href="/shop" className={styles.shopsLink}>Shops</Link> page to see our holiday
         schedules.
       </>
     ),
@@ -30,7 +30,7 @@ const faqs = [
     answer: (
       <>
         We are open every day of the week 12:00 PM - 6:00 PM! Check our Google
-        Calendar on the <Link href="/shop">Shops</Link> page to see our holiday
+        Calendar on the <Link href="/shop" className={styles.shopsLink}>Shops</Link> page to see our holiday
         schedules.
       </>
     ),
@@ -40,7 +40,7 @@ const faqs = [
     answer: (
       <>
         We are open every day of the week 12:00 PM - 6:00 PM! Check our Google
-        Calendar on the <Link href="/shop">Shops</Link> page to see our holiday
+        Calendar on the <Link href="/shop" className={styles.shopsLink}>Shops</Link> page to see our holiday
         schedules.
       </>
     ),
