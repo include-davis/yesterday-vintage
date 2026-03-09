@@ -213,7 +213,7 @@ export default function NavBar() {
           ))}
         </div>
         <div className={styles.navRight}>
-          <Link href="/account">
+          <Link href="">
           <svg
             className={styles.account}
             width="27"
