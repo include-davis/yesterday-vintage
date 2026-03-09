@@ -1,21 +1,54 @@
 @use "../../_globals/mixins.scss";
 
 .page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.topBar {
+  height: 18rem;
+  font-size: 450%;
+  font-weight: bold;
+  font-family: var(--yv-font-display);
+  background-color: white;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--black);
+  text-align: center;
+
+  @include mixins.tablet {
+    height: 12rem;
+    font-size: 300%;
+  }
+
+  @include mixins.phone-small {
+    height: auto;
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 1.25rem 1rem;
+  }
+}
+
+.inner {
   max-width: 75rem;
   width: 100%;
   margin: 0 auto;
-  padding: 4rem 6rem 5rem;
-  font-family: var(--font-body);
-  overflow-x: hidden;
+  padding: clamp(1rem, 2vw, 1.75rem) clamp(1.25rem, 6vw, 6rem) clamp(1.5rem, 3vw, 3.5rem);
   box-sizing: border-box;
 
   @include mixins.tablet {
-    padding: 3rem 2rem 4rem;
+    padding: 1.5rem 2rem 4rem;
   }
 
   @include mixins.phone-small {
     max-width: 26rem;
-    padding: 1.5rem 1rem 2.5rem;
+    padding: 1rem 1rem 2.5rem;
   }
 }
 
@@ -23,70 +56,63 @@
   background: none;
   border: none;
   padding: 0;
-  margin-bottom: 3rem;
-  font-size: 2rem;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  font-size: clamp(1rem, 2vw, 1.5rem);
   cursor: pointer;
   color: var(--black);
+  font-family: var(--font-body);
 
   &:hover {
     text-decoration: underline;
   }
 
   @include mixins.phone-small {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
 .container {
   display: flex;
   align-items: flex-start;
-  gap: 7rem;
-
-  @include mixins.tablet {
-    gap: 3rem;
-  }
+  gap: clamp(1.25rem, 5vw, 5rem);
 
   @include mixins.phone-small {
     flex-direction: column;
-    gap: 2rem;
+    align-items: stretch;
   }
 }
 
 .imageWrapper {
   position: relative;
-  width: 26rem;
-  height: 18rem;
+  width: clamp(16rem, 38%, 28rem);
+  aspect-ratio: 7 / 5;
+  height: auto;
   background: var(--yv-blue);
   flex-shrink: 0;
-  border: 5px solid var(--yv-red);
+  border: none;
   border-radius: 0.5rem;
   overflow: hidden;
   box-sizing: border-box;
 
-  max-width: 100%;
-
   @include mixins.tablet {
-    width: 100%;
-    height: 20rem;
+    width: clamp(16rem, 45%, 26rem);
   }
 
   @include mixins.phone-small {
     width: 100%;
-    max-width: 20rem;
-    margin: 0 0 1.5rem;
-    height: auto;
+    max-width: 100%;
     aspect-ratio: 4 / 3;
-    flex-shrink: 1;
+    border-width: 3px;
   }
 }
 
 .info {
   flex: 1;
-  max-width: 20rem;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
   font-family: var(--font-body);
 
   @include mixins.tablet {
@@ -102,35 +128,52 @@
   font-family: var(--font-body);
   font-size: 2.5rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin: 0;
 
   @include mixins.phone-small {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 1rem;
   }
 }
 
 .description {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1.5px solid #e0e0e0;
+  margin: 0;
+
+  @include mixins.phone-small {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 
   p {
-    font-size: 1.5rem;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     font-family: var(--font-body);
     letter-spacing: 0.04em;
     color: var(--gray);
 
     @include mixins.phone-small {
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
   }
 }
 
 .options {
-  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1.5px solid #e0e0e0;
+  margin: 0;
+
+  @include mixins.phone-small {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 
   .optionsLabel {
-    font-size: 1.5rem;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     font-family: var(--font-body);
     letter-spacing: 0.04em;
     color: var(--gray);
@@ -144,12 +187,14 @@
   ul {
     padding-left: 1.25rem;
     list-style: disc;
+    margin: 0;
 
     li {
-      font-size: 1.5rem;
-      line-height: 1.4;
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      line-height: 1.6;
       font-family: var(--font-body);
       color: var(--gray);
+      text-transform: uppercase;
 
       @include mixins.phone-small {
         font-size: 1rem;
@@ -159,25 +204,27 @@
 }
 
 .price {
-  margin: 0.5rem 0;
-  font-size: 2rem;
-  font-weight: 500;
+  margin: 0;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  font-weight: 400;
   font-family: var(--font-body);
+  color: var(--black);
 
   @include mixins.phone-small {
-    font-size: 1.75rem;
+    font-size: 2rem;
+    font-weight: 700;
   }
 }
 
 .quantitySection {
-  margin-top: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
+  margin-bottom: 0;
 }
 
 .quantityLabel {
-  font-size: 1.5rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   font-family: var(--font-body);
   color: var(--gray);
 
@@ -196,8 +243,8 @@
 }
 
 .quantityBtn {
-  width: 3.375rem;
-  height: 3.375rem;
+  width: clamp(2.25rem, 3.5vw, 2.75rem);
+  height: clamp(2.25rem, 3.5vw, 2.75rem);
   border: 3px solid var(--black);
   background: #acaaaa;
   display: flex;
@@ -206,7 +253,7 @@
   cursor: pointer;
   border-radius: 50%;
   font-family: var(--font-body);
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
 
   &:hover {
     background: var(--beige);
@@ -220,8 +267,8 @@
 }
 
 .quantityNum {
-  width: 3.375rem;
-  height: 3.375rem;
+  width: clamp(2.25rem, 3.5vw, 2.75rem);
+  height: clamp(2.25rem, 3.5vw, 2.75rem);
   border: 3px solid var(--black);
   background: #acaaaa;
   display: flex;
@@ -239,12 +286,11 @@
 }
 
 .addToCart {
-  margin-top: 1rem;
-  width: 25rem;
-  max-width: 100%;
-  height: 2.75rem;
+  width: 100%;
+  height: clamp(2.75rem, 4vw, 3rem);
   padding: 0;
-  font-size: 1.5rem;
+  margin-top: 0;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 500;
   letter-spacing: 0.07em;
   background: var(--yv-yellow);
@@ -256,7 +302,11 @@
 
   @include mixins.phone-small {
     width: 100%;
-    font-size: 1.1rem;
+    max-width: 100%;
+    font-size: 1.05rem;
+    height: 3.25rem;
+    margin-top: 0.5rem;
+    border-radius: 15px;
   }
 
   &:hover {
@@ -264,16 +314,24 @@
   }
 }
 
+/* ── Cart Drawer ─────────────────────────────────────── */
+
 .cartDrawer {
   position: fixed;
   inset: 0;
   display: flex;
   justify-content: flex-end;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 40;
+  align-items: stretch;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
+
+  @include mixins.phone-small {
+    justify-content: center;
+    align-items: flex-start;
+  }
 }
 
 .cartDrawerOpen {
@@ -286,33 +344,51 @@
 }
 
 .cartDrawerInner {
-  width: 26rem;
+  width: clamp(20rem, 30vw, 28rem);
   max-width: 100%;
   height: 100%;
   background: #d9d9d9;
-  padding: 2.5rem 2rem 2rem;
+  padding: clamp(1.25rem, 2vw, 2rem) clamp(1rem, 1.5vw, 1.5rem) clamp(1rem, 1.5vw, 1.5rem);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   transform: translateX(100%);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
+  overflow-y: auto;
   overflow-x: hidden;
+  border-radius: 0;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+
+  @include mixins.phone-small {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 85dvh;
+    transform: translateY(-100%);
+    border-radius: 0 0 0.75rem 0.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  }
 }
 
 .cartDrawerOpen .cartDrawerInner {
   transform: translateX(0);
+
+  @include mixins.phone-small {
+    transform: translateY(0);
+  }
 }
 
 .cartDrawerHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  flex-shrink: 0;
 
   h2 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 600;
     margin: 0;
   }
 }
@@ -320,112 +396,145 @@
 .cartClose {
   background: none;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
 }
 
 .cartItems {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .cartItem {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.75rem;
+  align-items: flex-start;
 }
 
 .cartItemImage {
-  width: 9rem;
-  height: 6.75rem;
+  width: clamp(7rem, 14vw, 12rem);
+  aspect-ratio: 4 / 3;
+  height: auto;
   background: var(--yv-blue);
   flex-shrink: 0;
   overflow: hidden;
   position: relative;
-  border: 3px solid var(--yv-red);
-  border-radius: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+
+  @include mixins.phone-small {
+    width: 5rem;
+    aspect-ratio: 3 / 4;
+  }
 }
 
 .cartItemInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
   flex: 1;
+  min-width: 0;
 }
 
 .cartItemName {
-  font-size: 1.75rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-family: var(--font-body);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cartItemPrice {
-  font-size: 1.75rem;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-family: var(--font-body);
 }
 
 .cartItemQuantity {
   display: flex;
-  gap: 0.25rem;
-}
-
-.cartItemQuantity button {
-  width: 1.5625rem;
-  height: 1.5625rem;
-  border: 3px solid var(--black);
-  background: #acaaaa;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.cartItemQuantity span {
-  width: 1.5625rem;
-  height: 1.5625rem;
-  display: flex;
+  gap: 0.2rem;
   align-items: center;
-  justify-content: center;
-  background: #acaaaa;
-  border: 3px solid var(--black);
-  border-radius: 0.5rem;
+  margin-top: 0.15rem;
+
+  button {
+    width: 1.9rem;
+    height: 1.9rem;
+    border: 2px solid var(--black);
+    background: #acaaaa;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: var(--beige);
+    }
+  }
+
+  span {
+    width: 1.9rem;
+    height: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #acaaaa;
+    border: 2px solid var(--black);
+    border-radius: 0.45rem;
+    font-size: 1.05rem;
+    font-family: var(--font-body);
+  }
 }
 
 .cartDrawerFooter {
   border-top: 1px solid var(--black);
-  padding-top: 1rem;
+  padding-top: 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .cartSubtotalRow {
   display: flex;
   justify-content: space-between;
-  font-size: 2rem;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  font-family: var(--font-body);
+  font-weight: 500;
 }
 
 .cartTaxes {
-  font-size: 1.5rem;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  color: var(--gray);
 }
 
 .cartDrawerButtons {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   padding: 0;
-  min-width: 0;
 }
 
 .cartSecondaryButton,
 .cartPrimaryButton {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
   margin: 0;
   border: 3px solid var(--black);
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 12px;
   font-family: var(--font-body);
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  padding: 0.75rem 0.5rem;
-  white-space: nowrap;
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.7rem 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -439,10 +548,18 @@
 
 .cartSecondaryButton {
   background: var(--yv-yellow);
+
+  &:hover {
+    background: var(--cream);
+  }
 }
 
 .cartPrimaryButton {
   background: var(--yv-yellow);
   text-decoration: none;
   color: inherit;
+
+  &:hover {
+    background: var(--cream);
+  }
 }
