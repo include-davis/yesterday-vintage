@@ -65,7 +65,7 @@ export default function Home() {
 
   return (
     <main className={styles.page}>
-      <div className={styles.topBar}>Shop</div>
+      {/* <div className={styles.topBar}>Shop</div> */}
       <div className={styles.mainSection}>
         <div className={styles.leftSection}>
           <div className={styles.filterContainer}>

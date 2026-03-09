@@ -1,11 +1,23 @@
-import styles from "./home.module.scss";
+"use client";
+import styles from "./header.module.scss";
+import { usePathname } from "next/navigation";
 
-export default function Home() {
+const headers = [
+  { label: "About Us", href: "/about" },
+  { label: "Events", href: "/events" },
+  { label: "Shop", href: "/shop" },
+  { label: "Frequently Asked Questions", href: "/faq" },
+];
+
+export default function Header() {
+  const pathName = usePathname();
+  const title = headers.find(p => p.href === pathName)?.label;
+
   return (
-    <main className={styles.page}>
-      <h1 className={styles.title}>Fraunces heading test</h1>
-      <p className={styles.text}>Inter body test</p>
-      <p className={styles.logo}>BOTCH TEST</p>
-    </main>
+    title && (
+      <div className={styles.header}>
+        <h1>{title}</h1>
+      </div>
+    )
   );
 }

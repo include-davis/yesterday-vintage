@@ -50,7 +50,7 @@ const faqs = [
 export default function FAQ() {
   return (
     <main className={styles.page}>
-      <h1 className={styles.title}>Frequently Asked Questions</h1>
+      {/* <h1 className={styles.title}>Frequently Asked Questions</h1> */}
       <div className={styles.container}>
         {faqs.map((faq, index) => (
           <FreqQ key={index} question={faq.question} answer={faq.answer} />

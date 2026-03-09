@@ -32,7 +32,7 @@ export default function AboutUs() {
     return (
         <div className={styles.container}>
             {/** Title */}
-            <h1 className={styles.title}>About Us</h1>
+            {/* <h1 className={styles.title}>About Us</h1> */}
 
             {/** Here's Our Story Section */} {/** Fix cropping!! */}
             <Image src={uncroppedAllStaff} alt={"All staff talking over cake."} className={styles.largeImage} />

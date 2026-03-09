@@ -10,9 +10,9 @@ export default function Cart() {
 
   return (
     <main className={styles.page}>
-      <div className={styles.topBar}>
+      {/* <div className={styles.topBar}>
         Shopping Cart
-      </div>
+      </div> */}
       <div className={styles.content}>
         <Link href="/shop" className={styles.backToShop}>
           ← Continue shopping

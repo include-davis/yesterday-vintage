@@ -3,6 +3,7 @@ import "./_globals/globals.scss";
 import { CartProvider } from "./_context/CartContext";
 import AdBar from "./_components/ad-bar/page.jsx";
 import NavBar from "./_components/nav-bar/page.jsx";
+import Header from "./_components/header/page.jsx";
 import Footer from "./_components/footer/page.jsx";
 
 const alteHaasGrotesk = localFont({
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
             <AdBar />
             <NavBar />
           </header>
+          <Header />
 
           {children}
 

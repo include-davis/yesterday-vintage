@@ -61,6 +61,7 @@
   .account {
     width: 1.69rem;
     height: 1.69rem;
+    margin-top: 0.31rem;
   }
 
   .cartLink {
@@ -94,7 +95,7 @@
   }
 }
 
-@include mixins.phone-small {
+@include mixins.phone {
   .navBar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
