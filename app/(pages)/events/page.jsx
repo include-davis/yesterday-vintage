@@ -29,19 +29,21 @@ export default function Events() {
             </div>
             <div className={styles.eventsPlusImage}>
                 <section className={styles.upcomingEvents}>
-                    <div className={styles.eventHeader}>
-                        <h2> Event List</h2>
-                    </div>
-                    <div className={styles.eventScroll}>
-                        {events.map((text, index) => (
-                            <div className={styles.item} key={index}>
-                                <div className={styles.smallRectangle}></div>
-                                <p className={styles.mobileText}>{events1[index]}</p>
-                                <div className={styles.eventInfo}>
-                                    <h3>{text}</h3>
+                    <div className={styles.upcomingEventsScroll}>
+                        <div className={styles.eventHeader}>
+                            <h2> Event List</h2>
+                        </div>
+                        <div className={styles.eventScroll}>
+                            {events.map((text, index) => (
+                                <div className={styles.item} key={index}>
+                                    <div className={styles.smallRectangle}></div>
+                                    <p className={styles.mobileText}>{events1[index]}</p>
+                                    <div className={styles.eventInfo}>
+                                        <h3>{text}</h3>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </section>
                 <img src="/eventsImage.png" alt="eventsImage" className={styles.mainImage} />
