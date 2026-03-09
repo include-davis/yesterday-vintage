@@ -92,6 +92,7 @@
   height: 1.15rem;
   margin-top: 3.5rem;
   margin-right: 0.69rem;
+  flex-shrink: 0;
 }
 
 .phoneNum {
@@ -104,11 +105,13 @@
   height: 1rem;
   margin-top: 0.69rem;
   margin-right: 0.69rem;
+  flex-shrink: 0;
 }
 
 .email {
   font-size: 1rem;
   color: var(--black);
+  
 }
 
 .icons {
@@ -288,7 +291,7 @@
 @include mixins.phone {
   .footerInner {
     padding-left: 1rem;
-    margin-right: 1rem;
+    padding-right: 1rem;
   }
 
   .topFooter {
@@ -348,8 +351,10 @@
 
   .subtitle {
     margin-top: 0.5rem;
-    width: 23.125rem;
-    height: 3.19rem;
+    // width: 23.125rem;
+    // height: 3.19rem;
+    width: 100%;
+    height: auto;
   }
 
   .form {
