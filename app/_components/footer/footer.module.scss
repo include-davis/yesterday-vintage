@@ -24,7 +24,7 @@
   box-sizing: border-box;
 }
 
-.topFooter > div:first-child {
+.topFooter>div:first-child {
   flex-shrink: 1;
   min-width: 0;
   max-width: 31.56rem;
@@ -62,6 +62,7 @@
 
 .address p {
   font-size: 1rem;
+  white-space: nowrap;
 }
 
 .address a {
@@ -225,6 +226,10 @@
     margin-top: 2.5rem;
   }
 
+  .address p {
+    white-space: normal;
+  }
+
   .socials {
     margin-left: 0rem;
   }
@@ -280,12 +285,12 @@
   }
 }
 
-@include mixins.phone-small {
+@include mixins.phone {
   .footerInner {
     padding-left: 1rem;
     margin-right: 1rem;
   }
-  
+
   .topFooter {
     flex-direction: column;
     gap: 0;
@@ -312,6 +317,10 @@
 
   .address {
     margin-top: 2.5rem;
+  }
+
+  .address p {
+    white-space: normal;
   }
 
   .socials {

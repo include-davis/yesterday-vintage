@@ -20,9 +20,8 @@ export default function NavBar() {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Events", href: "/events" },
-    { label: "Shops", href: "/shop" },
+    { label: "Shop", href: "/shop" },
     { label: "FAQ", href: "/faq" },
-
   ];
 
   const [name, setName] = useState("");

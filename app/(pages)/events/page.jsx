@@ -16,10 +16,10 @@ export default function Events() {
     ];
     return (
         <div className={styles.mainContainer}>
-            <div className={styles.eventsRectangle}>
+            {/* <div className={styles.eventsRectangle}>
                 <div className={styles.yellowBackground}></div>
                 <h1 className={styles.title}>Events</h1>
-            </div>
+            </div> */}
             <div className={styles.calendarSection}>
                 <div className={styles.calendarBackground}>
                     <iframe
