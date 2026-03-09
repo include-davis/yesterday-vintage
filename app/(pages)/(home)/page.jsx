@@ -79,11 +79,19 @@ export default function Home() {
             src="/images/welcome-section.png"
             alt="Welcome Image"
           />
-          <div className={styles["welcome-image-mobile-grid"]}>
-            <img src="/images/welcome_topleft.png" alt="Welcome top left" />
-            <img src="/images/welcome_topright.png" alt="Welcome top right" />
-            <img src="/images/welcome_bottomleft.png" alt="Welcome bottom left" />
-            <img src="/images/welcome_bottomright.png" alt="Welcome bottom right" />
+          <div className={styles["welcome-image-mobile-flex"]}>
+            <div className={styles["welcome-image-mobile-item"]}>
+              <img src="/images/welcome_topleft.png" alt="Welcome top left" />
+            </div>
+            <div className={styles["welcome-image-mobile-item"]}>
+              <img src="/images/welcome_topright.png" alt="Welcome top right" />
+            </div>
+            <div className={styles["welcome-image-mobile-item"]}>
+              <img src="/images/welcome_bottomleft.png" alt="Welcome bottom left" />
+            </div>
+            <div className={styles["welcome-image-mobile-item"]}>
+              <img src="/images/welcome_bottomright.png" alt="Welcome bottom right" />
+            </div>
           </div>
         </div>
 
