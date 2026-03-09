@@ -22,8 +22,158 @@
 
  @use "../../_globals/mixins.scss"; 
 
+.hidden {
+    display: none;
 
+    @include mixins.lg-phone {
+        display: flex;
+    }
+}
 
+.content > .hidden {
+    @include mixins.lg-phone {
+        display: flex;
+        flex-direction: column;
+        padding: 13% 0;
+        row-gap: 4rem;
+    }
+}
+
+ // >> SPACES
+.container {
+    background-color: var(--white);
+
+    display: flex;
+    flex-direction: column;
+
+    // ? position: relative;
+    // ? justify-content: center;
+}
+
+.content {
+    padding: 3.5% 6%;
+    padding-bottom: 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include mixins.lg-phone {
+        padding: 7% 3%;
+        padding-bottom: 15%;
+    }
+}
+
+$row-gap: 3%;
+
+.row, .wideRow{
+    padding-top: 5%; //15%;
+    width: 100%;
+    gap: $row-gap;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center; // just for that one row of images
+    align-items: flex-start;  
+
+    @include mixins.lg-phone {
+        padding-top: 15%;
+        flex-wrap: wrap;
+        row-gap: 1.5rem; 
+    }
+
+    // ** overflow: hidden;
+    // ** border: 1px solid black;
+}
+
+.wideRow {
+    gap: 5%;
+
+    @include mixins.lg-phone {
+        padding-top: 0;
+        gap: $row-gap;
+        row-gap: 1.5rem;
+    }
+}
+
+.person {
+    width: 100%;
+    height: auto;
+}
+
+// >> IMAGES
+.largeImage {
+    width: 100%;
+    aspect-ratio: 5 / 2;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    object-position: center;
+
+    @include mixins.lg-phone {
+        aspect-ratio: auto;
+        height: auto;
+    }
+
+    // ** border: 1px solid black;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}
+
+.row .person, .wideRow > .image, .wideRow .hidden {
+    @include mixins.lg-phone {
+        width: calc(50% - ($row-gap / 2)); 
+    }
+}
+
+// >> TEXT
+.title {
+    font-family: var(--yv-font-display);
+    color: var(--black);
+    font-weight: lighter;
+    padding: 8%;
+    font-size: 3.5rem;
+
+    display: flex;
+    justify-content: center;
+
+    @include mixins.lg-phone {
+        font-size: 2rem;
+        padding: 15%;
+    }
+
+    //font-family: var(--font-display);
+    //font-weight: bolder;
+}
+
+.body, .personName {
+    font-family: var(--yv-font-body);
+    color: var(--black);
+    font-size: 1.5rem; // ? dunno why line breaks are different TwT, gonna assume because of the different fonts
+    line-height: 2.5rem;
+
+    @include mixins.tablet {
+        font-size: 0.9rem;
+        line-height: 1.625rem;
+    }
+
+    @include mixins.lg-phone {
+        font-size: 1rem;
+        line-height: 1.625rem;
+    }
+}
+
+.personName {
+    font-family: var(--yv-font-display);
+    font-weight: lighter;
+
+    text-align: center; 
+}
+
+/* all of my work....
 // >> SPACES
 .container {
     background-color: var(--white);
@@ -41,10 +191,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include mixins.phone {
+        padding: 5% 0;
+    }
 }
 
 .collumn {
     width: auto;
+
+    @include mixins.phone {
+        //padding-top: 7%;
+    }
     
     display: flex;
     flex-direction: column;
@@ -66,18 +224,42 @@
 .row {
     padding-bottom: 3%;
     gap: 9%;
+
+    @include mixins.phone {
+        //padding: 2% 0; // this
+        flex-direction: column;
+        align-items: center;
+        //gap: 5%; // FUCK (it measure height)
+    }
+
+    // ** border: 1px solid black;
+}
+
+.row .mediumImage {
+     @include mixins.phone {
+        padding-top: 8%;
+    }
 }
 
 .pictureRow {
     padding-bottom: 1%;
     gap: 4%;
+
+    //width: 100%;
+     @include mixins.phone {
+        flex-wrap: wrap;
+    }
 }
 
 .person {
     gap: 3%;
     width: 60%;
 
-    flex-wrap: wrap; // this was a copilot suggestion
+    @include mixins.phone {
+        width: 47%;
+    }
+
+    // ? flex-wrap: wrap; // this was a copilot suggestion
 
     display: flex;
     flex-direction: column;
@@ -87,7 +269,15 @@
     // ? align-items: center;
 }
 
+.invert .row {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
+.invert {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 // >> IMAGES
 .largeImage, .mediumImage, .smallImage, .personImage {
@@ -100,14 +290,28 @@
 
 .largeImage {
     width: 50%;
+
+    @include mixins.phone {
+        width: 100%;
+        padding-bottom: 6%;
+    }
 }
 
 .mediumImage {
     width: 40%;
+
+    @include mixins.phone {
+        width: 100%;
+    }
 }
 
 .smallImage {
     width: 30%;
+
+    @include mixins.phone {
+        width: 46.5%;
+        margin-bottom: 6%;
+    }
 }
 
 .personImage {
@@ -135,6 +339,9 @@
     }
 
     @include mixins.phone {
+        font-size: 1.6rem;
+        padding: 12%;
+    @include mixins.phone-small {
         font-size: 1rem;
     }
 
@@ -155,6 +362,9 @@
     }
 
     @include mixins.phone {
+        font-size: 1.6rem;
+        text-align: center;
+    @include mixins.phone-small {
         font-size: 0.6rem;
     }
 
@@ -176,6 +386,15 @@
     }
 
     @include mixins.phone {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
+
+.body, .smallBody {
+    @include mixins.phone {
+        padding-bottom: 4%;
+    @include mixins.phone-small {
         font-size: 0.4rem;
         line-height: 0.7rem;
     }
@@ -183,6 +402,10 @@
 
 .smallBody {
     padding-right: 6%;
+
+    @include mixins.phone {
+        padding-right: 0;
+    }
     
     // ** border: 1px solid black;
 } 
@@ -192,6 +415,13 @@
 
     text-align: center; 
     margin: 0 auto;
+
+    @include mixins.phone {
+        width: 90%;
+        text-align: left;
+        padding-top: 4%;
+        padding-bottom: 7%;
+    }
 }
 
 .personName {
@@ -199,4 +429,4 @@
     font-weight: bold;
 
     text-align: center; 
-}
+}*/

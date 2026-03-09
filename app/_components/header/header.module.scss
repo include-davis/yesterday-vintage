@@ -1,6 +1,6 @@
 // This is just example code, will need to be reworked
 
-@use "../../_globals/mixins.scss"; 
+@use "../../_globals/mixins.scss";
 
 .page {
   min-height: 100vh;
@@ -14,7 +14,7 @@
     padding: 36px 20px;
   }
 
-  @include mixins.phone {
+  @include mixins.phone-small {
     padding: 28px 16px;
   }
 }

@@ -22,6 +22,7 @@ export default function NavBar() {
     { label: "Events", href: "/events" },
     { label: "Shops", href: "/shop" },
     { label: "FAQ", href: "/faq" },
+
   ];
 
   const [name, setName] = useState("");
@@ -51,7 +52,7 @@ export default function NavBar() {
             className={styles.hamburgerButton}
             onClick={() => setOpen(prev => !prev)}
           >
-            <img src="images/hamburger.svg" alt="hamburger"></img>
+            <img src="/images/hamburger.svg" alt="hamburger"></img>
           </button>
 
           <div className={`${styles.dropDownMenu} ${isOpen ? styles.open : ""}`}>
@@ -172,7 +173,7 @@ export default function NavBar() {
           </div>
         </div>
         <div className={styles.navLogo}>
-          <Link href="/home">
+          <Link href="/">
             <svg
               className={styles.logo}
               viewBox="0 0 151 26"
@@ -213,23 +214,25 @@ export default function NavBar() {
           ))}
         </div>
         <div className={styles.navRight}>
-          <Link href="/home">
-            <svg
-              className={styles.account}
-              viewBox="0 0 27 27"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M1.30005 22.3C1.30005 20.7087 1.93219 19.1826 3.05741 18.0574C4.18263 16.9322 5.70875 16.3 7.30005 16.3H19.3001C20.8913 16.3 22.4175 16.9322 23.5427 18.0574C24.6679 19.1826 25.3001 20.7087 25.3001 22.3C25.3001 23.0957 24.984 23.8587 24.4214 24.4213C23.8588 24.9839 23.0957 25.3 22.3001 25.3H4.30005C3.5044 25.3 2.74134 24.9839 2.17873 24.4213C1.61612 23.8587 1.30005 23.0957 1.30005 22.3Z"
-                stroke="#212529"
-                strokeWidth="2.6"
-                strokeLinejoin="round" />
-              <path
-                d="M13.3 10.3C15.7853 10.3 17.8 8.28528 17.8 5.8C17.8 3.31472 15.7853 1.3 13.3 1.3C10.8148 1.3 8.80005 3.31472 8.80005 5.8C8.80005 8.28528 10.8148 10.3 13.3 10.3Z"
-                stroke="#212529"
-                strokeWidth="2.6" />
-            </svg>
-          </Link>
+          <Link href="/account">
+          <svg
+            className={styles.account}
+            width="27"
+            height="27"
+            viewBox="0 0 27 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path 
+              d="M1.30005 22.3C1.30005 20.7087 1.93219 19.1826 3.05741 18.0574C4.18263 16.9322 5.70875 16.3 7.30005 16.3H19.3001C20.8913 16.3 22.4175 16.9322 23.5427 18.0574C24.6679 19.1826 25.3001 20.7087 25.3001 22.3C25.3001 23.0957 24.984 23.8587 24.4214 24.4213C23.8588 24.9839 23.0957 25.3 22.3001 25.3H4.30005C3.5044 25.3 2.74134 24.9839 2.17873 24.4213C1.61612 23.8587 1.30005 23.0957 1.30005 22.3Z" 
+              stroke="#212529" 
+              strokeWidth="2.6" 
+              strokeLinejoin="round"/>
+            <path 
+              d="M13.3 10.3C15.7853 10.3 17.8 8.28528 17.8 5.8C17.8 3.31472 15.7853 1.3 13.3 1.3C10.8148 1.3 8.80005 3.31472 8.80005 5.8C8.80005 8.28528 10.8148 10.3 13.3 10.3Z" 
+              stroke="#212529" 
+              strokeWidth="2.6"/>
+          </svg>
+        </Link>
         <Link href="/cart" className={styles.cartLink}>
           <svg 
             className={styles.cart}

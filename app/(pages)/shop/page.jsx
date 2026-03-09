@@ -23,6 +23,7 @@ export default function Home() {
   const [selectedCategories, setSelectedCategories] = useState({});
   const [price, setPrice] = useState(100);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const handleSizeChange = (e) => {
     setSelectedSizes({ ...selectedSizes, [e.target.name]: e.target.checked });
@@ -68,7 +69,11 @@ export default function Home() {
       <div className={styles.mainSection}>
         <div className={styles.leftSection}>
           <div className={styles.filterContainer}>
+            <div className={styles.merchandiseTitleMobile}>
+              Shop Yesterday Vintage's Merchandise
+            </div>
             <div className={styles.searchBarWrapper}>
+
               <svg
                 className={styles.searchIcon}
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,8 +95,25 @@ export default function Home() {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <div className={styles.filterTitle}>CATEGORY</div>
-            <div className={styles.filter}>
+            <button
+              className={styles.filterTitleBtn}
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+            >
+              <span>CATEGORY</span>
+              <svg
+                className={`${styles.filterChevron} ${isFilterOpen ? styles.open : ""}`}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div className={`${styles.filter} ${isFilterOpen ? styles.filterOpen : ""}`}>
               <div className={styles.sizeOptions}>
                 {sizeOptions.map((option) => (
                   <div key={option.id} className={styles.filterOption}>
@@ -134,7 +156,7 @@ export default function Home() {
                     onChange={handlePriceChange}
                   />
                 </label>
-                <div className={styles.priceFilterValue}>${price}</div>
+                <div className={styles.priceFilterValue}>{'<'}${price}</div>
               </div>
             </div>
           </div>

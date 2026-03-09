@@ -94,8 +94,7 @@
   }
 }
 
-@include mixins.phone
-{
+@include mixins.phone-small {
   .navBar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -125,6 +124,7 @@
     top: 2rem;
     overflow-y: auto;
     transition: left 0.75s ease;
+    z-index: 200;
   }
 
   .dropDownMenu.open {
@@ -274,7 +274,7 @@
     margin-top: 4rem;
     font-family: var(--yv-font-body);
     margin-left: 1rem;
-    
+
   }
 
   .title {
@@ -353,29 +353,31 @@
     .account {
       width: 1.125rem;
       height: 1.125rem;
+      display: none;
     }
 
     .cart {
       width: 1.25rem;
       height: 1.25rem;
+      display: flex;
     }
   }
 }
 
-  .cartBadge {
-    position: absolute;
-    top: -0.4rem;
-    right: -0.4rem;
-    min-width: 1.25rem;
-    height: 1.25rem;
-    padding: 0 0.25rem;
-    background: var(--black);
-    color: var(--eggshell);
-    font-size: 0.7rem;
-    font-weight: 600;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
+.cartBadge {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.4rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.25rem;
+  background: var(--black);
+  color: var(--eggshell);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

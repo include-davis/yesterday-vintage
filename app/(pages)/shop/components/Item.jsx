@@ -7,16 +7,16 @@ import styles from "./Item.module.scss";
 export function Item({ item }) {
   const { id, src, title, price } = item;
   return (
-    <Link href={`/item-page?id=${id}`} className={styles.itemLink}>
-      <div className={styles.item}>
-        <div className={styles.imageContainer}>
+    <div className={styles.item}>
+      <div className={styles.imageContainer}>
+        <Link href={`/item-page?id=${id}`} className={styles.itemLink}>
           <Image src={src} alt={title} width={400} height={400} />
-        </div>
-        <div className={styles.infoContainer}>
-          <h3>{title}</h3>
-          <p>${price}</p>
-        </div>
+          <div className={styles.infoContainer}>
+            <h3>{title}</h3>
+            <p>${price}</p>
+          </div>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 }
