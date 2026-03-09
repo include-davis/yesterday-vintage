@@ -156,7 +156,7 @@ export default function Home() {
                     onChange={handlePriceChange}
                   />
                 </label>
-                <div className={styles.priceFilterValue}>${price}</div>
+                <div className={styles.priceFilterValue}>{'<'}${price}</div>
               </div>
             </div>
           </div>

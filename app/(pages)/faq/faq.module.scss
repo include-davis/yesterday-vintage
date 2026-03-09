@@ -123,12 +123,6 @@
     font-size: 24px;
   }
 
-
-  @include mixins.tablet {
-    font-size: 32px;
-  }
-}
-
 .textQ {
   flex: 1;
   font-family: var(--yv-font-body);
