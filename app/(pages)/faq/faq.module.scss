@@ -122,48 +122,49 @@
   @include mixins.lg-phone {
     font-size: 24px;
   }
+}
 
-  .textQ {
-    flex: 1;
-    font-family: var(--yv-font-body);
-    font-weight: 600;
-    font-size: 1.5rem;
+.textQ {
+  flex: 1;
+  font-family: var(--yv-font-body);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.textA {
+  flex: 1;
+  color: var(--Black, #212529);
+  font-family: var(--yv-font-body);
+  font-weight: 500;
+  line-height: 30px;
+
+  @include mixins.lg-phone {
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 400;
+    padding-left: 0.24rem;
+  }
+}
+
+.arrow {
+  padding-right: 3.5rem;
+
+  img {
+    width: 20px;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
   }
 
-  .textA {
-    flex: 1;
-    color: var(--Black, #212529);
-    font-family: var(--yv-font-body);
-    font-weight: 500;
-    line-height: 30px;
-
-    @include mixins.lg-phone {
-      font-size: 1rem;
-      line-height: 1.4;
-      font-weight: 400;
-      padding-left: 0.24rem;
-    }
+  &.isOpen img {
+    transform: rotate(180deg);
   }
 
-  .arrow {
-    padding-right: 3.0625rem;
-
-    img {
-      width: 20px;
-      height: auto;
-      transform-origin: center;
-    }
-
-    &.isOpen {
-      transform: scaleY(-1);
-    }
-
-    @include mixins.lg-phone {
-      padding-right: 1.125;
-    }
+  @include mixins.lg-phone {
+    padding-right: 1.125rem;
   }
+}
 
-  .shopsLink {
-    border-bottom: 2px solid black;
-  }
+.shopsLink {
+  border-bottom: 2px solid black;
 }
