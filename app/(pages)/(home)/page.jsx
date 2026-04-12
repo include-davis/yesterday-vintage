@@ -28,6 +28,11 @@ const socialFallbackData = [
   },
 ];
 
+const eventsFallbackData = [
+  { id: "1", title: "Day in Downtown" },
+  { id: "2", title: "In-Store Events" },
+];
+
 const iconMap = {
   Instagram: <FaInstagram aria-hidden="true" />,
   TikTok: <FaTiktok aria-hidden="true" />,
@@ -57,8 +62,30 @@ async function getSocialImages() {
   }
 }
 
+async function getEvents() {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/events?_published=true`,
+      { cache: "no-store" },
+    );
+    const data = await res.json();
+    if (!data.ok || !data.body || data.body.length === 0) {
+      throw new Error(data.error);
+    }
+    return data.body.map((item) => ({
+      id: item._id,
+      title: item.title,
+      date: item.date,
+    }));
+  } catch (e) {
+    console.error(`Failed to fetch events: ${e.message}`);
+    return eventsFallbackData;
+  }
+}
+
 export default async function Page() {
   const socialImages = await getSocialImages();
+  const events = await getEvents();
 
   return (
     <main className={styles.page}>
@@ -140,12 +167,9 @@ export default async function Page() {
         <div className={styles["event-info"]}>
           <h2 className={styles["event-title"]}>Events</h2>
           <ul className={styles["event-list"]}>
-            <li>Day in Downtown</li>
-            <li>___</li>
-            <li>___</li>
-            <li>___</li>
-            <li>___</li>
-            <li>In-Store Events</li>
+            {events.map((event) => (
+              <li key={event.id}>{event.title}</li>
+            ))}
           </ul>
           <a href="/events" className={styles["events-btn"]}>
             Events
