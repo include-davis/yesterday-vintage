@@ -68,10 +68,13 @@ export default async function Events() {
             <div className={styles.eventScroll}>
               {events.map((event) => (
                 <div className={styles.item} key={event.id}>
-                  <div className={styles.smallRectangle}></div>
-                  <p className={styles.mobileText}>{event.title}</p>
+                  <div className={styles.smallRectangle}>
+                    <p>{event.title}</p>
+                  </div>
                   <div className={styles.eventInfo}>
-                    <h3>{event.description}</h3>
+                    <h3
+                      dangerouslySetInnerHTML={{ __html: event.description }}
+                    />
                   </div>
                 </div>
               ))}
