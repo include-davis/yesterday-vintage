@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -8,7 +8,7 @@ import styles from "./item-page.module.scss";
 import { useCart } from "../../_context/CartContext";
 import { getItemById } from "../../lists/clothes.js";
 
-export default function ItemPage() {
+function ItemPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const itemId = searchParams.get("id");
@@ -113,7 +113,10 @@ export default function ItemPage() {
         className={`${styles.cartDrawer} ${showCart ? styles.cartDrawerOpen : styles.cartDrawerClosed}`}
         onClick={() => setShowCart(false)}
       >
-        <div className={styles.cartDrawerInner} onClick={(e) => e.stopPropagation()}>
+        <div
+          className={styles.cartDrawerInner}
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className={styles.cartDrawerHeader}>
             <h2>Shopping Cart</h2>
             <button
@@ -136,9 +139,7 @@ export default function ItemPage() {
                       src="/assets/logo.png"
                       alt={item.name}
                       fill
-                      style={{
-                        objectFit: "contain",
-                      }}
+                      style={{ objectFit: "contain" }}
                       sizes="6.5rem"
                     />
                   </div>
@@ -194,5 +195,13 @@ export default function ItemPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function ItemPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ItemPageContent />
+    </Suspense>
   );
 }
