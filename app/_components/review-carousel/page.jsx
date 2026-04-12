@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./home.module.scss";
+import styles from "../../(pages)/(home)/home.module.scss";
 
 const reviews = [
   {
