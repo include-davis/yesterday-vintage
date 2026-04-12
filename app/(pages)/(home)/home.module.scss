@@ -1,23 +1,4 @@
-// This is just example code, will need to be reworked
-
 @use "../../_globals/mixins.scss";
-
-// .page {
-//   min-height: 100vh;
-//   display: grid;
-//   place-items: center;
-//   gap: 12px;
-//   padding: 48px 24px;
-//   text-align: center;
-
-//   @include mixins.tablet {
-//     padding: 36px 20px;
-//   }
-
-//   @include mixins.phone-small {
-//     padding: 28px 16px;
-//   }
-// }
 
 .banner-container {
   position: relative;
@@ -40,7 +21,7 @@
 
 .banner-item {
   height: 100%;
-  min-width: 0; // prevents flex overflow bugs
+  min-width: 0; 
 }
 
 .banner-item.left {

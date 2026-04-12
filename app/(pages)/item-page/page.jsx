@@ -1,22 +1,53 @@
 "use client";
 
-import { useState, useMemo, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./item-page.module.scss";
 import { useCart } from "../../_context/CartContext";
-import { getItemById } from "../../lists/clothes.js";
 
 function ItemPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const itemId = searchParams.get("id");
-  const product = useMemo(() => getItemById(itemId), [itemId]);
 
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [showCart, setShowCart] = useState(false);
   const { items, addItem, updateQuantity, subtotal } = useCart();
+
+  useEffect(() => {
+    if (!itemId) return;
+    fetch(
+      `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/products?_published=true`,
+      { next: { tags: ["cms"] } }
+    )
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.ok && data.body?.length > 0) {
+          const found = data.body.find((card) => card._id === itemId);
+          if (found) {
+            setProduct({
+              id: found._id,
+              imageUrl: found.image[0].src,
+              name: found.name,
+              price: found.price,
+              options: found.options || null,
+              category: found.category,
+              description: found.description,
+            });
+          } else {
+            setProduct(null);
+          }
+        } else {
+          setProduct(null);
+        }
+      })
+      .catch(() => setProduct(null))
+      .finally(() => setLoading(false));
+  }, [itemId]);
 
   const handleDecrease = () => {
     if (quantity > 1) setQuantity(quantity - 1);
@@ -30,13 +61,24 @@ function ItemPageContent() {
     if (!product) return;
     addItem({
       id: product.id,
-      name: product.title,
+      name: product.name,
       price: parseFloat(product.price),
-      image: product.src,
+      image: product.imageUrl,
       quantity,
     });
     setShowCart(true);
   };
+
+  if (loading) {
+    return (
+      <main className={styles.page}>
+        <div className={styles.topBar}>Shop</div>
+        <div className={styles.inner}>
+          <p>Loading...</p>
+        </div>
+      </main>
+    );
+  }
 
   if (!product) {
     return (
@@ -63,8 +105,8 @@ function ItemPageContent() {
         <div className={styles.container}>
           <div className={styles.imageWrapper}>
             <Image
-              src="/assets/logo.png"
-              alt={product.title}
+              src={product.imageUrl}
+              alt={product.name}
               fill
               style={{ objectFit: "contain" }}
               sizes="(max-width: 540px) 100vw, (max-width: 1048px) 50vw, 505px"
@@ -72,18 +114,18 @@ function ItemPageContent() {
           </div>
 
           <div className={styles.info}>
-            <h2 className={styles.name}>{product.title}</h2>
+            <h2 className={styles.name}>{product.name}</h2>
 
             <div className={styles.description}>
-              <p>ABOUT THE PRODUCT</p>
-              <p>ABOUT THE PRODUCT</p>
-              <p>ABOUT THE PRODUCT</p>
+              <div dangerouslySetInnerHTML={{ __html: product.description }} />
             </div>
 
             <div className={styles.options}>
               <p className={styles.optionsLabel}>OPTIONS</p>
               <ul>
-                <li>{product.size}</li>
+                {product.options?.split("\n").map((opt, i) => (
+                  <li key={i}>{opt}</li>
+                ))}
               </ul>
             </div>
 
@@ -136,7 +178,7 @@ function ItemPageContent() {
                 <div key={item.id} className={styles.cartItem}>
                   <div className={styles.cartItemImage}>
                     <Image
-                      src="/assets/logo.png"
+                      src={item.image}
                       alt={item.name}
                       fill
                       style={{ objectFit: "contain" }}
