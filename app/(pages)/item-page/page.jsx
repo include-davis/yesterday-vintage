@@ -123,9 +123,11 @@ function ItemPageContent() {
             <div className={styles.options}>
               <p className={styles.optionsLabel}>OPTIONS</p>
               <ul>
-                {product.options?.split("\n").map((opt, i) => (
-                  <li key={i}>{opt}</li>
-                ))}
+                {product.options
+                  ?.match(/<p>(.*?)<\/p>/g)
+                  ?.map((p) => p.replace(/<\/?p>/g, "").replace(/&nbsp;/g, "").trim())
+                  .filter(Boolean)
+                  .map((opt, i) => <li key={i}>{opt}</li>)}
               </ul>
             </div>
 
