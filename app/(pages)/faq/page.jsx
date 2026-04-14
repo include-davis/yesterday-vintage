@@ -1,4 +1,4 @@
-import FAQClient from "./FAQClient";
+import FAQClient from "../../_components/faq-toggle/page.jsx";
 
 const faqFallbackData = [
   {
