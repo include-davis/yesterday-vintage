@@ -1,8 +1,7 @@
 "use client";
 
-import styles from "./faq.module.scss";
+import styles from "../../(pages)/faq/faq.module.scss";
 import { useState } from "react";
-import Link from "next/link";
 
 export default function FAQClient({ faqs }) {
   return (
