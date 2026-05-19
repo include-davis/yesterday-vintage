@@ -109,7 +109,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <section className={styles["welcome"]}>
+      {/* <section className={styles["welcome"]}>
         <div className={styles["welcome-content"]}>
           <h1 className={styles.title}>Welcome!</h1>
           <p className={styles["welcome-text"]}>
@@ -150,7 +150,7 @@ export default async function Page() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className={styles["events-container"]}>
         <div className={styles["event-card"]}>
