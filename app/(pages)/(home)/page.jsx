@@ -105,7 +105,7 @@ export default async function Page() {
         </div>
 
         <div className={styles["banner-mobile"]}>
-          <img src="/images/mobile_banner.svg" alt="Mobile banner" />
+          <img src="/images/mobile_banner.webp" alt="Mobile banner" />
         </div>
       </section>
 
