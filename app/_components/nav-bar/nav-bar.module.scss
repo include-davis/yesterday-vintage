@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  background: var(--eggshell);
+  background: var(--page-bg);
   width: 100%;
   height: 4rem;
   position: fixed;
@@ -89,7 +89,7 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: var(--eggshell);
+    background-color: var(--page-bg);
     left: -100%;
     top: 2rem;
     overflow-y: auto;
