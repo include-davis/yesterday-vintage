@@ -1,10 +1,16 @@
+import Image from "next/image";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import styles from "./home.module.scss";
 import ReviewCarousel from "../../_components/review-carousel/page.jsx";
 
-export const dynamic = "force-dynamic";
+// TODO: hero-top is a PLACEHOLDER. The only copy of this photo in the repo is
+// 186x248, far too small for a full-width hero, so it renders soft. The client
+// has been asked for the original; swap the file and delete this note.
+import heroTop from "../../../public/images/home/hero-top-PLACEHOLDER.webp";
+import heroLeft from "../../../public/images/home/hero-left.webp";
+import heroRight from "../../../public/images/home/hero-right.webp";
 
-// test
+export const dynamic = "force-dynamic";
 
 const socialFallbackData = [
   {
@@ -93,64 +99,40 @@ export default async function Page() {
     <main className={styles.page}>
       <section className={styles["banner-container"]}>
         <div className={styles["banner-desktop"]}>
-          <div className={`${styles["banner-item"]} ${styles.left}`}>
-            <img src="/images/left-banner.png" alt="Picture left" />
+          <div className={`${styles["banner-item"]} ${styles.top}`}>
+            <Image
+              src={heroTop}
+              alt="A member of the Yesterday team carrying the shop's sandwich board along the brick sidewalk downtown"
+              fill
+              sizes="100vw"
+              style={{ objectFit: "cover" }}
+              priority
+            />
           </div>
-          <div className={`${styles["banner-item"]} ${styles.center}`}>
-            <img src="/images/center-banner.png" alt="Middle picture" />
+          <div className={`${styles["banner-item"]} ${styles["bottom-left"]}`}>
+            <Image
+              src={heroLeft}
+              alt="A sculpted white display wall holding glassware, ceramics and shoes"
+              fill
+              sizes="(max-width: 760px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+            />
           </div>
-          <div className={`${styles["banner-item"]} ${styles.right}`}>
-            <img src="/images/right-banner.png" alt="Picture right" />
+          <div className={`${styles["banner-item"]} ${styles["bottom-right"]}`}>
+            <Image
+              src={heroRight}
+              alt="A rack of vintage shirts and jackets with shoes displayed on the shelf above"
+              fill
+              sizes="(max-width: 760px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+            />
           </div>
         </div>
 
         <div className={styles["banner-mobile"]}>
-          <img src="/images/mobile_banner.webp" alt="Mobile banner" />
+          <img src="/images/mobile_banner.webp" alt="The Yesterday Vintage team outside the shop" />
         </div>
       </section>
-
-      {/* <section className={styles["welcome"]}>
-        <div className={styles["welcome-content"]}>
-          <h1 className={styles.title}>Welcome!</h1>
-          <p className={styles["welcome-text"]}>
-            We are a locally owned and operated vintage clothing and accessories
-            store located in Davis, California. We carry clothing in sizes XS-3X
-            for all genders, spanning from the 60s to the early 2000s. Come stop
-            by and say hi!
-          </p>
-          <a href="/about" className={styles["learn-more-button"]}>
-            Learn More
-          </a>
-        </div>
-
-        <div className={styles["welcome-image"]}>
-          <img
-            className={styles["welcome-image-desktop"]}
-            src="/images/welcome-section.png"
-            alt="Welcome Image"
-          />
-          <div className={styles["welcome-image-mobile-flex"]}>
-            <div className={styles["welcome-image-mobile-item"]}>
-              <img src="/images/welcome_topleft.png" alt="Welcome top left" />
-            </div>
-            <div className={styles["welcome-image-mobile-item"]}>
-              <img src="/images/welcome_topright.png" alt="Welcome top right" />
-            </div>
-            <div className={styles["welcome-image-mobile-item"]}>
-              <img
-                src="/images/welcome_bottomleft.png"
-                alt="Welcome bottom left"
-              />
-            </div>
-            <div className={styles["welcome-image-mobile-item"]}>
-              <img
-                src="/images/welcome_bottomright.png"
-                alt="Welcome bottom right"
-              />
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       <section className={styles["events-container"]}>
         <div className={styles["event-card"]}>

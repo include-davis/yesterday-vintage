@@ -1,100 +1,51 @@
 @use "../../_globals/mixins.scss";
 
 .banner-container {
-  position: relative;
   width: 100%;
-  height: 80vh;
   margin-bottom: 80px;
-  overflow: hidden;
 }
 
-.banner-desktop,
-.banner-mobile {
-  position: absolute;
-  inset: 0;
-  transition: opacity 320ms ease;
-}
-
+// One full-width image over two half-width ones, per the client's mockup.
 .banner-desktop {
-  display: flex;
-  opacity: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .banner-item {
-  height: 100%;
-  width: 33.33%;
+  position: relative; // anchors next/image fill
 }
 
-.banner-item.left {
-    width: 33.33%;
-
+.banner-item.top {
+  grid-column: 1 / -1;
+  aspect-ratio: 24 / 10;
 }
 
-.banner-item.center {
-    width: 33.33%;
-
+.banner-item.bottom-left,
+.banner-item.bottom-right {
+  aspect-ratio: 12 / 10;
 }
 
-.banner-item.right {
-  width: 33.33%;
-}
-
+// Desktop and mobile banners were previously both rendered and crossfaded on
+// opacity, which left them ghosted over each other between 840px and 920px.
+// They are now a clean swap at the shared phone breakpoint.
 .banner-mobile {
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
 .banner-mobile img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
-.banner-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  display: block;
-}
-
-@media screen and (max-width: 920px) {
+@include mixins.phone {
   .banner-desktop {
-    opacity: 0.7;
+    display: none;
   }
 
   .banner-mobile {
-    opacity: 0.3;
+    display: block;
   }
-}
-
-@media screen and (max-width: 840px) {
-  .banner-desktop {
-    opacity: 0.35;
-  }
-
-  .banner-mobile {
-    opacity: 0.65;
-  }
-}
-
-.welcome {
-  display: flex;
-  gap: clamp(24px, 4vw, 60px);
-  padding: 80px clamp(16px, 6vw, 100px);
-  max-width: 1440px;
-  margin: 0 auto;
-  align-items: flex-start;
-}
-
-.welcome-content {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  text-align: left;
-  gap: 24px;
 }
 
 .title {
@@ -106,59 +57,6 @@
 .title-red {
   color: black;
 }
-.welcome-text {
-  margin: 0;
-  font-family: var(--yv-font-body);
-  width: min(609px, 100%);
-  height: auto;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 40px;
-  color: var(--black);
-}
-
-.welcome-image {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.welcome-image-desktop {
-  width: clamp(320px, 44vw, 610px);
-  max-width: 100%;
-  height: auto;
-  // border: 5px solid black;
-  object-fit: cover;
-  display: block;
-}
-
-.welcome-image-mobile-flex {
-  display: none;
-}
-
-.learn-more-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--eggshell);
-  font-family: var(--yv-font-body);
-  color: var(--brick);
-  font-size: 20px;
-  padding: 12px 24px;
-  border: 3px solid var(--black);
-  width: 189px;
-  height: 64px;
-  font-weight: bold;
-}
-
-.learn-more-button:hover {
-  background-color: var(--yv-red);
-  color: var(--white);
-  border: 3px solid var(--brick);
-}
-
 .events-container {
   display: flex;
   justify-content: center;
@@ -431,32 +329,6 @@
 }
 
 @include mixins.lg-phone {
-  .banner-mobile {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .banner-container {
-    width: 100vw;
-    height: 340px;
-  }
-
-  .banner-desktop {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .welcome {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 24px;
-    margin-top: 32px;
-    width: 100%;
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-
   .title {
     font-size: 32px;
     text-align: center;
@@ -465,67 +337,6 @@
   .review-container .title,
   .social-container .title {
     font-size: 28px;
-  }
-
-  .welcome-content {
-    gap: 0;
-  }
-
-  .welcome-content .title {
-    margin-bottom: 16px;
-  }
-
-  .welcome-image {
-    order: -1;
-    width: min(370px, calc(100vw - 32px));
-    height: 240px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-
-  .welcome-image-desktop {
-    display: none;
-  }
-
-  .welcome-image-mobile-flex {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 500px;
-  }
-
-  .welcome-image-mobile-item {
-    flex: 0 0 50%;
-    max-width: 50%;
-    height: 50%;
-  }
-
-  .welcome-image-mobile-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .welcome-text {
-    font-size: 16px;
-    width: 370px;
-    height: 129px;
-    line-height: 26px;
-    margin: 0 0 32px;
-    font-weight: 500;
-  }
-
-  .learn-more-button {
-    align-items: center;
-    align-self: center;
-    width: 172px;
-    height: 48px;
-    font-size: 16px;
-    font-weight: 500;
-    border: 2px solid var(--charcoal)
   }
 
   .events-container {
