@@ -1,6 +1,5 @@
 import localFont from "next/font/local";
 import "./_globals/globals.scss";
-import { CartProvider } from "./_context/CartContext";
 import AdBar from "./_components/ad-bar/page.jsx";
 import NavBar from "./_components/nav-bar/page.jsx";
 import Header from "./_components/header/page.jsx";
@@ -36,17 +35,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${alteHaasGrotesk.variable} ${newake.variable}`}>
-        <CartProvider>
-          <header className="siteHeader">
-            <AdBar />
-            <NavBar />
-          </header>
-          <Header />
+        <header className="siteHeader">
+          <AdBar />
+          <NavBar />
+        </header>
+        <Header />
 
-          {children}
+        {children}
 
-          <Footer />
-        </CartProvider>
+        <Footer />
       </body>
     </html>
   );

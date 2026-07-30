@@ -5,7 +5,7 @@ const faqFallbackData = [
     id: "1",
     question: "What days of the week are you open?",
     answer:
-      'We are open every day of the week 12:00 PM - 6:00 PM! Check our Google Calendar on the <a href="/shop">Shops</a> page to see our holiday schedules.',
+      'We are open every day of the week 12:00 PM - 6:00 PM! Check our Google Calendar on the <a href="/events">Events</a> page to see our holiday schedules.',
   },
   {
     id: "2",
