@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Inclusive_Sans } from "next/font/google";
 import "./_globals/globals.scss";
 import AdBar from "./_components/ad-bar/page.jsx";
 import NavBar from "./_components/nav-bar/page.jsx";
@@ -21,8 +22,12 @@ const alteHaasGrotesk = localFont({
   variable: "--yv-font-body",
 });
 
-const newake = localFont({
-  src: "../public/fonts/newake/NewakeFont-Demo.otf",
+// Display face for page titles and section headings. Replaces Newake, whose
+// demo licence is personal-use only and so could not ship on a retail site.
+const inclusiveSans = Inclusive_Sans({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
   variable: "--yv-font-display",
 });
 
@@ -34,7 +39,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${alteHaasGrotesk.variable} ${newake.variable}`}>
+      <body className={`${alteHaasGrotesk.variable} ${inclusiveSans.variable}`}>
         <header className="siteHeader">
           <AdBar />
           <NavBar />
