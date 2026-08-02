@@ -91,14 +91,12 @@
 .upcomingEvents {
   width: 45%;
   aspect-ratio: 5 / 8;
-  border: 5px solid hsla(0, 0%, 17%, 1);
   box-sizing: border-box;
   overflow: hidden;
 
   @include m.lg-phone {
     width: 90%;
     aspect-ratio: 150/100;
-    border: 3px solid hsla(0, 0%, 17%, 1);
   }
 }
 
