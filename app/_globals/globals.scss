@@ -22,15 +22,19 @@
   // The page background. Note this is pure #fff and NOT --white (#fafafa);
   // anything meant to read as "the same white as the page" must use this.
   --page-bg: #fff;
+}
 
-  // Fonts
-  --font-body: var(--yv-font-body);
-  --font-display: var(--yv-font-display);
+// next/font defines --yv-font-body and --yv-font-display on <body>, via the
+// .variable classes in layout.jsx. They are therefore NOT visible at :root, so
+// aliasing them there produces an invalid value that inherits down the whole
+// tree and silently falls back to the browser's default serif. Always name the
+// --yv-* variables directly, and never on a selector above <body>.
+body {
+  font-family: var(--yv-font-body);
 }
 
 html,
 body {
-  font-family: var(--font-body);
   background-color: var(--page-bg);
 }
 
@@ -44,7 +48,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-display);
+  font-family: var(--yv-font-display);
 }
 
 h1 {
