@@ -140,13 +140,6 @@ To add a photo:
 
 ## Handoff notes
 
-### Outstanding
-
-- **`public/images/home/hero-top-PLACEHOLDER.webp` is a placeholder.** The only
-  copy of that photo in the repo is 186x248 — roughly a 7.7x upscale at hero
-  width, so it renders soft. Replace with the original (2500px+ on the long
-  edge), rename, and remove the TODO in `app/(pages)/(home)/page.jsx`.
-
 ### Needs a CMS edit — cannot be fixed in code
 
 - The answer to "What days of the week are you open?" tells people to check the

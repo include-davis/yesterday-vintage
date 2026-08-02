@@ -3,10 +3,7 @@ import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import styles from "./home.module.scss";
 import ReviewCarousel from "../../_components/review-carousel/page.jsx";
 
-// TODO: hero-top is a PLACEHOLDER. The only copy of this photo in the repo is
-// 186x248, far too small for a full-width hero, so it renders soft. The client
-// has been asked for the original; swap the file and delete this note.
-import heroTop from "../../../public/images/home/hero-top-PLACEHOLDER.webp";
+import heroTop from "../../../public/images/home/hero-top.webp";
 import heroLeft from "../../../public/images/home/hero-left.webp";
 import heroRight from "../../../public/images/home/hero-right.webp";
 
@@ -102,7 +99,7 @@ export default async function Page() {
           <div className={`${styles["banner-item"]} ${styles.top}`}>
             <Image
               src={heroTop}
-              alt="A member of the Yesterday team carrying the shop's sandwich board along the brick sidewalk downtown"
+              alt="A member of the Yesterday team carrying the shop's sandwich board across the cobblestone courtyard downtown"
               fill
               sizes="100vw"
               style={{ objectFit: "cover" }}
@@ -121,7 +118,7 @@ export default async function Page() {
           <div className={`${styles["banner-item"]} ${styles["bottom-right"]}`}>
             <Image
               src={heroRight}
-              alt="A rack of vintage shirts and jackets with shoes displayed on the shelf above"
+              alt="A packed rack of vintage jackets in corduroy, suede and denim"
               fill
               sizes="(max-width: 760px) 100vw, 50vw"
               style={{ objectFit: "cover" }}
@@ -171,11 +168,13 @@ export default async function Page() {
           <div className={styles["social-img-container"]}>
             {socialImages.map((social) => (
               <div key={social.id} className={styles["social-card"]}>
-                <img
-                  className={styles["social-image"]}
-                  src={social.imageUrl}
-                  alt={social.imageAlt}
-                />
+                <div className={styles["social-image-frame"]}>
+                  <img
+                    className={styles["social-image"]}
+                    src={social.imageUrl}
+                    alt={social.imageAlt}
+                  />
+                </div>
                 <a
                   className={styles["social-btn"]}
                   href={social.href}

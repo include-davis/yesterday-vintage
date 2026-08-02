@@ -17,7 +17,9 @@
 
 .banner-item.top {
   grid-column: 1 / -1;
-  aspect-ratio: 24 / 10;
+  // 2:1 matches the client's mockup, and matches the crop of hero-top.webp so
+  // object-fit never has to trim the figure out of frame.
+  aspect-ratio: 2 / 1;
 }
 
 .banner-item.bottom-left,
@@ -293,10 +295,25 @@
   gap: 32px;
 }
 
-.social-image {
+// The social images arrive from the CMS as PNGs with the rounded corners baked
+// in as transparency — a ~17px radius from the Figma export template — so there
+// is no border-radius to remove. Squaring them means cropping past the arc: the
+// frame clips, and the image is scaled just enough that the rounded edge falls
+// outside it. A 6px inset is the measured minimum that clears the arc; 8px is
+// used to leave margin if a future upload's radius differs slightly.
+.social-image-frame {
   width: 303px;
   height: 510px;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.social-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.056); // 303 / (303 - 2 * 8)
 }
 
 .social-btn {
@@ -430,11 +447,10 @@
     width: 100%;
   }
 
-  .social-image {
+  .social-image-frame {
     width: calc(100vw - 32px);
     height: 622px;
     max-width: 100%;
-    object-fit: cover;
   }
 
   .social-btn {
