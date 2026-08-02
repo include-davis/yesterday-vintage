@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 const headers = [
   { label: "About Us", href: "/about" },
   { label: "Events", href: "/events" },
-  { label: "Shop", href: "/shop" },
   { label: "Frequently Asked Questions", href: "/faq" },
 ];
 

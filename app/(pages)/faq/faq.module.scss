@@ -8,7 +8,7 @@
 }
 
 .title {
-  font-family: Newake;
+  font-family: var(--yv-font-display);
   font-size: 56px;
   font-weight: 400;
   width: 100%;
@@ -48,7 +48,6 @@
 
 .faq {
   border: 4px solid #b24a4f;
-  border-radius: 20px;
   background-color: white;
   width: 80%;
   overflow: hidden;
@@ -90,7 +89,7 @@
 
 .answer {
   display: flex;
-  font-family: Inter;
+  font-family: var(--yv-font-body);
   font-weight: 500;
   line-height: 30px;
   width: 100%;
@@ -108,7 +107,7 @@
 
 .letter {
   color: var(--Black, #212529);
-  font-family: Newake;
+  font-family: var(--yv-font-display);
   font-size: 40px;
   font-weight: 500;
   display: flex;

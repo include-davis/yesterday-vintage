@@ -1,20 +1,20 @@
 import styles from "./about.module.scss";
 import Image from "next/image";
 
-import uncroppedAllStaff from "../../../public/images/about/uncroppedAllStaff.svg";
+import uncroppedAllStaff from "../../../public/images/about/uncroppedAllStaff.webp";
 
-import MichaelaLanders from "../../../public/images/about/MichaelaLanders.svg";
-import DonbiKim from "../../../public/images/about/DonbiKim.svg";
-import StevieTat from "../../../public/images/about/StevieTat.svg";
-import JackHalet from "../../../public/images/about/JackHatlet.svg";
+import MichaelaLanders from "../../../public/images/about/MichaelaLanders.webp";
+import DonbiKim from "../../../public/images/about/DonbiKim.webp";
+import StevieTat from "../../../public/images/about/StevieTat.webp";
+import JackHalet from "../../../public/images/about/JackHatlet.webp";
 
-import clothing from "../../../public/images/about/clothing.svg";
-import staffPose from "../../../public/images/about/staffPose.svg";
+import clothing from "../../../public/images/about/clothing.webp";
+import staffPose from "../../../public/images/about/staffPose.webp";
 
-import cutCake from "../../../public/images/about/cutCake.svg";
-import rack from "../../../public/images/about/rack.svg";
-import shelf from "../../../public/images/about/shelf.svg";
-import talkCake from "../../../public/images/about/talkCake.svg";
+import cutCake from "../../../public/images/about/cutCake.webp";
+import rack from "../../../public/images/about/rack.webp";
+import shelf from "../../../public/images/about/shelf.webp";
+import talkCake from "../../../public/images/about/talkCake.webp";
 
 export default function AboutUs() {
   //https://www.figma.com/design/YVD7QRKNOI1ApXogwJH4ij/Yesterday-Vintage-FW25--include-Design-Cohort-Project?node-id=3094-2903&p=f&t=iTeiaU79nGoGXURA-0
